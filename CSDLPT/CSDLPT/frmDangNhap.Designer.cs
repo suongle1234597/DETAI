@@ -29,43 +29,48 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.rbtnSinhVien = new System.Windows.Forms.RadioButton();
-            this.rbtnGiangVien = new System.Windows.Forms.RadioButton();
+            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tRACNGHIEMDataSet = new CSDLPT.TRACNGHIEMDataSet();
+            this.rdbSinhVien = new System.Windows.Forms.RadioButton();
+            this.rdbGiangVien = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
-            this.vDSPHANMANHBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tRACNGHIEMDataSet = new CSDLPT.TRACNGHIEMDataSet();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // rbtnSinhVien
+            // tRACNGHIEMDataSet
             // 
-            this.rbtnSinhVien.AutoSize = true;
-            this.rbtnSinhVien.Checked = true;
-            this.rbtnSinhVien.Location = new System.Drawing.Point(425, 25);
-            this.rbtnSinhVien.Name = "rbtnSinhVien";
-            this.rbtnSinhVien.Size = new System.Drawing.Size(84, 21);
-            this.rbtnSinhVien.TabIndex = 0;
-            this.rbtnSinhVien.TabStop = true;
-            this.rbtnSinhVien.Text = "Sinh viên";
-            this.rbtnSinhVien.UseVisualStyleBackColor = true;
+            this.tRACNGHIEMDataSet.DataSetName = "TRACNGHIEMDataSet";
+            this.tRACNGHIEMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // rbtnGiangVien
+            // rdbSinhVien
             // 
-            this.rbtnGiangVien.AutoSize = true;
-            this.rbtnGiangVien.Location = new System.Drawing.Point(236, 25);
-            this.rbtnGiangVien.Name = "rbtnGiangVien";
-            this.rbtnGiangVien.Size = new System.Drawing.Size(92, 21);
-            this.rbtnGiangVien.TabIndex = 1;
-            this.rbtnGiangVien.Text = "Giảng viên";
-            this.rbtnGiangVien.UseVisualStyleBackColor = true;
+            this.rdbSinhVien.AutoSize = true;
+            this.rdbSinhVien.Checked = true;
+            this.rdbSinhVien.Location = new System.Drawing.Point(425, 25);
+            this.rdbSinhVien.Name = "rdbSinhVien";
+            this.rdbSinhVien.Size = new System.Drawing.Size(84, 21);
+            this.rdbSinhVien.TabIndex = 0;
+            this.rdbSinhVien.TabStop = true;
+            this.rdbSinhVien.Text = "Sinh viên";
+            this.rdbSinhVien.UseVisualStyleBackColor = true;
+            // 
+            // rdbGiangVien
+            // 
+            this.rdbGiangVien.AutoSize = true;
+            this.rdbGiangVien.Location = new System.Drawing.Point(236, 25);
+            this.rdbGiangVien.Name = "rdbGiangVien";
+            this.rdbGiangVien.Size = new System.Drawing.Size(92, 21);
+            this.rdbGiangVien.TabIndex = 1;
+            this.rdbGiangVien.Text = "Giảng viên";
+            this.rdbGiangVien.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -75,6 +80,7 @@
             this.label1.Size = new System.Drawing.Size(43, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Cơ sở";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -126,11 +132,6 @@
             this.cmbCoSo.ValueMember = "TENSERVER";
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
-            // tRACNGHIEMDataSet
-            // 
-            this.tRACNGHIEMDataSet.DataSetName = "TRACNGHIEMDataSet";
-            this.tRACNGHIEMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtTaiKhoan
             // 
             this.txtTaiKhoan.Location = new System.Drawing.Point(246, 135);
@@ -148,6 +149,7 @@
             // 
             // frmDangNhap
             // 
+            this.AcceptButton = this.btnDangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 342);
@@ -159,10 +161,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rbtnGiangVien);
-            this.Controls.Add(this.rbtnSinhVien);
+            this.Controls.Add(this.rdbGiangVien);
+            this.Controls.Add(this.rdbSinhVien);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng Nhập";
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vDSPHANMANHBindingSource)).EndInit();
@@ -173,9 +176,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RadioButton rbtnSinhVien;
-        private System.Windows.Forms.RadioButton rbtnGiangVien;
+        private TRACNGHIEMDataSet tRACNGHIEMDataSet;
+        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
+        private System.Windows.Forms.RadioButton rdbSinhVien;
+        private System.Windows.Forms.RadioButton rdbGiangVien;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -184,8 +188,6 @@
         private System.Windows.Forms.ComboBox cmbCoSo;
         private System.Windows.Forms.TextBox txtTaiKhoan;
         private System.Windows.Forms.TextBox txtMatKhau;
-        private TRACNGHIEMDataSet tRACNGHIEMDataSet;
-        private System.Windows.Forms.BindingSource vDSPHANMANHBindingSource;
     }
 }
 

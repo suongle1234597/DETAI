@@ -19,14 +19,14 @@ namespace CSDLPT
         public static String connstr;
         public static SqlDataReader myReader;
         public static String servername = "";
-        public static String username = "";
-        public static String mlogin = "";
-        public static String password = "";
+        public static String username = ""; //mã sv ..
+        public static String mlogin = "";//login hiện hành
+        public static String password = ""; //password hiện hành
 
         public static String database = "TRACNGHIEM";
-        public static String remotelogin = "sa";
+        public static String remotelogin = "sa"; //hỗ trợ kết nối ra ngoài, giống nhau trên tất cả phân mảnh
         public static String remotepassword = "123456";
-        public static String mloginDN = "";
+        public static String mloginDN = ""; 
         public static String passwordDN = "";
         public static String mGroup = "";
         public static String mHoten = "";
@@ -77,19 +77,51 @@ namespace CSDLPT
         public static DataTable ExecSqlDataTable(String cmd)
         {
             DataTable dt = new DataTable();
-            if (Program.conn.State == ConnectionState.Closed) Program.conn.Open();
+            if (Program.conn.State == ConnectionState.Closed) Program.conn.Open(); //kiem tra niu no dong thi mo ra
             SqlDataAdapter da = new SqlDataAdapter(cmd, conn);
             da.Fill(dt);
             conn.Close();
             return dt;
         }
+        public static int ExecSqlNonQuery(String cmd, String connectionstring)
+        {
+            conn = new SqlConnection(connectionstring);
+            SqlCommand Sqlcmd = new SqlCommand();
+            Sqlcmd.Connection = conn;
+            Sqlcmd.CommandText = cmd;
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqlcmd.CommandTimeout = 300;
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+                Sqlcmd.ExecuteNonQuery();
+                conn.Close();
+                return 1;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+                return 0;
+            }
+        }
+        public static void SetEnableOfButton(Form frm, Boolean Active)
+        {
+
+            foreach (Control ctl in frm.Controls)
+                if ((ctl) is Button)
+                    ctl.Enabled = Active;
+        }
+
+        //public static int ExecSqlCheck
+
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmDangNhap());
-            Application.Run(new frmGiaoDienNhomTruong());
+            Application.Run(new frmDangNhap());
+            //Application.Run(new frmGiaoDienNhomTruong());
         }
     }
 }

@@ -19,18 +19,22 @@ namespace CSDLPT
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'tRACNGHIEMDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
-            string chuoiKetNoi = "Data Source=SUONG;Initial Catalog=TRACNGHIEM;User ID=sa;password=123456";
+            string chuoiKetNoi = "Data Source=SUONG;Initial Catalog=" + Program.database + ";Integrated Security=True"; //Ket noi ve site chu k can password, k can tai khoan
             Program.conn.ConnectionString = chuoiKetNoi;
-            //Program.conn.Open();
+            //co kha nang ket noi k thanh conh. phai co try catch
+            //Program.conn.Open(); //mo ket noi .Kiem tra ben ExecSqlDataTable roi
+
+            //Goi cai view tra ve DataTable
             DataTable dt = new DataTable();
-            dt = Program.ExecSqlDataTable("SELECT * FROM V_DSPM");
+            dt = Program.ExecSqlDataTable("SELECT * FROM V_DSPM"); //dau cai chuoi lenh nay vao cai ham nay, ham nay thuc thi lenh, roi tra ve DataTable
             Program.bds_dspm.DataSource = dt;
+            //lien ket giua bindingSource với combobox
             cmbCoSo.DataSource = dt;
-            cmbCoSo.DisplayMember = "TENCS";
-            cmbCoSo.ValueMember = "TENSERVER";
+            cmbCoSo.DisplayMember = "TENCS"; //ten cot muon hien len
+            cmbCoSo.ValueMember = "TENSERVER"; //gia tri muon hien len
 
             //this.v_DS_PHANMANHTableAdapter.Fill(this.tRACNGHIEMDataSet.V_DS_PHANMANH);
-            //cmbCoSo.SelectedIndex = 0;
+            cmbCoSo.SelectedIndex = 0;
 
         }
 
@@ -38,7 +42,7 @@ namespace CSDLPT
         {
             if(txtTaiKhoan.Text.Trim() == "" || txtMatKhau.Text.Trim() == "")
             {
-                MessageBox.Show("Tài khoản và Mật khẩu không được để trống", "", MessageBoxButtons.OK);
+                MessageBox.Show("Tài khoản và Mật khẩu không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
@@ -51,54 +55,62 @@ namespace CSDLPT
             Program.mloginDN = Program.mlogin;
             Program.passwordDN = Program.password;
             string strLenh = "";
-            if (rbtnSinhVien.Checked == true)
+            if (rdbSinhVien.Checked)
             {
-                strLenh = "EXEC SP_DangNhapSinhVien '" + Program.mlogin + "'";
+                strLenh = "EXEC dbo.SP_DangNhapSinhVien '" + Program.mlogin + "'";
             }
-            else if (rbtnGiangVien.Checked == true)
+            else if (rdbGiangVien.Checked)
             {
-                strLenh = "EXEC SP_DangNhapGiangVien '" + Program.mlogin + "'";
+                strLenh = "EXEC dbo.SP_DangNhapGiangVien '" + Program.mlogin + "'";
             }
 
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             if (Program.myReader == null) return;
             Program.myReader.Read();
 
+            if (rdbSinhVien.Checked)
+            {
+                if (Program.myReader.GetString(2).Equals("Truong") || Program.myReader.GetString(2).Equals("Coso") || Program.myReader.GetString(2).Equals("Giangvien"))
+                {
+                    MessageBox.Show("Đăng nhập thất bại\n Bạn xem lại tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+            }
+            else if(rdbGiangVien.Checked)
+            {
+                if(Program.myReader.GetString(2).Equals("Sinhvien"))
+                {
+                    MessageBox.Show("Đăng nhập thất bại\n Bạn xem lại tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
+            }
+
             Program.username = Program.myReader.GetString(0); // Lay username
             if (Convert.IsDBNull(Program.username))
             {
-                MessageBox.Show("Tài khoản bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại tài khoản và mật khẩu", "", MessageBoxButtons.OK);
+                MessageBox.Show("Tài khoản bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
 
             Program.mHoten = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
             Program.conn.Close();
-            if (Program.mGroup.Equals("Truong"))
+
+            if (Program.mGroup.Equals("Sinhvien"))
             {
-                MessageBox.Show("Giảng viên: \t" + Program.mHoten + "\nNhóm: \t" + Program.mGroup, "", MessageBoxButtons.OK);
-                frmGiaoDienNhomTruong truong = new frmGiaoDienNhomTruong();
+            }
+            else
+            {
+                frmGiaoDienChinh truong = new frmGiaoDienChinh();
                 truong.ShowDialog();
             }
-            else if (Program.mGroup.Equals("Coso"))
-            {
-                MessageBox.Show("Giảng viên: \t" + Program.mHoten + "\nNhóm: \t" + Program.mGroup, "", MessageBoxButtons.OK);
-            }
-            else if (Program.mGroup.Equals("Giangvien"))
-            {
-                MessageBox.Show("Giảng viên: \t" + Program.mHoten + "\nNhóm: \t" + Program.mGroup, "", MessageBoxButtons.OK);
-            }
-            else if (Program.mGroup.Equals("Sinhvien"))
-            {
-                MessageBox.Show("Sinh viên: \t" + Program.mHoten + "\nNhóm: \t" + Program.mGroup, "", MessageBoxButtons.OK);
-            }
-            
-            
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if(MessageBox.Show("Bạn có chắc chắn muốn thoát chương trình không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes) {
+                this.Close();
+            }
         }
 
         private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)
@@ -110,5 +122,9 @@ namespace CSDLPT
             catch(Exception) { };
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

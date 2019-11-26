@@ -72,23 +72,59 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmChuanBiThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChuanBiThi.Designer.cs">
+      <DependentUpon>frmChuanBiThi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGiaoDienNhomTruong.cs">
+    <Compile Include="frmGiaoDienChinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGiaoDienNhomTruong.Designer.cs">
-      <DependentUpon>frmGiaoDienNhomTruong.cs</DependentUpon>
+    <Compile Include="frmGiaoDienChinh.Designer.cs">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiaoVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiaoVien.Designer.cs">
+      <DependentUpon>frmGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiaoVienDK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiaoVienDK.Designer.cs">
+      <DependentUpon>frmGiaoVienDK.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKhoa.Designer.cs">
+      <DependentUpon>frmKhoa.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMonHoc.Designer.cs">
       <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSinhVien.Designer.cs">
+      <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThi.Designer.cs">
+      <DependentUpon>frmThi.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,14 +144,32 @@
     <Compile Include="XtraReport1.Designer.cs">
       <DependentUpon>XtraReport1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmChuanBiThi.resx">
+      <DependentUpon>frmChuanBiThi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGiaoDienNhomTruong.resx">
-      <DependentUpon>frmGiaoDienNhomTruong.cs</DependentUpon>
+    <EmbeddedResource Include="frmGiaoDienChinh.resx">
+      <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoVien.resx">
+      <DependentUpon>frmGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiaoVienDK.resx">
+      <DependentUpon>frmGiaoVienDK.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKhoa.resx">
+      <DependentUpon>frmKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMonHoc.resx">
       <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSinhVien.resx">
+      <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThi.resx">
+      <DependentUpon>frmThi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
