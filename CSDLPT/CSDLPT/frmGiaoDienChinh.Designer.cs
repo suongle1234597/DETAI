@@ -287,6 +287,7 @@
             this.btnThiThu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThiThu.ImageOptions.Image")));
             this.btnThiThu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThiThu.ImageOptions.LargeImage")));
             this.btnThiThu.Name = "btnThiThu";
+            this.btnThiThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThiThu_ItemClick);
             // 
             // btnXemKetQua
             // 
@@ -402,8 +403,8 @@
             // 
             this.btnGVDK.Caption = "Giáo viên Đăng Ký";
             this.btnGVDK.Id = 38;
-            this.btnGVDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnGVDK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnGVDK.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGVDK.ImageOptions.Image")));
+            this.btnGVDK.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGVDK.ImageOptions.LargeImage")));
             this.btnGVDK.Name = "btnGVDK";
             this.btnGVDK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGVDK_ItemClick);
             // 

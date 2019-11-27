@@ -94,6 +94,7 @@ namespace CSDLPT
 
             Program.mHoten = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
+            Program.myReader.Close();
             Program.conn.Close();
 
             if (Program.mGroup.Equals("Sinhvien"))

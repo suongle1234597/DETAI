@@ -98,5 +98,17 @@ namespace CSDLPT
                 f.Show();
             }
         }
+
+        private void btnThiThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmThi));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmThi f = new frmThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

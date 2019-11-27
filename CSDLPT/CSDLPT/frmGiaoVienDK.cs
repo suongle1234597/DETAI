@@ -157,6 +157,9 @@ namespace CSDLPT
             btnRefresh.Enabled = false;
             btnThoat.Enabled = false;
             btnGhi.Enabled = true;
+            cmbTenMH.Enabled = true;
+            cmbTenLop.Enabled = true;
+            cmbLan.Enabled = true;
 
             status = "Them";
         }
@@ -184,7 +187,7 @@ namespace CSDLPT
                 }
                 else if (bds == bdsLop)
                 {
-                    if (text.Equals(((DataRowView)bds[i])["MALop"].ToString()))
+                    if (text.Equals(((DataRowView)bds[i])["MALOP"].ToString()))
                     {
                         a = i;
                         break;
@@ -210,6 +213,9 @@ namespace CSDLPT
             btnPhucHoi.Enabled = true;
             btnRefresh.Enabled = false;
             gcGiaoVienDK.Enabled = false;
+            cmbTenMH.Enabled = false;
+            cmbTenLop.Enabled = false;
+            cmbLan.Enabled = false;
 
             status = "Sua";
         }
@@ -238,14 +244,25 @@ namespace CSDLPT
                 spinEditSoCauThi.Focus();
                 return;
             }
-            //string strLenh = "DECLARE @result int EXEC @result = dbo.SP_SOCAUHOI '" + txtMaMH + "'";
-            string strLenh = "EXEC dbo.SP_SOCAUHOI '" + txtMaMH + "'";
-            Program.myReader = Program.ExecSqlDataReader(strLenh);
-            Program.myReader.Read();
-            //int kq = int.Parse(Program.myReader[0].ToString());
-            MessageBox.Show("So cau hoi " + Program.myReader[0].ToString(), "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            Program.myReader.Close();
-            //else if() so cau thi phai nho hon so luong trong de va lon hon 10
+            else {
+                string strLenh = "EXEC dbo.SP_SOCAUHOI '" + txtMaMH.Text + "'";
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                Program.myReader.Read();
+                int kq = int.Parse(Program.myReader[0].ToString());
+                Program.myReader.Close();
+                if(kq < 10)
+                {
+                    MessageBox.Show("Số câu thi của môn học không đủ để đăng ký", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    cmbTenMH.Focus();
+                    return;
+                }
+                else if(spinEditSoCauThi.Value < 10 || spinEditSoCauThi.Value > kq)
+                {
+                    MessageBox.Show("Số câu thi không được nhỏ hơn 10 và lớn hơn " + kq, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    spinEditSoCauThi.Focus();
+                    return;
+                }
+            }
 
             if (spinEditThoiGian.Text == "")
             {
@@ -293,23 +310,7 @@ namespace CSDLPT
 
         private void btnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //    if (bdsBoDe.Count > 0)
-            //    {
-            //        MessageBox.Show("Môn học đã có bộ đề, không thể xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //        return;
-            //    }
-            //    if (bdsGVDK.Count > 0)
-            //    {
-            //        MessageBox.Show("Môn học có đăng kí thi nên không được xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //        return;
-            //    }
-            //    if (bdsBangDiem.Count > 0)
-            //    {
-            //        MessageBox.Show("Môn học có bảng điểm nên không được xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //        return;
-            //    }
-
-            if (txtMaGV.Text.Trim() == "")
+            if (txtMaMH.Text.Trim() == "" && txtMaLop.Text.Trim() == "" && cmbLan.SelectedItem.ToString() == "")
             {
                 MessageBox.Show("Vui lòng chọn Lớp đăng ký cần xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
