@@ -38,6 +38,7 @@
             System.Windows.Forms.Label sOCAUTHILabel;
             System.Windows.Forms.Label tHOIGIANLabel;
             System.Windows.Forms.Label tRINHDOLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThi));
             this.panelControlTop = new DevExpress.XtraEditors.PanelControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.txtTrinhDo = new DevExpress.XtraEditors.TextEdit();
@@ -57,28 +58,45 @@
             this.btnNopBai = new System.Windows.Forms.Button();
             this.btnBatDauThi = new System.Windows.Forms.Button();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelDongHo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panelControlThi = new DevExpress.XtraEditors.PanelControl();
-            this.labelD = new System.Windows.Forms.Label();
-            this.labelC = new System.Windows.Forms.Label();
-            this.labelB = new System.Windows.Forms.Label();
-            this.labelA = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rbtnD = new System.Windows.Forms.RadioButton();
-            this.rbtnC = new System.Windows.Forms.RadioButton();
-            this.rbtnB = new System.Windows.Forms.RadioButton();
-            this.rbtnA = new System.Windows.Forms.RadioButton();
-            this.lbCauHoi = new System.Windows.Forms.Label();
-            this.lbCau = new System.Windows.Forms.Label();
             this.dSMHTableAdapter = new CSDLPT.DSTableAdapters.DSMHTableAdapter();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.dSLOPTableAdapter = new CSDLPT.DSTableAdapters.DSLOPTableAdapter();
             this.tableAdapterManager = new CSDLPT.DSTableAdapters.TableAdapterManager();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labelDongHo = new System.Windows.Forms.Label();
+            this.bdsChiTietBaiThi = new System.Windows.Forms.BindingSource(this.components);
+            this.cHITIET_BAITHITableAdapter = new CSDLPT.DSTableAdapters.CHITIET_BAITHITableAdapter();
+            this.lbCau = new System.Windows.Forms.Label();
+            this.rbtnA = new System.Windows.Forms.RadioButton();
+            this.rbtnB = new System.Windows.Forms.RadioButton();
+            this.rbtnC = new System.Windows.Forms.RadioButton();
+            this.rbtnD = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelA = new System.Windows.Forms.Label();
+            this.labelB = new System.Windows.Forms.Label();
+            this.labelC = new System.Windows.Forms.Label();
+            this.labelD = new System.Windows.Forms.Label();
+            this.panelControlThi = new DevExpress.XtraEditors.PanelControl();
+            this.listViewTraLoi = new System.Windows.Forms.ListView();
+            this.columnHeaderCau = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderChon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.richTextBoxCauHoi = new System.Windows.Forms.RichTextBox();
+            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bdsBangDiem = new System.Windows.Forms.BindingSource(this.components);
+            this.bANGDIEMTableAdapter = new CSDLPT.DSTableAdapters.BANGDIEMTableAdapter();
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
@@ -108,9 +126,13 @@
             this.panelControlTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietBaiThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlThi)).BeginInit();
             this.panelControlThi.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+            this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel
@@ -210,7 +232,7 @@
             this.panelControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlTop.Location = new System.Drawing.Point(0, 0);
             this.panelControlTop.Name = "panelControlTop";
-            this.panelControlTop.Size = new System.Drawing.Size(1491, 170);
+            this.panelControlTop.Size = new System.Drawing.Size(1510, 170);
             this.panelControlTop.TabIndex = 0;
             // 
             // panelControl1
@@ -230,7 +252,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(525, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(964, 166);
+            this.panelControl1.Size = new System.Drawing.Size(983, 166);
             this.panelControl1.TabIndex = 3;
             // 
             // txtTrinhDo
@@ -359,7 +381,7 @@
             this.panelControlTime.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlTime.Location = new System.Drawing.Point(0, 170);
             this.panelControlTime.Name = "panelControlTime";
-            this.panelControlTime.Size = new System.Drawing.Size(1491, 89);
+            this.panelControlTime.Size = new System.Drawing.Size(1510, 89);
             this.panelControlTime.TabIndex = 1;
             // 
             // btnThoat
@@ -405,6 +427,15 @@
             this.panelControl2.Size = new System.Drawing.Size(523, 85);
             this.panelControl2.TabIndex = 0;
             // 
+            // labelDongHo
+            // 
+            this.labelDongHo.AutoSize = true;
+            this.labelDongHo.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDongHo.Location = new System.Drawing.Point(211, 29);
+            this.labelDongHo.Name = "labelDongHo";
+            this.labelDongHo.Size = new System.Drawing.Size(0, 29);
+            this.labelDongHo.TabIndex = 1;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -414,172 +445,6 @@
             this.label1.Size = new System.Drawing.Size(136, 34);
             this.label1.TabIndex = 0;
             this.label1.Text = "Còn lại : ";
-            // 
-            // panelControlThi
-            // 
-            this.panelControlThi.Controls.Add(this.labelD);
-            this.panelControlThi.Controls.Add(this.labelC);
-            this.panelControlThi.Controls.Add(this.labelB);
-            this.panelControlThi.Controls.Add(this.labelA);
-            this.panelControlThi.Controls.Add(this.label5);
-            this.panelControlThi.Controls.Add(this.label4);
-            this.panelControlThi.Controls.Add(this.label3);
-            this.panelControlThi.Controls.Add(this.label2);
-            this.panelControlThi.Controls.Add(this.rbtnD);
-            this.panelControlThi.Controls.Add(this.rbtnC);
-            this.panelControlThi.Controls.Add(this.rbtnB);
-            this.panelControlThi.Controls.Add(this.rbtnA);
-            this.panelControlThi.Controls.Add(this.lbCauHoi);
-            this.panelControlThi.Controls.Add(this.lbCau);
-            this.panelControlThi.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControlThi.Location = new System.Drawing.Point(0, 259);
-            this.panelControlThi.Name = "panelControlThi";
-            this.panelControlThi.Size = new System.Drawing.Size(1491, 376);
-            this.panelControlThi.TabIndex = 2;
-            // 
-            // labelD
-            // 
-            this.labelD.AutoSize = true;
-            this.labelD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelD.Location = new System.Drawing.Point(153, 257);
-            this.labelD.Name = "labelD";
-            this.labelD.Size = new System.Drawing.Size(54, 21);
-            this.labelD.TabIndex = 13;
-            this.labelD.Text = "label9";
-            // 
-            // labelC
-            // 
-            this.labelC.AutoSize = true;
-            this.labelC.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelC.Location = new System.Drawing.Point(153, 206);
-            this.labelC.Name = "labelC";
-            this.labelC.Size = new System.Drawing.Size(54, 21);
-            this.labelC.TabIndex = 12;
-            this.labelC.Text = "label8";
-            // 
-            // labelB
-            // 
-            this.labelB.AutoSize = true;
-            this.labelB.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelB.Location = new System.Drawing.Point(153, 150);
-            this.labelB.Name = "labelB";
-            this.labelB.Size = new System.Drawing.Size(54, 21);
-            this.labelB.TabIndex = 11;
-            this.labelB.Text = "label7";
-            // 
-            // labelA
-            // 
-            this.labelA.AutoSize = true;
-            this.labelA.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelA.Location = new System.Drawing.Point(153, 98);
-            this.labelA.Name = "labelA";
-            this.labelA.Size = new System.Drawing.Size(54, 21);
-            this.labelA.TabIndex = 10;
-            this.labelA.Text = "label6";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(130, 257);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 21);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "D.";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(130, 204);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 21);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "C.";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(130, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(25, 21);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "B.";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(130, 97);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 21);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "A.";
-            // 
-            // rbtnD
-            // 
-            this.rbtnD.AutoSize = true;
-            this.rbtnD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnD.Location = new System.Drawing.Point(95, 262);
-            this.rbtnD.Name = "rbtnD";
-            this.rbtnD.Size = new System.Drawing.Size(17, 16);
-            this.rbtnD.TabIndex = 5;
-            this.rbtnD.TabStop = true;
-            this.rbtnD.UseVisualStyleBackColor = true;
-            // 
-            // rbtnC
-            // 
-            this.rbtnC.AutoSize = true;
-            this.rbtnC.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnC.Location = new System.Drawing.Point(95, 208);
-            this.rbtnC.Name = "rbtnC";
-            this.rbtnC.Size = new System.Drawing.Size(17, 16);
-            this.rbtnC.TabIndex = 4;
-            this.rbtnC.TabStop = true;
-            this.rbtnC.UseVisualStyleBackColor = true;
-            // 
-            // rbtnB
-            // 
-            this.rbtnB.AutoSize = true;
-            this.rbtnB.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnB.Location = new System.Drawing.Point(95, 155);
-            this.rbtnB.Name = "rbtnB";
-            this.rbtnB.Size = new System.Drawing.Size(17, 16);
-            this.rbtnB.TabIndex = 3;
-            this.rbtnB.TabStop = true;
-            this.rbtnB.UseVisualStyleBackColor = true;
-            // 
-            // rbtnA
-            // 
-            this.rbtnA.AutoSize = true;
-            this.rbtnA.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnA.Location = new System.Drawing.Point(95, 100);
-            this.rbtnA.Name = "rbtnA";
-            this.rbtnA.Size = new System.Drawing.Size(17, 16);
-            this.rbtnA.TabIndex = 2;
-            this.rbtnA.TabStop = true;
-            this.rbtnA.UseVisualStyleBackColor = true;
-            // 
-            // lbCauHoi
-            // 
-            this.lbCauHoi.AutoSize = true;
-            this.lbCauHoi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCauHoi.Location = new System.Drawing.Point(316, 24);
-            this.lbCauHoi.Name = "lbCauHoi";
-            this.lbCauHoi.Size = new System.Drawing.Size(65, 21);
-            this.lbCauHoi.TabIndex = 1;
-            this.lbCauHoi.Text = "Câu hỏi";
-            // 
-            // lbCau
-            // 
-            this.lbCau.AutoSize = true;
-            this.lbCau.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCau.Location = new System.Drawing.Point(94, 24);
-            this.lbCau.Name = "lbCau";
-            this.lbCau.Size = new System.Drawing.Size(38, 21);
-            this.lbCau.TabIndex = 0;
-            this.lbCau.Text = "Câu";
             // 
             // dSMHTableAdapter
             // 
@@ -612,23 +477,326 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 50;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // labelDongHo
+            // bdsChiTietBaiThi
             // 
-            this.labelDongHo.AutoSize = true;
-            this.labelDongHo.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDongHo.Location = new System.Drawing.Point(211, 29);
-            this.labelDongHo.Name = "labelDongHo";
-            this.labelDongHo.Size = new System.Drawing.Size(0, 29);
-            this.labelDongHo.TabIndex = 1;
+            this.bdsChiTietBaiThi.DataMember = "CHITIET_BAITHI";
+            this.bdsChiTietBaiThi.DataSource = this.dS;
+            // 
+            // cHITIET_BAITHITableAdapter
+            // 
+            this.cHITIET_BAITHITableAdapter.ClearBeforeFill = true;
+            // 
+            // lbCau
+            // 
+            this.lbCau.AutoSize = true;
+            this.lbCau.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCau.Location = new System.Drawing.Point(59, 42);
+            this.lbCau.Name = "lbCau";
+            this.lbCau.Size = new System.Drawing.Size(38, 21);
+            this.lbCau.TabIndex = 0;
+            this.lbCau.Text = "Câu";
+            // 
+            // rbtnA
+            // 
+            this.rbtnA.AutoSize = true;
+            this.rbtnA.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnA.Location = new System.Drawing.Point(80, 162);
+            this.rbtnA.Name = "rbtnA";
+            this.rbtnA.Size = new System.Drawing.Size(17, 16);
+            this.rbtnA.TabIndex = 2;
+            this.rbtnA.UseVisualStyleBackColor = true;
+            this.rbtnA.CheckedChanged += new System.EventHandler(this.rbtnA_CheckedChanged);
+            // 
+            // rbtnB
+            // 
+            this.rbtnB.AutoSize = true;
+            this.rbtnB.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnB.Location = new System.Drawing.Point(80, 217);
+            this.rbtnB.Name = "rbtnB";
+            this.rbtnB.Size = new System.Drawing.Size(17, 16);
+            this.rbtnB.TabIndex = 3;
+            this.rbtnB.UseVisualStyleBackColor = true;
+            this.rbtnB.CheckedChanged += new System.EventHandler(this.rbtnB_CheckedChanged);
+            // 
+            // rbtnC
+            // 
+            this.rbtnC.AutoSize = true;
+            this.rbtnC.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnC.Location = new System.Drawing.Point(80, 270);
+            this.rbtnC.Name = "rbtnC";
+            this.rbtnC.Size = new System.Drawing.Size(17, 16);
+            this.rbtnC.TabIndex = 4;
+            this.rbtnC.UseVisualStyleBackColor = true;
+            this.rbtnC.CheckedChanged += new System.EventHandler(this.rbtnC_CheckedChanged);
+            // 
+            // rbtnD
+            // 
+            this.rbtnD.AutoSize = true;
+            this.rbtnD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnD.Location = new System.Drawing.Point(80, 324);
+            this.rbtnD.Name = "rbtnD";
+            this.rbtnD.Size = new System.Drawing.Size(17, 16);
+            this.rbtnD.TabIndex = 5;
+            this.rbtnD.UseVisualStyleBackColor = true;
+            this.rbtnD.CheckedChanged += new System.EventHandler(this.rbtnD_CheckedChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(115, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 21);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "A.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(115, 212);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 21);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "B.";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(115, 266);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 21);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "C.";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(115, 322);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 21);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "D.";
+            // 
+            // labelA
+            // 
+            this.labelA.AutoSize = true;
+            this.labelA.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelA.Location = new System.Drawing.Point(138, 160);
+            this.labelA.Name = "labelA";
+            this.labelA.Size = new System.Drawing.Size(54, 21);
+            this.labelA.TabIndex = 10;
+            this.labelA.Text = "label6";
+            // 
+            // labelB
+            // 
+            this.labelB.AutoSize = true;
+            this.labelB.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelB.Location = new System.Drawing.Point(138, 212);
+            this.labelB.Name = "labelB";
+            this.labelB.Size = new System.Drawing.Size(54, 21);
+            this.labelB.TabIndex = 11;
+            this.labelB.Text = "label7";
+            // 
+            // labelC
+            // 
+            this.labelC.AutoSize = true;
+            this.labelC.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelC.Location = new System.Drawing.Point(138, 266);
+            this.labelC.Name = "labelC";
+            this.labelC.Size = new System.Drawing.Size(54, 21);
+            this.labelC.TabIndex = 12;
+            this.labelC.Text = "label8";
+            // 
+            // labelD
+            // 
+            this.labelD.AutoSize = true;
+            this.labelD.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelD.Location = new System.Drawing.Point(138, 322);
+            this.labelD.Name = "labelD";
+            this.labelD.Size = new System.Drawing.Size(54, 21);
+            this.labelD.TabIndex = 13;
+            this.labelD.Text = "label9";
+            // 
+            // panelControlThi
+            // 
+            this.panelControlThi.Controls.Add(this.listViewTraLoi);
+            this.panelControlThi.Controls.Add(this.richTextBoxCauHoi);
+            this.panelControlThi.Controls.Add(this.bindingNavigator1);
+            this.panelControlThi.Controls.Add(this.labelD);
+            this.panelControlThi.Controls.Add(this.labelC);
+            this.panelControlThi.Controls.Add(this.labelB);
+            this.panelControlThi.Controls.Add(this.labelA);
+            this.panelControlThi.Controls.Add(this.label5);
+            this.panelControlThi.Controls.Add(this.label4);
+            this.panelControlThi.Controls.Add(this.label3);
+            this.panelControlThi.Controls.Add(this.label2);
+            this.panelControlThi.Controls.Add(this.rbtnD);
+            this.panelControlThi.Controls.Add(this.rbtnC);
+            this.panelControlThi.Controls.Add(this.rbtnB);
+            this.panelControlThi.Controls.Add(this.rbtnA);
+            this.panelControlThi.Controls.Add(this.lbCau);
+            this.panelControlThi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControlThi.Location = new System.Drawing.Point(0, 259);
+            this.panelControlThi.Name = "panelControlThi";
+            this.panelControlThi.Size = new System.Drawing.Size(1510, 524);
+            this.panelControlThi.TabIndex = 2;
+            // 
+            // listViewTraLoi
+            // 
+            this.listViewTraLoi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderCau,
+            this.columnHeaderChon});
+            this.listViewTraLoi.Dock = System.Windows.Forms.DockStyle.Right;
+            this.listViewTraLoi.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewTraLoi.GridLines = true;
+            this.listViewTraLoi.HideSelection = false;
+            this.listViewTraLoi.Location = new System.Drawing.Point(1299, 29);
+            this.listViewTraLoi.Name = "listViewTraLoi";
+            this.listViewTraLoi.Size = new System.Drawing.Size(209, 493);
+            this.listViewTraLoi.TabIndex = 16;
+            this.listViewTraLoi.UseCompatibleStateImageBehavior = false;
+            this.listViewTraLoi.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderCau
+            // 
+            this.columnHeaderCau.Text = "Câu";
+            this.columnHeaderCau.Width = 101;
+            // 
+            // columnHeaderChon
+            // 
+            this.columnHeaderChon.Text = "Chọn";
+            this.columnHeaderChon.Width = 104;
+            // 
+            // richTextBoxCauHoi
+            // 
+            this.richTextBoxCauHoi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxCauHoi.Location = new System.Drawing.Point(133, 39);
+            this.richTextBoxCauHoi.Name = "richTextBoxCauHoi";
+            this.richTextBoxCauHoi.ReadOnly = true;
+            this.richTextBoxCauHoi.Size = new System.Drawing.Size(1146, 106);
+            this.richTextBoxCauHoi.TabIndex = 15;
+            this.richTextBoxCauHoi.Text = "";
+            // 
+            // bindingNavigator1
+            // 
+            this.bindingNavigator1.AddNewItem = null;
+            this.bindingNavigator1.BindingSource = this.bdsMH;
+            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+            this.bindingNavigator1.DeleteItem = null;
+            this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2});
+            this.bindingNavigator1.Location = new System.Drawing.Point(2, 2);
+            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+            this.bindingNavigator1.Name = "bindingNavigator1";
+            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+            this.bindingNavigator1.Size = new System.Drawing.Size(1506, 27);
+            this.bindingNavigator1.TabIndex = 14;
+            this.bindingNavigator1.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
+            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.bindingNavigatorMoveFirstItem.Click += new System.EventHandler(this.bindingNavigatorMoveFirstItem_Click);
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.bindingNavigatorMovePreviousItem.Click += new System.EventHandler(this.bindingNavigatorMovePreviousItem_Click);
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Position";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 27);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+            this.bindingNavigatorPositionItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.bindingNavigatorPositionItem_KeyDown);
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveNextItem.Text = "Move next";
+            this.bindingNavigatorMoveNextItem.Click += new System.EventHandler(this.bindingNavigatorMoveNextItem_Click);
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(24, 24);
+            this.bindingNavigatorMoveLastItem.Text = "Move last";
+            this.bindingNavigatorMoveLastItem.Click += new System.EventHandler(this.bindingNavigatorMoveLastItem_Click);
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // bdsBangDiem
+            // 
+            this.bdsBangDiem.DataMember = "BANGDIEM";
+            this.bdsBangDiem.DataSource = this.dS;
+            // 
+            // bANGDIEMTableAdapter
+            // 
+            this.bANGDIEMTableAdapter.ClearBeforeFill = true;
             // 
             // frmThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1491, 635);
+            this.ClientSize = new System.Drawing.Size(1510, 783);
             this.Controls.Add(this.panelControlThi);
             this.Controls.Add(this.panelControlTime);
             this.Controls.Add(this.panelControlTop);
@@ -659,10 +827,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietBaiThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlThi)).EndInit();
             this.panelControlThi.ResumeLayout(false);
             this.panelControlThi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+            this.bindingNavigator1.ResumeLayout(false);
+            this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -688,21 +861,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnNopBai;
-        private DevExpress.XtraEditors.PanelControl panelControlThi;
-        private System.Windows.Forms.Label labelD;
-        private System.Windows.Forms.Label labelC;
-        private System.Windows.Forms.Label labelB;
-        private System.Windows.Forms.Label labelA;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton rbtnD;
-        private System.Windows.Forms.RadioButton rbtnC;
-        private System.Windows.Forms.RadioButton rbtnB;
-        private System.Windows.Forms.RadioButton rbtnA;
-        private System.Windows.Forms.Label lbCauHoi;
-        private System.Windows.Forms.Label lbCau;
         private System.Windows.Forms.BindingSource bdsMH;
         private DSTableAdapters.DSMHTableAdapter dSMHTableAdapter;
         private System.Windows.Forms.BindingSource bdsLop;
@@ -710,5 +868,37 @@
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label labelDongHo;
+        private System.Windows.Forms.BindingSource bdsChiTietBaiThi;
+        private DSTableAdapters.CHITIET_BAITHITableAdapter cHITIET_BAITHITableAdapter;
+        private System.Windows.Forms.Label lbCau;
+        private System.Windows.Forms.RadioButton rbtnA;
+        private System.Windows.Forms.RadioButton rbtnB;
+        private System.Windows.Forms.RadioButton rbtnC;
+        private System.Windows.Forms.RadioButton rbtnD;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelA;
+        private System.Windows.Forms.Label labelB;
+        private System.Windows.Forms.Label labelC;
+        private System.Windows.Forms.Label labelD;
+        private DevExpress.XtraEditors.PanelControl panelControlThi;
+        private System.Windows.Forms.BindingNavigator bindingNavigator1;
+        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.ListView listViewTraLoi;
+        private System.Windows.Forms.RichTextBox richTextBoxCauHoi;
+        private System.Windows.Forms.ColumnHeader columnHeaderChon;
+        private System.Windows.Forms.ColumnHeader columnHeaderCau;
+        private System.Windows.Forms.BindingSource bdsBangDiem;
+        private DSTableAdapters.BANGDIEMTableAdapter bANGDIEMTableAdapter;
     }
 }

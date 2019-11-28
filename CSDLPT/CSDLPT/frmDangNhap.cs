@@ -99,6 +99,8 @@ namespace CSDLPT
 
             if (Program.mGroup.Equals("Sinhvien"))
             {
+                frmThi sv = new frmThi();
+                sv.ShowDialog();
             }
             else
             {
