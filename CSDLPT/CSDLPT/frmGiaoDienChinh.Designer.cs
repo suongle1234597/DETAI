@@ -94,6 +94,7 @@
             // ribbonControl1
             // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
+            this.ribbonControl1.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbonControl1.ExpandCollapseItem,
             this.ribbonControl1.SearchEditItem,
@@ -143,7 +144,7 @@
             this.repositoryItemHypertextLabel1,
             this.repositoryItemHypertextLabel2,
             this.repositoryItemToggleSwitch1});
-            this.ribbonControl1.Size = new System.Drawing.Size(1110, 183);
+            this.ribbonControl1.Size = new System.Drawing.Size(1110, 188);
             // 
             // btnMonHoc
             // 
@@ -151,6 +152,8 @@
             this.btnMonHoc.Id = 1;
             this.btnMonHoc.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnMonHoc.ImageOptions.Image")));
             this.btnMonHoc.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnMonHoc.ImageOptions.LargeImage")));
+            this.btnMonHoc.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonHoc.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnMonHoc.Name = "btnMonHoc";
             this.btnMonHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnMonHoc_ItemClick);
             // 
@@ -243,8 +246,9 @@
             this.btnKhoa.Id = 18;
             this.btnKhoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKhoa.ImageOptions.Image")));
             this.btnKhoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKhoa.ImageOptions.LargeImage")));
+            this.btnKhoa.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhoa.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnKhoa.Name = "btnKhoa";
-            this.btnKhoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnKhoa_ItemClick);
             // 
             // btnLop
             // 
@@ -253,7 +257,6 @@
             this.btnLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLop.ImageOptions.Image")));
             this.btnLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLop.ImageOptions.LargeImage")));
             this.btnLop.Name = "btnLop";
-            this.btnLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLop_ItemClick);
             // 
             // btnSinhVien
             // 
@@ -261,6 +264,8 @@
             this.btnSinhVien.Id = 20;
             this.btnSinhVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.Image")));
             this.btnSinhVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSinhVien.ImageOptions.LargeImage")));
+            this.btnSinhVien.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSinhVien.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnSinhVien.Name = "btnSinhVien";
             this.btnSinhVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSinhVien_ItemClick);
             // 
@@ -270,6 +275,8 @@
             this.btnGiaoVien.Id = 21;
             this.btnGiaoVien.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGiaoVien.ImageOptions.Image")));
             this.btnGiaoVien.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGiaoVien.ImageOptions.LargeImage")));
+            this.btnGiaoVien.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGiaoVien.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnGiaoVien.Name = "btnGiaoVien";
             // 
             // btnDe
@@ -296,6 +303,7 @@
             this.btnXemKetQua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemKetQua.ImageOptions.Image")));
             this.btnXemKetQua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXemKetQua.ImageOptions.LargeImage")));
             this.btnXemKetQua.Name = "btnXemKetQua";
+            this.btnXemKetQua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXemKetQua_ItemClick);
             // 
             // btnXemDiem
             // 
@@ -303,6 +311,8 @@
             this.btnXemDiem.Id = 25;
             this.btnXemDiem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDiem.ImageOptions.Image")));
             this.btnXemDiem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXemDiem.ImageOptions.LargeImage")));
+            this.btnXemDiem.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXemDiem.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnXemDiem.Name = "btnXemDiem";
             // 
             // btnXemDSDangKy
@@ -311,6 +321,8 @@
             this.btnXemDSDangKy.Id = 26;
             this.btnXemDSDangKy.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemDSDangKy.ImageOptions.Image")));
             this.btnXemDSDangKy.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXemDSDangKy.ImageOptions.LargeImage")));
+            this.btnXemDSDangKy.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXemDSDangKy.ItemAppearance.Disabled.Options.UseFont = true;
             this.btnXemDSDangKy.Name = "btnXemDSDangKy";
             // 
             // barButtonItem22
@@ -410,6 +422,8 @@
             // 
             // ribbonPage2
             // 
+            this.ribbonPage2.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage2.Appearance.Options.UseFont = true;
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup6});
             this.ribbonPage2.Name = "ribbonPage2";
@@ -422,6 +436,8 @@
             // 
             // ribbonPage1
             // 
+            this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage1.Appearance.Options.UseFont = true;
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup4,
@@ -432,8 +448,6 @@
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnMonHoc);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnKhoa);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnLop);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSinhVien);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnGiaoVien);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDe);
@@ -457,6 +471,8 @@
             // 
             // ribbonPage3
             // 
+            this.ribbonPage3.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage3.Appearance.Options.UseFont = true;
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup7});
             this.ribbonPage3.Name = "ribbonPage3";
@@ -469,6 +485,8 @@
             // 
             // ribbonPage4
             // 
+            this.ribbonPage4.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonPage4.Appearance.Options.UseFont = true;
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup8});
             this.ribbonPage4.Name = "ribbonPage4";
@@ -503,7 +521,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsstHoTen,
             this.tsstNhom});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 605);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 668);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1110, 25);
             this.statusStrip1.TabIndex = 3;
@@ -523,12 +541,12 @@
             // 
             // frmGiaoDienChinh
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1110, 630);
+            this.ClientSize = new System.Drawing.Size(1110, 693);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbonControl1);
-            this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IsMdiContainer = true;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmGiaoDienChinh";

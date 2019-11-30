@@ -13,7 +13,7 @@ namespace CSDLPT
     public partial class frmThi : Form
     {
         int phut = 0, giay = 59, cau = 1;
-        List<String> dapAn = new List<string>();
+        List<string> dapAn = new List<string>();
         string maSV = "";
         public frmThi()
         {
@@ -63,6 +63,20 @@ namespace CSDLPT
                     txtSoCauThi.Text = Program.myReader.GetInt16(6).ToString();
                     txtThoiGian.Text = Program.myReader.GetInt16(7).ToString();
                     txtTrinhDo.Text = Program.myReader.GetString(3);
+
+                    if (maSV != null)
+                    {
+                        if (KTDaThi())
+                        {
+                            MessageBox.Show("Bạn đã thi lớp này rồi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                            txtSoCauThi.Text = "";
+                            txtThoiGian.Text = "";
+                            txtTrinhDo.Text = "";
+                            dateEditNgayThi.Focus();
+                            Program.myReader.Close();
+                            return;
+                        }
+                    }
                 }
 
                 Program.myReader.Close();
@@ -70,14 +84,28 @@ namespace CSDLPT
             }
         }
 
+        private Boolean KTDaThi()
+        {
+            Program.myReader.Close();
+            string strLenh = "EXEC SP_KTBANGDIEM '" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', "+ Int32.Parse(cmbLan.SelectedItem.ToString());
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            Program.myReader.Read();
+            Boolean kq = Program.myReader.GetBoolean(0);
+            Program.myReader.Close();
+            Program.conn.Close();
+            if(kq == true)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void frmThi_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'dS.BANGDIEM' table. You can move, or remove it, as needed.
-            this.bANGDIEMTableAdapter.Fill(this.dS.BANGDIEM);
+            //this.bANGDIEMTableAdapter.Fill(this.dS.BANGDIEM);
             // TODO: This line of code loads data into the 'dS.CHITIET_BAITHI' table. You can move, or remove it, as needed.
             this.cHITIET_BAITHITableAdapter.Fill(this.dS.CHITIET_BAITHI);
-            // TODO: This line of code loads data into the 'dS.DSLOP' table. You can move, or remove it, as needed.
-            this.dSLOPTableAdapter.Fill(this.dS.DSLOP);
             // TODO: This line of code loads data into the 'dS.DSLOP' table. You can move, or remove it, as needed.
             this.dSLOPTableAdapter.Fill(this.dS.DSLOP);
             // TODO: This line of code loads data into the 'dS.DSMH' table. You can move, or remove it, as needed.
@@ -109,10 +137,9 @@ namespace CSDLPT
                 txtHoTen.Text = Program.myReader.GetString(2) + Program.myReader.GetString(3);
                 maSV = Program.myReader.GetString(4);
                 panelControlTopLeft.Enabled = false;
-                
                 Program.myReader.Close();
+                Program.conn.Close();
             }
-
         }
 
         private void txtMaLop_KeyDown(object sender, KeyEventArgs e)
@@ -267,10 +294,18 @@ namespace CSDLPT
             LoadTraLoi();
         }
 
+        private void ThemVaoChiTietBaiThi()
+        {
+
+        }
+
         private void ThemVaoBangDiem(float diem)
         {
             string strLenh = "INSERT INTO BANGDIEM (MASV, MAMH, LAN, NGAYTHI, DIEM) VALUES('" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString()) + ", " + dateEditNgayThi.Text.Trim() + ", " + diem + ")";
-
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            Program.myReader.Read();
+            Program.myReader.Close();
+            Program.conn.Close();
         }
 
         private void TinhDiem()

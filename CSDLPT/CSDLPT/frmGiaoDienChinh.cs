@@ -43,23 +43,6 @@ namespace CSDLPT
             tsstNhom.Text = "Nhóm: " + Program.mGroup;
         }
 
-        private void btnKhoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            Form frm = this.CheckExists(typeof(frmKhoa));
-            if (frm != null) frm.Activate(); //chua mo roi. ta cho no active
-            else //form chua mo
-            {
-                frmKhoa f = new frmKhoa(); 
-                f.MdiParent = this; 
-                f.Show();
-            }
-        }
-
-        private void btnLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         private void btnSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form frm = this.CheckExists(typeof(frmSinhVien));
@@ -106,6 +89,18 @@ namespace CSDLPT
             else
             {
                 frmThi f = new frmThi();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnXemKetQua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmXemKetQua));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmXemKetQua f = new frmXemKetQua();
                 f.MdiParent = this;
                 f.Show();
             }
