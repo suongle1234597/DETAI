@@ -303,7 +303,6 @@
             this.btnXemKetQua.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXemKetQua.ImageOptions.Image")));
             this.btnXemKetQua.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXemKetQua.ImageOptions.LargeImage")));
             this.btnXemKetQua.Name = "btnXemKetQua";
-            this.btnXemKetQua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXemKetQua_ItemClick);
             // 
             // btnXemDiem
             // 
@@ -463,7 +462,6 @@
             // 
             // ribbonPageGroup5
             // 
-            this.ribbonPageGroup5.ItemLinks.Add(this.btnXemKetQua);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnXemDiem);
             this.ribbonPageGroup5.ItemLinks.Add(this.btnXemDSDangKy);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";

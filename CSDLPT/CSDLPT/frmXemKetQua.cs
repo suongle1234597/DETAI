@@ -39,12 +39,35 @@ namespace CSDLPT
         {
             string strLenh = "EXEC SP_ThongTinXemKQ '" + cmbTenLop.SelectedValue.ToString() +"', '" + Program.mlogin +"', '" + cmbTenMH.SelectedValue.ToString() + "'";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
-            //Program.myReader.Read();
-            Xrpt_XemKetQua xrpt = new Xrpt_XemKetQua();
-            ReportPrintTool print = new ReportPrintTool(xrpt);
-            print.ShowPreviewDialog();
-
-
+            int dem = 0;
+            if (Program.myReader.HasRows)
+            {
+                dem++;
+            }
+            if (dem == 0)
+            {
+                MessageBox.Show("Bạn chưa thi môn này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                Program.myReader.Close();
+                return;
+            }
+            else
+            {
+                Program.myReader.Read();
+                string maSV = Program.myReader.GetString(1);
+                string hoten = Program.myReader.GetString(2) + Program.myReader.GetString(3);
+                string ngayThi = Program.myReader.GetDateTime(4).ToString();
+                string lan = Program.myReader.GetInt32(5).ToString();
+                string[] str = ngayThi.Split(' ');
+                Program.myReader.Close();
+                Xrpt_XemKetQua xrpt = new Xrpt_XemKetQua(cmbTenLop.SelectedValue.ToString(), maSV, cmbTenMH.SelectedValue.ToString());
+                xrpt.lbLop.Text = cmbTenLop.SelectedValue.ToString();
+                xrpt.lbHoTen.Text = hoten;
+                xrpt.lbMonThi.Text = cmbTenMH.SelectedValue.ToString();
+                xrpt.lbNgayThi.Text = str[1];
+                xrpt.lbLanThi.Text = lan;
+                ReportPrintTool print = new ReportPrintTool(xrpt);
+                print.ShowPreviewDialog();
+            }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -53,6 +76,11 @@ namespace CSDLPT
             {
                 this.Close();
             }
+        }
+
+        private void panelControlTop_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

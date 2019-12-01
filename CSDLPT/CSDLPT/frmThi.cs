@@ -122,9 +122,11 @@ namespace CSDLPT
             txtSoCauThi.Enabled = false;
             txtThoiGian.Enabled = false;
             txtTrinhDo.Enabled = false;
+            btnNopBai.Enabled = false;
             if (Program.mGroup == "Truong" || Program.mGroup == "Coso" || Program.mGroup == "Giangvien")
             {
                 txtMaLop.Enabled = true;
+                btnXemKetQua.Enabled = false;
             }
             else
             {
@@ -139,6 +141,7 @@ namespace CSDLPT
                 panelControlTopLeft.Enabled = false;
                 Program.myReader.Close();
                 Program.conn.Close();
+                btnXemKetQua.Enabled = true;
             }
         }
 
@@ -203,7 +206,8 @@ namespace CSDLPT
                 panelControlTop.Enabled = false;
                 btnThoat.Enabled = false;
                 btnBatDauThi.Enabled = false;
-
+                btnXemKetQua.Enabled = false;
+                btnNopBai.Enabled = true;
                 phut = Int32.Parse(txtThoiGian.Text) - 1;
                 timer1.Start();
 
@@ -237,6 +241,7 @@ namespace CSDLPT
                 panelControlThi.Enabled = false;
                 btnBatDauThi.Enabled = false;
                 btnThoat.Enabled = true;
+                btnXemKetQua.Enabled = true;
                 TinhDiem(); 
             }
         }
@@ -395,6 +400,20 @@ namespace CSDLPT
             LoadTraLoi();
         }
 
+        private void btnXemKetQua_Click(object sender, EventArgs e)
+        {
+            //if (!KTDaThi())
+            //{
+                frmXemKetQua f = new frmXemKetQua();
+                f.ShowDialog();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Bạn chưa thi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            //    return;
+            //}
+        }
+
         private void rbtnD_CheckedChanged(object sender, EventArgs e)
         {
             dapAn[cau - 1] = "D";
@@ -410,6 +429,7 @@ namespace CSDLPT
                 panelControlThi.Enabled = false;
                 btnThoat.Enabled = true;
                 btnNopBai.Enabled = false;
+                btnXemKetQua.Enabled = true;
                 TinhDiem();
             }
             else if (phut > -1)

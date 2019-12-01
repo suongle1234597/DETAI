@@ -54,6 +54,7 @@
             this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.panelControlTime = new DevExpress.XtraEditors.PanelControl();
+            this.btnXemKetQua = new System.Windows.Forms.Button();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnNopBai = new System.Windows.Forms.Button();
             this.btnBatDauThi = new System.Windows.Forms.Button();
@@ -199,7 +200,7 @@
             // 
             sOCAUTHILabel.AutoSize = true;
             sOCAUTHILabel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            sOCAUTHILabel.Location = new System.Drawing.Point(518, 30);
+            sOCAUTHILabel.Location = new System.Drawing.Point(676, 27);
             sOCAUTHILabel.Name = "sOCAUTHILabel";
             sOCAUTHILabel.Size = new System.Drawing.Size(96, 21);
             sOCAUTHILabel.TabIndex = 6;
@@ -209,7 +210,7 @@
             // 
             tHOIGIANLabel.AutoSize = true;
             tHOIGIANLabel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tHOIGIANLabel.Location = new System.Drawing.Point(518, 75);
+            tHOIGIANLabel.Location = new System.Drawing.Point(676, 72);
             tHOIGIANLabel.Name = "tHOIGIANLabel";
             tHOIGIANLabel.Size = new System.Drawing.Size(94, 21);
             tHOIGIANLabel.TabIndex = 8;
@@ -219,7 +220,7 @@
             // 
             tRINHDOLabel.AutoSize = true;
             tRINHDOLabel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tRINHDOLabel.Location = new System.Drawing.Point(518, 119);
+            tRINHDOLabel.Location = new System.Drawing.Point(676, 116);
             tRINHDOLabel.Name = "tRINHDOLabel";
             tRINHDOLabel.Size = new System.Drawing.Size(89, 21);
             tRINHDOLabel.TabIndex = 10;
@@ -232,7 +233,7 @@
             this.panelControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlTop.Location = new System.Drawing.Point(0, 0);
             this.panelControlTop.Name = "panelControlTop";
-            this.panelControlTop.Size = new System.Drawing.Size(1510, 170);
+            this.panelControlTop.Size = new System.Drawing.Size(1687, 170);
             this.panelControlTop.TabIndex = 0;
             // 
             // panelControl1
@@ -252,12 +253,12 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(525, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(983, 166);
+            this.panelControl1.Size = new System.Drawing.Size(1160, 166);
             this.panelControl1.TabIndex = 3;
             // 
             // txtTrinhDo
             // 
-            this.txtTrinhDo.Location = new System.Drawing.Point(623, 119);
+            this.txtTrinhDo.Location = new System.Drawing.Point(781, 116);
             this.txtTrinhDo.Name = "txtTrinhDo";
             this.txtTrinhDo.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTrinhDo.Properties.Appearance.Options.UseFont = true;
@@ -266,7 +267,7 @@
             // 
             // txtSoCauThi
             // 
-            this.txtSoCauThi.Location = new System.Drawing.Point(623, 27);
+            this.txtSoCauThi.Location = new System.Drawing.Point(781, 24);
             this.txtSoCauThi.Name = "txtSoCauThi";
             this.txtSoCauThi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoCauThi.Properties.Appearance.Options.UseFont = true;
@@ -285,7 +286,7 @@
             // 
             // txtThoiGian
             // 
-            this.txtThoiGian.Location = new System.Drawing.Point(623, 72);
+            this.txtThoiGian.Location = new System.Drawing.Point(781, 69);
             this.txtThoiGian.Name = "txtThoiGian";
             this.txtThoiGian.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtThoiGian.Properties.Appearance.Options.UseFont = true;
@@ -374,6 +375,7 @@
             // 
             // panelControlTime
             // 
+            this.panelControlTime.Controls.Add(this.btnXemKetQua);
             this.panelControlTime.Controls.Add(this.btnThoat);
             this.panelControlTime.Controls.Add(this.btnNopBai);
             this.panelControlTime.Controls.Add(this.btnBatDauThi);
@@ -381,13 +383,24 @@
             this.panelControlTime.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControlTime.Location = new System.Drawing.Point(0, 170);
             this.panelControlTime.Name = "panelControlTime";
-            this.panelControlTime.Size = new System.Drawing.Size(1510, 89);
+            this.panelControlTime.Size = new System.Drawing.Size(1687, 89);
             this.panelControlTime.TabIndex = 1;
+            // 
+            // btnXemKetQua
+            // 
+            this.btnXemKetQua.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXemKetQua.Location = new System.Drawing.Point(1205, 23);
+            this.btnXemKetQua.Name = "btnXemKetQua";
+            this.btnXemKetQua.Size = new System.Drawing.Size(146, 48);
+            this.btnXemKetQua.TabIndex = 4;
+            this.btnXemKetQua.Text = "Xem kết quả";
+            this.btnXemKetQua.UseVisualStyleBackColor = true;
+            this.btnXemKetQua.Click += new System.EventHandler(this.btnXemKetQua_Click);
             // 
             // btnThoat
             // 
             this.btnThoat.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThoat.Location = new System.Drawing.Point(1307, 23);
+            this.btnThoat.Location = new System.Drawing.Point(1491, 23);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(146, 48);
             this.btnThoat.TabIndex = 3;
@@ -398,7 +411,7 @@
             // btnNopBai
             // 
             this.btnNopBai.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNopBai.Location = new System.Drawing.Point(996, 23);
+            this.btnNopBai.Location = new System.Drawing.Point(908, 23);
             this.btnNopBai.Name = "btnNopBai";
             this.btnNopBai.Size = new System.Drawing.Size(146, 48);
             this.btnNopBai.TabIndex = 2;
@@ -409,7 +422,7 @@
             // btnBatDauThi
             // 
             this.btnBatDauThi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBatDauThi.Location = new System.Drawing.Point(672, 23);
+            this.btnBatDauThi.Location = new System.Drawing.Point(583, 23);
             this.btnBatDauThi.Name = "btnBatDauThi";
             this.btnBatDauThi.Size = new System.Drawing.Size(146, 48);
             this.btnBatDauThi.TabIndex = 1;
@@ -493,7 +506,7 @@
             // 
             this.lbCau.AutoSize = true;
             this.lbCau.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCau.Location = new System.Drawing.Point(59, 42);
+            this.lbCau.Location = new System.Drawing.Point(102, 42);
             this.lbCau.Name = "lbCau";
             this.lbCau.Size = new System.Drawing.Size(38, 21);
             this.lbCau.TabIndex = 0;
@@ -644,7 +657,7 @@
             this.panelControlThi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlThi.Location = new System.Drawing.Point(0, 259);
             this.panelControlThi.Name = "panelControlThi";
-            this.panelControlThi.Size = new System.Drawing.Size(1510, 524);
+            this.panelControlThi.Size = new System.Drawing.Size(1687, 524);
             this.panelControlThi.TabIndex = 2;
             // 
             // listViewTraLoi
@@ -656,7 +669,7 @@
             this.listViewTraLoi.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTraLoi.GridLines = true;
             this.listViewTraLoi.HideSelection = false;
-            this.listViewTraLoi.Location = new System.Drawing.Point(1299, 29);
+            this.listViewTraLoi.Location = new System.Drawing.Point(1476, 29);
             this.listViewTraLoi.Name = "listViewTraLoi";
             this.listViewTraLoi.Size = new System.Drawing.Size(209, 493);
             this.listViewTraLoi.TabIndex = 16;
@@ -676,10 +689,10 @@
             // richTextBoxCauHoi
             // 
             this.richTextBoxCauHoi.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBoxCauHoi.Location = new System.Drawing.Point(133, 39);
+            this.richTextBoxCauHoi.Location = new System.Drawing.Point(198, 39);
             this.richTextBoxCauHoi.Name = "richTextBoxCauHoi";
             this.richTextBoxCauHoi.ReadOnly = true;
-            this.richTextBoxCauHoi.Size = new System.Drawing.Size(1146, 106);
+            this.richTextBoxCauHoi.Size = new System.Drawing.Size(1242, 106);
             this.richTextBoxCauHoi.TabIndex = 15;
             this.richTextBoxCauHoi.Text = "";
             // 
@@ -707,7 +720,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1506, 27);
+            this.bindingNavigator1.Size = new System.Drawing.Size(1683, 27);
             this.bindingNavigator1.TabIndex = 14;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -796,7 +809,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1510, 783);
+            this.ClientSize = new System.Drawing.Size(1687, 783);
             this.Controls.Add(this.panelControlThi);
             this.Controls.Add(this.panelControlTime);
             this.Controls.Add(this.panelControlTop);
@@ -900,5 +913,6 @@
         private System.Windows.Forms.ColumnHeader columnHeaderCau;
         private System.Windows.Forms.BindingSource bdsBangDiem;
         private DSTableAdapters.BANGDIEMTableAdapter bANGDIEMTableAdapter;
+        private System.Windows.Forms.Button btnXemKetQua;
     }
 }
