@@ -50,8 +50,9 @@
             this.bdsMH = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new CSDLPT.DS();
             this.panelControlTopLeft = new DevExpress.XtraEditors.PanelControl();
+            this.cmbTenLop = new System.Windows.Forms.ComboBox();
+            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
-            this.txtTenLop = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.panelControlTime = new DevExpress.XtraEditors.PanelControl();
             this.btnXemKetQua = new System.Windows.Forms.Button();
@@ -62,7 +63,6 @@
             this.labelDongHo = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dSMHTableAdapter = new CSDLPT.DSTableAdapters.DSMHTableAdapter();
-            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.dSLOPTableAdapter = new CSDLPT.DSTableAdapters.DSLOPTableAdapter();
             this.tableAdapterManager = new CSDLPT.DSTableAdapters.TableAdapterManager();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -98,6 +98,7 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bdsBangDiem = new System.Windows.Forms.BindingSource(this.components);
             this.bANGDIEMTableAdapter = new CSDLPT.DSTableAdapters.BANGDIEMTableAdapter();
+            this.dSLOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
@@ -120,27 +121,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTopLeft)).BeginInit();
             this.panelControlTopLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTime)).BeginInit();
             this.panelControlTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietBaiThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlThi)).BeginInit();
             this.panelControlThi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSLOPBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel
             // 
             mALOPLabel.AutoSize = true;
             mALOPLabel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mALOPLabel.Location = new System.Drawing.Point(43, 30);
+            mALOPLabel.Location = new System.Drawing.Point(43, 72);
             mALOPLabel.Name = "mALOPLabel";
             mALOPLabel.Size = new System.Drawing.Size(69, 21);
             mALOPLabel.TabIndex = 0;
@@ -150,7 +151,7 @@
             // 
             tENLOPLabel.AutoSize = true;
             tENLOPLabel.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENLOPLabel.Location = new System.Drawing.Point(43, 75);
+            tENLOPLabel.Location = new System.Drawing.Point(43, 27);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(76, 21);
             tENLOPLabel.TabIndex = 2;
@@ -251,9 +252,9 @@
             this.panelControl1.Controls.Add(tENMHLabel);
             this.panelControl1.Controls.Add(this.cmbTenMH);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(525, 2);
+            this.panelControl1.Location = new System.Drawing.Point(602, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1160, 166);
+            this.panelControl1.Size = new System.Drawing.Size(1083, 166);
             this.panelControl1.TabIndex = 3;
             // 
             // txtTrinhDo
@@ -306,7 +307,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditNgayThi.Size = new System.Drawing.Size(331, 28);
             this.dateEditNgayThi.TabIndex = 3;
-            this.dateEditNgayThi.EditValueChanged += new System.EventHandler(this.dateEditNgayThi_EditValueChanged_1);
+            this.dateEditNgayThi.EditValueChanged += new System.EventHandler(this.dateEditNgayThi_EditValueChanged);
             // 
             // cmbTenMH
             // 
@@ -333,17 +334,36 @@
             // 
             // panelControlTopLeft
             // 
+            this.panelControlTopLeft.Controls.Add(this.cmbTenLop);
             this.panelControlTopLeft.Controls.Add(hOLabel);
             this.panelControlTopLeft.Controls.Add(this.txtHoTen);
             this.panelControlTopLeft.Controls.Add(tENLOPLabel);
-            this.panelControlTopLeft.Controls.Add(this.txtTenLop);
             this.panelControlTopLeft.Controls.Add(mALOPLabel);
             this.panelControlTopLeft.Controls.Add(this.txtMaLop);
             this.panelControlTopLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControlTopLeft.Location = new System.Drawing.Point(2, 2);
             this.panelControlTopLeft.Name = "panelControlTopLeft";
-            this.panelControlTopLeft.Size = new System.Drawing.Size(523, 166);
+            this.panelControlTopLeft.Size = new System.Drawing.Size(600, 166);
             this.panelControlTopLeft.TabIndex = 2;
+            // 
+            // cmbTenLop
+            // 
+            this.cmbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "TENLOP", true));
+            this.cmbTenLop.DataSource = this.dSLOPBindingSource;
+            this.cmbTenLop.DisplayMember = "TENLOP";
+            this.cmbTenLop.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTenLop.FormattingEnabled = true;
+            this.cmbTenLop.Location = new System.Drawing.Point(140, 23);
+            this.cmbTenLop.Name = "cmbTenLop";
+            this.cmbTenLop.Size = new System.Drawing.Size(343, 29);
+            this.cmbTenLop.TabIndex = 6;
+            this.cmbTenLop.ValueMember = "MALOP";
+            this.cmbTenLop.SelectedIndexChanged += new System.EventHandler(this.cmbTenLop_SelectedIndexChanged);
+            // 
+            // bdsLop
+            // 
+            this.bdsLop.DataMember = "DSLOP";
+            this.bdsLop.DataSource = this.dS;
             // 
             // txtHoTen
             // 
@@ -354,24 +374,15 @@
             this.txtHoTen.Size = new System.Drawing.Size(343, 28);
             this.txtHoTen.TabIndex = 5;
             // 
-            // txtTenLop
-            // 
-            this.txtTenLop.Location = new System.Drawing.Point(140, 72);
-            this.txtTenLop.Name = "txtTenLop";
-            this.txtTenLop.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenLop.Properties.Appearance.Options.UseFont = true;
-            this.txtTenLop.Size = new System.Drawing.Size(343, 28);
-            this.txtTenLop.TabIndex = 3;
-            // 
             // txtMaLop
             // 
-            this.txtMaLop.Location = new System.Drawing.Point(140, 27);
+            this.txtMaLop.Enabled = false;
+            this.txtMaLop.Location = new System.Drawing.Point(140, 69);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaLop.Properties.Appearance.Options.UseFont = true;
             this.txtMaLop.Size = new System.Drawing.Size(343, 28);
             this.txtMaLop.TabIndex = 1;
-            this.txtMaLop.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaLop_KeyDown);
             // 
             // panelControlTime
             // 
@@ -453,6 +464,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
             this.label1.Location = new System.Drawing.Point(69, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 34);
@@ -462,11 +474,6 @@
             // dSMHTableAdapter
             // 
             this.dSMHTableAdapter.ClearBeforeFill = true;
-            // 
-            // bdsLop
-            // 
-            this.bdsLop.DataMember = "DSLOP";
-            this.bdsLop.DataSource = this.dS;
             // 
             // dSLOPTableAdapter
             // 
@@ -805,6 +812,11 @@
             // 
             this.bANGDIEMTableAdapter.ClearBeforeFill = true;
             // 
+            // dSLOPBindingSource
+            // 
+            this.dSLOPBindingSource.DataMember = "DSLOP";
+            this.dSLOPBindingSource.DataSource = this.dS;
+            // 
             // frmThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -832,15 +844,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTopLeft)).EndInit();
             this.panelControlTopLeft.ResumeLayout(false);
             this.panelControlTopLeft.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTime)).EndInit();
             this.panelControlTime.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietBaiThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlThi)).EndInit();
             this.panelControlThi.ResumeLayout(false);
@@ -849,6 +860,7 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSLOPBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -860,7 +872,6 @@
         private DevExpress.XtraEditors.PanelControl panelControlTopLeft;
         private DevExpress.XtraEditors.TextEdit txtMaLop;
         private DevExpress.XtraEditors.TextEdit txtHoTen;
-        private DevExpress.XtraEditors.TextEdit txtTenLop;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private System.Windows.Forms.ComboBox cmbTenMH;
         private DevExpress.XtraEditors.TextEdit txtTrinhDo;
@@ -914,5 +925,7 @@
         private System.Windows.Forms.BindingSource bdsBangDiem;
         private DSTableAdapters.BANGDIEMTableAdapter bANGDIEMTableAdapter;
         private System.Windows.Forms.Button btnXemKetQua;
+        private System.Windows.Forms.ComboBox cmbTenLop;
+        private System.Windows.Forms.BindingSource dSLOPBindingSource;
     }
 }

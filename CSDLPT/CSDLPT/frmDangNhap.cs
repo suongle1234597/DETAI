@@ -18,6 +18,10 @@ namespace CSDLPT
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dS.V_DSPM' table. You can move, or remove it, as needed.
+            this.v_DSPMTableAdapter.Fill(this.dS.V_DSPM);
+            // TODO: This line of code loads data into the 'dS.V_DSPM' table. You can move, or remove it, as needed.
+            this.v_DSPMTableAdapter.Fill(this.dS.V_DSPM);
             // TODO: This line of code loads data into the 'tRACNGHIEMDataSet.V_DS_PHANMANH' table. You can move, or remove it, as needed.
             string chuoiKetNoi = "Data Source=SUONG;Initial Catalog=" + Program.database + ";Integrated Security=True"; //Ket noi ve site chu k can password, k can tai khoan
             Program.conn.ConnectionString = chuoiKetNoi;
@@ -33,9 +37,9 @@ namespace CSDLPT
             cmbCoSo.DisplayMember = "TENCS"; //ten cot muon hien len
             cmbCoSo.ValueMember = "TENSERVER"; //gia tri muon hien len
 
-            //this.v_DS_PHANMANHTableAdapter.Fill(this.tRACNGHIEMDataSet.V_DS_PHANMANH);
+            //cmbCoSo.SelectedIndex = 1;
             cmbCoSo.SelectedIndex = 0;
-
+            //cmbCoSo.SelectedIndex = -1;
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -45,22 +49,27 @@ namespace CSDLPT
                 MessageBox.Show("Tài khoản và Mật khẩu không được để trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-            Program.mlogin = txtTaiKhoan.Text;
-            Program.password = txtMatKhau.Text;
-            if (Program.KetNoi() == 0) return;
-
+            
             Program.mCoso = cmbCoSo.SelectedIndex;
-
-            Program.mloginDN = Program.mlogin;
-            Program.passwordDN = Program.password;
             string strLenh = "";
             if (rdbSinhVien.Checked)
             {
-                strLenh = "EXEC dbo.SP_DangNhapSinhVien '" + Program.mlogin + "'";
+                Program.username = txtTaiKhoan.Text;
+                Program.mlogin = "sv";
+                Program.password = txtMatKhau.Text;
+                if (Program.KetNoi() == 0) return;
+                Program.mloginDN = "sv";
+                Program.passwordDN = Program.password;
+
+                strLenh = "EXEC dbo.SP_DangNhapSinhVien '" + Program.mloginDN + "', '" + Program.username + "'";
             }
             else if (rdbGiangVien.Checked)
             {
+                Program.mlogin = txtTaiKhoan.Text;
+                Program.password = txtMatKhau.Text;
+                if (Program.KetNoi() == 0) return;
+                Program.mloginDN = Program.mlogin;
+                Program.passwordDN = Program.password;
                 strLenh = "EXEC dbo.SP_DangNhapGiangVien '" + Program.mlogin + "'";
             }
 
@@ -70,7 +79,7 @@ namespace CSDLPT
 
             if (rdbSinhVien.Checked)
             {
-                if (Program.myReader.GetString(2).Equals("Truong") || Program.myReader.GetString(2).Equals("Coso") || Program.myReader.GetString(2).Equals("Giangvien"))
+                if (Program.myReader.GetString(1).Equals("NULL"))
                 {
                     MessageBox.Show("Đăng nhập thất bại\n Bạn xem lại tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                     return;
@@ -91,7 +100,7 @@ namespace CSDLPT
                 MessageBox.Show("Tài khoản bạn nhập không có quyền truy cập dữ liệu\n Bạn xem lại tài khoản và mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return;
             }
-
+            
             Program.mHoten = Program.myReader.GetString(1);
             Program.mGroup = Program.myReader.GetString(2);
             Program.myReader.Close();
@@ -99,13 +108,24 @@ namespace CSDLPT
 
             if (Program.mGroup.Equals("Sinhvien"))
             {
+                string strLenh1 = "EXEC SP_ThongTinSV '" + Program.username + "'";
+                Program.myReader = Program.ExecSqlDataReader(strLenh1);
+                if (Program.myReader == null) return;
+                Program.myReader.Read();
+                Program.mMaLop = Program.myReader.GetString(0);
+                Program.mLop = Program.myReader.GetString(1);
+                Program.myReader.Close();
+                Program.conn.Close();
+
                 frmThi sv = new frmThi();
                 sv.ShowDialog();
+                //Program.frmDN.Hide();
             }
             else
             {
-                frmGiaoDienChinh truong = new frmGiaoDienChinh();
-                truong.ShowDialog();
+                frmGiaoDienChinh form = new frmGiaoDienChinh();
+                form.ShowDialog();
+                //Program.frmDN.Hide();
             }
         }
 
@@ -123,11 +143,6 @@ namespace CSDLPT
                 Program.servername = cmbCoSo.SelectedValue.ToString();
             }
             catch(Exception) { };
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

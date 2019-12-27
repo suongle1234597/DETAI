@@ -27,7 +27,7 @@ namespace CSDLPT
 
         private void btnMonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form frm = this.CheckExists(typeof(frmMonHoc)); 
+            Form frm = this.CheckExists(typeof(frmMonHoc));
             if (frm != null) frm.Activate(); //chua mo roi. ta cho no active
             else //form chua mo
             {
@@ -41,6 +41,11 @@ namespace CSDLPT
         {
             tsstHoTen.Text = "Họ tên: " + Program.mHoten;
             tsstNhom.Text = "Nhóm: " + Program.mGroup;
+
+            if (Program.mGroup == "Giangvien")
+            {
+                btnTaoTK.Enabled = false;
+            }
         }
 
         private void btnSinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -93,6 +98,85 @@ namespace CSDLPT
                 f.Show();
             }
         }
-        
+
+        private void btnTaoTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmTaoTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaoTaiKhoan f = new frmTaoTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Program.mlogin = "";
+            Program.password = "";
+            //Program.frmDN.Show();
+            this.Close();
+        }
+
+        private void btnXemDSDangKy_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmXemDSDangKy));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmXemDSDangKy f = new frmXemDSDangKy();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnGiaoVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmGiaoVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmGiaoVien f = new frmGiaoVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnXemKetQua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmXemKetQua));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmXemKetQua f = new frmXemKetQua();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmBoDe));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmBoDe f = new frmBoDe();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnXemDiem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmXemBangDiem));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmXemBangDiem f = new frmXemBangDiem();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

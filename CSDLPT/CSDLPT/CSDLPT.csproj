@@ -79,6 +79,12 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBoDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBoDe.Designer.cs">
+      <DependentUpon>frmBoDe.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGiaoDienChinh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,12 +103,6 @@
     <Compile Include="frmGiaoVienDK.Designer.cs">
       <DependentUpon>frmGiaoVienDK.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmKhoa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmKhoa.Designer.cs">
-      <DependentUpon>frmKhoa.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmMonHoc.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,11 +115,29 @@
     <Compile Include="frmSinhVien.Designer.cs">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTaoTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTaoTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmThi.Designer.cs">
       <DependentUpon>frmThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemBangDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemBangDiem.Designer.cs">
+      <DependentUpon>frmXemBangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXemDSDangKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXemDSDangKy.Designer.cs">
+      <DependentUpon>frmXemDSDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmXemKetQua.cs">
       <SubType>Form</SubType>
@@ -134,10 +152,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="TRACNGHIEMDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TRACNGHIEMDataSet.xsd</DependentUpon>
+    <Compile Include="Xrpt_XemBangDiem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_XemBangDiem.Designer.cs">
+      <DependentUpon>Xrpt_XemBangDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Xrpt_XemDSDangKy.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Xrpt_XemDSDangKy.Designer.cs">
+      <DependentUpon>Xrpt_XemDSDangKy.cs</DependentUpon>
     </Compile>
     <Compile Include="Xrpt_XemKetQua.cs">
       <SubType>Component</SubType>
@@ -148,6 +173,9 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmBoDe.resx">
+      <DependentUpon>frmBoDe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGiaoDienChinh.resx">
       <DependentUpon>frmGiaoDienChinh.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,17 +185,23 @@
     <EmbeddedResource Include="frmGiaoVienDK.resx">
       <DependentUpon>frmGiaoVienDK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmKhoa.resx">
-      <DependentUpon>frmKhoa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmMonHoc.resx">
       <DependentUpon>frmMonHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTaoTaiKhoan.resx">
+      <DependentUpon>frmTaoTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThi.resx">
       <DependentUpon>frmThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemBangDiem.resx">
+      <DependentUpon>frmXemBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXemDSDangKy.resx">
+      <DependentUpon>frmXemDSDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmXemKetQua.resx">
       <DependentUpon>frmXemKetQua.cs</DependentUpon>
@@ -176,6 +210,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_XemBangDiem.resx">
+      <DependentUpon>Xrpt_XemBangDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Xrpt_XemDSDangKy.resx">
+      <DependentUpon>Xrpt_XemDSDangKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Xrpt_XemKetQua.resx">
       <DependentUpon>Xrpt_XemKetQua.cs</DependentUpon>
@@ -201,17 +241,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="TRACNGHIEMDataSet.xsc">
-      <DependentUpon>TRACNGHIEMDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="TRACNGHIEMDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>TRACNGHIEMDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="TRACNGHIEMDataSet.xss">
-      <DependentUpon>TRACNGHIEMDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

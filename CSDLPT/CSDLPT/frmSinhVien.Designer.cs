@@ -58,8 +58,6 @@
             this.barDockControl4 = new DevExpress.XtraBars.BarDockControl();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
             this.vDSPMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tRACNGHIEMDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tRACNGHIEMDataSet = new CSDLPT.TRACNGHIEMDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.lOPTableAdapter = new CSDLPT.DSTableAdapters.LOPTableAdapter();
@@ -92,9 +90,6 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.v_DSPMTableAdapter = new CSDLPT.TRACNGHIEMDataSetTableAdapters.V_DSPMTableAdapter();
-            this.sINHVIENTableAdapter = new CSDLPT.DSTableAdapters.SINHVIENTableAdapter();
-            this.dSKHOATableAdapter = new CSDLPT.DSTableAdapters.DSKHOATableAdapter();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnThemSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSuaSV = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,7 +97,15 @@
             this.btnXoaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPhucHoiSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefreshSV = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnThoatSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.sINHVIENTableAdapter = new CSDLPT.DSTableAdapters.SINHVIENTableAdapter();
+            this.dSKHOATableAdapter = new CSDLPT.DSTableAdapters.DSKHOATableAdapter();
+            this.v_DSPMTableAdapter = new CSDLPT.DSTableAdapters.V_DSPMTableAdapter();
+            this.bdsBangDiem = new System.Windows.Forms.BindingSource(this.components);
+            this.bANGDIEMTableAdapter = new CSDLPT.DSTableAdapters.BANGDIEMTableAdapter();
+            this.bdsGiaoVienDK = new System.Windows.Forms.BindingSource(this.components);
+            this.gIAOVIEN_DANGKYTableAdapter = new CSDLPT.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             tENLOPLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             tENKHLabel = new System.Windows.Forms.Label();
@@ -116,8 +119,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -143,6 +144,8 @@
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaoVienDK)).BeginInit();
             this.SuspendLayout();
             // 
             // tENLOPLabel
@@ -297,7 +300,7 @@
             this.btnThem.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.Image")));
             this.btnThem.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThem.ImageOptions.LargeImage")));
             this.btnThem.Name = "btnThem";
-            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick_1);
+            this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
             // btnSua
             // 
@@ -373,7 +376,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Size = new System.Drawing.Size(1546, 51);
+            this.barDockControl1.Size = new System.Drawing.Size(1539, 51);
             // 
             // barDockControl2
             // 
@@ -381,7 +384,7 @@
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControl2.Location = new System.Drawing.Point(0, 591);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Size = new System.Drawing.Size(1546, 20);
+            this.barDockControl2.Size = new System.Drawing.Size(1539, 20);
             // 
             // barDockControl3
             // 
@@ -395,40 +398,28 @@
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1546, 51);
+            this.barDockControl4.Location = new System.Drawing.Point(1539, 51);
             this.barDockControl4.Manager = this.barManager1;
             this.barDockControl4.Size = new System.Drawing.Size(0, 540);
             // 
             // cmbCoSo
             // 
-            this.cmbCoSo.DataSource = this.vDSPMBindingSource;
-            this.cmbCoSo.DisplayMember = "TENCS";
             this.cmbCoSo.FormattingEnabled = true;
-            this.cmbCoSo.Location = new System.Drawing.Point(437, 27);
+            this.cmbCoSo.Location = new System.Drawing.Point(260, 27);
             this.cmbCoSo.Name = "cmbCoSo";
             this.cmbCoSo.Size = new System.Drawing.Size(333, 24);
             this.cmbCoSo.TabIndex = 41;
-            this.cmbCoSo.ValueMember = "TENSERVER";
+            this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // vDSPMBindingSource
             // 
             this.vDSPMBindingSource.DataMember = "V_DSPM";
-            this.vDSPMBindingSource.DataSource = this.tRACNGHIEMDataSetBindingSource;
-            // 
-            // tRACNGHIEMDataSetBindingSource
-            // 
-            this.tRACNGHIEMDataSetBindingSource.DataSource = this.tRACNGHIEMDataSet;
-            this.tRACNGHIEMDataSetBindingSource.Position = 0;
-            // 
-            // tRACNGHIEMDataSet
-            // 
-            this.tRACNGHIEMDataSet.DataSetName = "TRACNGHIEMDataSet";
-            this.tRACNGHIEMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.vDSPMBindingSource.DataSource = this.dS;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(343, 30);
+            this.label1.Location = new System.Drawing.Point(166, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 17);
             this.label1.TabIndex = 40;
@@ -466,7 +457,7 @@
             this.gcLop.MainView = this.gridView1;
             this.gcLop.MenuManager = this.barManager1;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(1546, 220);
+            this.gcLop.Size = new System.Drawing.Size(1539, 220);
             this.gcLop.TabIndex = 48;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -483,29 +474,29 @@
             // colMALOP
             // 
             this.colMALOP.FieldName = "MALOP";
-            this.colMALOP.MinWidth = 25;
+            this.colMALOP.MinWidth = 31;
             this.colMALOP.Name = "colMALOP";
             this.colMALOP.Visible = true;
             this.colMALOP.VisibleIndex = 0;
-            this.colMALOP.Width = 94;
+            this.colMALOP.Width = 117;
             // 
             // colTENLOP
             // 
             this.colTENLOP.FieldName = "TENLOP";
-            this.colTENLOP.MinWidth = 25;
+            this.colTENLOP.MinWidth = 31;
             this.colTENLOP.Name = "colTENLOP";
             this.colTENLOP.Visible = true;
             this.colTENLOP.VisibleIndex = 1;
-            this.colTENLOP.Width = 94;
+            this.colTENLOP.Width = 117;
             // 
             // colMAKH
             // 
             this.colMAKH.FieldName = "MAKH";
-            this.colMAKH.MinWidth = 25;
+            this.colMAKH.MinWidth = 31;
             this.colMAKH.Name = "colMAKH";
             this.colMAKH.Visible = true;
             this.colMAKH.VisibleIndex = 2;
-            this.colMAKH.Width = 94;
+            this.colMAKH.Width = 117;
             // 
             // panelControl1
             // 
@@ -629,7 +620,7 @@
             // cmbTenKhoa
             // 
             this.cmbTenKhoa.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDSKhoa, "TENKH", true));
-            this.cmbTenKhoa.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsDSKhoa, "MAKH", true));
+            this.cmbTenKhoa.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsLop, "MAKH", true));
             this.cmbTenKhoa.DataSource = this.bdsDSKhoa;
             this.cmbTenKhoa.DisplayMember = "TENKH";
             this.cmbTenKhoa.FormattingEnabled = true;
@@ -669,7 +660,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(915, 271);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(631, 320);
+            this.panelControl2.Size = new System.Drawing.Size(624, 320);
             this.panelControl2.TabIndex = 50;
             // 
             // sINHVIENDataGridView
@@ -683,12 +674,13 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
+            this.sINHVIENDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.sINHVIENDataGridView.DataSource = this.bdsSinhVien;
             this.sINHVIENDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sINHVIENDataGridView.Location = new System.Drawing.Point(2, 2);
             this.sINHVIENDataGridView.Name = "sINHVIENDataGridView";
             this.sINHVIENDataGridView.RowTemplate.Height = 24;
-            this.sINHVIENDataGridView.Size = new System.Drawing.Size(627, 316);
+            this.sINHVIENDataGridView.Size = new System.Drawing.Size(620, 316);
             this.sINHVIENDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -727,18 +719,6 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "MALOP";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // v_DSPMTableAdapter
-            // 
-            this.v_DSPMTableAdapter.ClearBeforeFill = true;
-            // 
-            // sINHVIENTableAdapter
-            // 
-            this.sINHVIENTableAdapter.ClearBeforeFill = true;
-            // 
-            // dSKHOATableAdapter
-            // 
-            this.dSKHOATableAdapter.ClearBeforeFill = true;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -748,10 +728,9 @@
             this.btnGhiSV,
             this.btnXoaSV,
             this.btnPhucHoiSV,
-            this.btnRefreshSV,
-            this.btnThoatSV});
+            this.btnRefreshSV});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 172);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 148);
             // 
             // btnThemSV
             // 
@@ -795,19 +774,59 @@
             this.btnRefreshSV.Text = "Refresh";
             this.btnRefreshSV.Click += new System.EventHandler(this.btnRefreshSV_Click);
             // 
-            // btnThoatSV
+            // sINHVIENTableAdapter
             // 
-            this.btnThoatSV.Name = "btnThoatSV";
-            this.btnThoatSV.Size = new System.Drawing.Size(134, 24);
-            this.btnThoatSV.Text = "Thoát";
-            this.btnThoatSV.Click += new System.EventHandler(this.btnThoatSV_Click);
+            this.sINHVIENTableAdapter.ClearBeforeFill = true;
+            // 
+            // dSKHOATableAdapter
+            // 
+            this.dSKHOATableAdapter.ClearBeforeFill = true;
+            // 
+            // v_DSPMTableAdapter
+            // 
+            this.v_DSPMTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsBangDiem
+            // 
+            this.bdsBangDiem.DataMember = "FK_BANGDIEM_SINHVIEN";
+            this.bdsBangDiem.DataSource = this.bdsSinhVien;
+            // 
+            // bANGDIEMTableAdapter
+            // 
+            this.bANGDIEMTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsGiaoVienDK
+            // 
+            this.bdsGiaoVienDK.DataMember = "FK_GIAOVIEN_DANGKY_LOP";
+            this.bdsGiaoVienDK.DataSource = this.bdsLop;
+            // 
+            // gIAOVIEN_DANGKYTableAdapter
+            // 
+            this.gIAOVIEN_DANGKYTableAdapter.ClearBeforeFill = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(701, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 17);
+            this.label2.TabIndex = 55;
+            this.label2.Text = "Tìm Kiếm:";
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(786, 27);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(300, 22);
+            this.txtTimKiem.TabIndex = 56;
             // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1546, 611);
-            this.ContextMenuStrip = this.contextMenuStrip1;
+            this.ClientSize = new System.Drawing.Size(1539, 611);
+            this.Controls.Add(this.txtTimKiem);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.gcLop);
@@ -817,6 +836,7 @@
             this.Controls.Add(this.barDockControl4);
             this.Controls.Add(this.barDockControl2);
             this.Controls.Add(this.barDockControl1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmSinhVien";
             this.Text = "Sinh viên";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -824,8 +844,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vDSPMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -853,6 +871,8 @@
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.sINHVIENDataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaoVienDK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -888,10 +908,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colTENLOP;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKH;
         private DevExpress.XtraEditors.PanelControl panelControlSV;
-        private System.Windows.Forms.BindingSource tRACNGHIEMDataSetBindingSource;
-        private TRACNGHIEMDataSet tRACNGHIEMDataSet;
-        private System.Windows.Forms.BindingSource vDSPMBindingSource;
-        private TRACNGHIEMDataSetTableAdapters.V_DSPMTableAdapter v_DSPMTableAdapter;
         private System.Windows.Forms.BindingSource bdsSinhVien;
         private DSTableAdapters.SINHVIENTableAdapter sINHVIENTableAdapter;
         private System.Windows.Forms.DataGridView sINHVIENDataGridView;
@@ -915,12 +931,19 @@
         private DevExpress.XtraEditors.TextEdit txtTenLop;
         private System.Windows.Forms.ToolStripMenuItem btnPhucHoiSV;
         private System.Windows.Forms.ToolStripMenuItem btnRefreshSV;
-        private System.Windows.Forms.ToolStripMenuItem btnThoatSV;
         private DevExpress.XtraEditors.TextEdit txtMaSV;
         private DevExpress.XtraEditors.TextEdit txtHo;
         private DevExpress.XtraEditors.TextEdit txtTen;
         private DevExpress.XtraEditors.DateEdit dateEditNgaySinh;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
         private DevExpress.XtraEditors.TextEdit txtMaLop2;
+        private System.Windows.Forms.BindingSource vDSPMBindingSource;
+        private DSTableAdapters.V_DSPMTableAdapter v_DSPMTableAdapter;
+        private System.Windows.Forms.BindingSource bdsBangDiem;
+        private DSTableAdapters.BANGDIEMTableAdapter bANGDIEMTableAdapter;
+        private System.Windows.Forms.BindingSource bdsGiaoVienDK;
+        private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -8,11 +8,11 @@ namespace CSDLPT
 {
     public partial class Xrpt_XemKetQua : DevExpress.XtraReports.UI.XtraReport
     {
-        public Xrpt_XemKetQua(string maLop, string maSV, string maMH)
+        public Xrpt_XemKetQua(int maBD)
         {
             InitializeComponent();
             ds1.EnforceConstraints = false;
-            this.sP_XemKetQuaTableAdapter.Fill(ds1.SP_XemKetQua, maLop, maSV, maMH);
+            this.sP_XemKetQuaTableAdapter.Fill(ds1.SP_XemKetQua, maBD);
         }
 
     }

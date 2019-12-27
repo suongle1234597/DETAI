@@ -72,7 +72,6 @@
             this.colTHOIGIAN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.cmbTenLop = new System.Windows.Forms.ComboBox();
-            this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
             this.cmbTenMH = new System.Windows.Forms.ComboBox();
             this.bdsMH = new System.Windows.Forms.BindingSource(this.components);
             this.cmbHoTen = new System.Windows.Forms.ComboBox();
@@ -87,11 +86,9 @@
             this.spinEditThoiGian = new DevExpress.XtraEditors.SpinEdit();
             this.dSGVTableAdapter = new CSDLPT.DSTableAdapters.DSGVTableAdapter();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
-            this.vDSPMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tRACNGHIEMDataSet = new CSDLPT.TRACNGHIEMDataSet();
             this.label1 = new System.Windows.Forms.Label();
-            this.v_DSPMTableAdapter = new CSDLPT.TRACNGHIEMDataSetTableAdapters.V_DSPMTableAdapter();
             this.dSMHTableAdapter = new CSDLPT.DSTableAdapters.DSMHTableAdapter();
+            this.bdsDSLop = new System.Windows.Forms.BindingSource(this.components);
             this.dSLOPTableAdapter = new CSDLPT.DSTableAdapters.DSLOPTableAdapter();
             mAGVLabel = new System.Windows.Forms.Label();
             mAMHLabel = new System.Windows.Forms.Label();
@@ -111,7 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).BeginInit();
@@ -121,8 +117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditSoCauThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditThoiGian.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDSLop)).BeginInit();
             this.SuspendLayout();
             // 
             // mAGVLabel
@@ -155,7 +150,7 @@
             // tRINHDOLabel
             // 
             tRINHDOLabel.AutoSize = true;
-            tRINHDOLabel.Location = new System.Drawing.Point(64, 139);
+            tRINHDOLabel.Location = new System.Drawing.Point(64, 141);
             tRINHDOLabel.Name = "tRINHDOLabel";
             tRINHDOLabel.Size = new System.Drawing.Size(72, 17);
             tRINHDOLabel.TabIndex = 6;
@@ -218,7 +213,7 @@
             // tENLOPLabel
             // 
             tENLOPLabel.AutoSize = true;
-            tENLOPLabel.Location = new System.Drawing.Point(64, 105);
+            tENLOPLabel.Location = new System.Drawing.Point(64, 109);
             tENLOPLabel.Name = "tENLOPLabel";
             tENLOPLabel.Size = new System.Drawing.Size(63, 17);
             tENLOPLabel.TabIndex = 20;
@@ -543,24 +538,20 @@
             // 
             // cmbTenLop
             // 
-            this.cmbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsLop, "TENLOP", true));
-            this.cmbTenLop.DataSource = this.bdsLop;
+            this.cmbTenLop.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsGiaoVienDK, "MALOP", true));
+            this.cmbTenLop.DataSource = this.bdsDSLop;
             this.cmbTenLop.DisplayMember = "TENLOP";
             this.cmbTenLop.FormattingEnabled = true;
-            this.cmbTenLop.Location = new System.Drawing.Point(148, 102);
+            this.cmbTenLop.Location = new System.Drawing.Point(148, 106);
             this.cmbTenLop.Name = "cmbTenLop";
             this.cmbTenLop.Size = new System.Drawing.Size(310, 24);
             this.cmbTenLop.TabIndex = 21;
             this.cmbTenLop.ValueMember = "MALOP";
             this.cmbTenLop.SelectedIndexChanged += new System.EventHandler(this.cmbTenLop_SelectedIndexChanged);
             // 
-            // bdsLop
-            // 
-            this.bdsLop.DataMember = "DSLOP";
-            this.bdsLop.DataSource = this.dS;
-            // 
             // cmbTenMH
             // 
+            this.cmbTenMH.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsGiaoVienDK, "MAMH", true));
             this.cmbTenMH.DataSource = this.bdsMH;
             this.cmbTenMH.DisplayMember = "TENMH";
             this.cmbTenMH.FormattingEnabled = true;
@@ -578,6 +569,7 @@
             // 
             // cmbHoTen
             // 
+            this.cmbHoTen.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsGiaoVienDK, "MAGV", true));
             this.cmbHoTen.DataSource = this.bdsDSGV;
             this.cmbHoTen.DisplayMember = "HOTEN";
             this.cmbHoTen.FormattingEnabled = true;
@@ -627,7 +619,7 @@
             // 
             this.cmbTrinhDo.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsGiaoVienDK, "TRINHDO", true));
             this.cmbTrinhDo.FormattingEnabled = true;
-            this.cmbTrinhDo.Location = new System.Drawing.Point(148, 136);
+            this.cmbTrinhDo.Location = new System.Drawing.Point(148, 138);
             this.cmbTrinhDo.Name = "cmbTrinhDo";
             this.cmbTrinhDo.Size = new System.Drawing.Size(310, 24);
             this.cmbTrinhDo.TabIndex = 7;
@@ -713,24 +705,12 @@
             // 
             // cmbCoSo
             // 
-            this.cmbCoSo.DataSource = this.vDSPMBindingSource;
-            this.cmbCoSo.DisplayMember = "TENCS";
             this.cmbCoSo.FormattingEnabled = true;
             this.cmbCoSo.Location = new System.Drawing.Point(474, 27);
             this.cmbCoSo.Name = "cmbCoSo";
             this.cmbCoSo.Size = new System.Drawing.Size(333, 24);
             this.cmbCoSo.TabIndex = 43;
-            this.cmbCoSo.ValueMember = "TENSERVER";
-            // 
-            // vDSPMBindingSource
-            // 
-            this.vDSPMBindingSource.DataMember = "V_DSPM";
-            this.vDSPMBindingSource.DataSource = this.tRACNGHIEMDataSet;
-            // 
-            // tRACNGHIEMDataSet
-            // 
-            this.tRACNGHIEMDataSet.DataSetName = "TRACNGHIEMDataSet";
-            this.tRACNGHIEMDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -741,13 +721,14 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "CƠ SỞ:";
             // 
-            // v_DSPMTableAdapter
-            // 
-            this.v_DSPMTableAdapter.ClearBeforeFill = true;
-            // 
             // dSMHTableAdapter
             // 
             this.dSMHTableAdapter.ClearBeforeFill = true;
+            // 
+            // bdsDSLop
+            // 
+            this.bdsDSLop.DataMember = "DSLOP";
+            this.bdsDSLop.DataSource = this.dS;
             // 
             // dSLOPTableAdapter
             // 
@@ -778,7 +759,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsMH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDSGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).EndInit();
@@ -788,8 +768,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditSoCauThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditThoiGian.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tRACNGHIEMDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsDSLop)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -840,14 +819,11 @@
         private DSTableAdapters.DSGVTableAdapter dSGVTableAdapter;
         private System.Windows.Forms.ComboBox cmbCoSo;
         private System.Windows.Forms.Label label1;
-        private TRACNGHIEMDataSet tRACNGHIEMDataSet;
-        private System.Windows.Forms.BindingSource vDSPMBindingSource;
-        private TRACNGHIEMDataSetTableAdapters.V_DSPMTableAdapter v_DSPMTableAdapter;
         private DSTableAdapters.DSMHTableAdapter dSMHTableAdapter;
         private System.Windows.Forms.ComboBox cmbTenMH;
         private System.Windows.Forms.BindingSource bdsMH;
-        private System.Windows.Forms.BindingSource bdsLop;
-        private DSTableAdapters.DSLOPTableAdapter dSLOPTableAdapter;
         private System.Windows.Forms.ComboBox cmbTenLop;
+        private System.Windows.Forms.BindingSource bdsDSLop;
+        private DSTableAdapters.DSLOPTableAdapter dSLOPTableAdapter;
     }
 }

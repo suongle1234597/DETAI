@@ -22,7 +22,6 @@ namespace CSDLPT
 
         private void load_ThongTinThi()
         {
-
             if (txtMaLop.Text.Trim() != "" && dateEditNgayThi.Text.Trim() != "" && panelControlThi.Enabled == true)
             {
                 string strLenh = "EXEC dbo.SP_KiemTraDangKy '" + cmbTenMH.SelectedValue.ToString().Trim() + "', '" + txtMaLop.Text.Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString());
@@ -87,13 +86,13 @@ namespace CSDLPT
         private Boolean KTDaThi()
         {
             Program.myReader.Close();
-            string strLenh = "EXEC SP_KTBANGDIEM '" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', "+ Int32.Parse(cmbLan.SelectedItem.ToString());
+            string strLenh = "EXEC SP_KTBANGDIEM '" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString());
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
             Boolean kq = Program.myReader.GetBoolean(0);
             Program.myReader.Close();
             Program.conn.Close();
-            if(kq == true)
+            if (kq == true)
             {
                 return true;
             }
@@ -116,7 +115,6 @@ namespace CSDLPT
 
             cmbLan.SelectedIndex = 0;
 
-            txtTenLop.Enabled = false;
             txtHoTen.Enabled = false;
             txtHoTen.Text = Program.mHoten;
             txtSoCauThi.Enabled = false;
@@ -125,53 +123,23 @@ namespace CSDLPT
             btnNopBai.Enabled = false;
             if (Program.mGroup == "Truong" || Program.mGroup == "Coso" || Program.mGroup == "Giangvien")
             {
-                txtMaLop.Enabled = true;
                 btnXemKetQua.Enabled = false;
+                cmbTenLop.Enabled = true;
+                txtMaLop.Text = cmbTenLop.SelectedValue.ToString();
             }
             else
             {
-                string strLenh = "EXEC SP_ThongTinSV '" + Program.mlogin + "'";
-                Program.myReader = Program.ExecSqlDataReader(strLenh);
-                if (Program.myReader == null) return;
-                Program.myReader.Read();
-                txtMaLop.Text = Program.myReader.GetString(0);
-                txtTenLop.Text = Program.myReader.GetString(1);
-                txtHoTen.Text = Program.myReader.GetString(2) + Program.myReader.GetString(3);
-                maSV = Program.myReader.GetString(4);
+                cmbTenLop.Enabled = false;
+                txtMaLop.Text = Program.mMaLop;
+                cmbTenLop.DisplayMember = Program.mLop;
+                txtHoTen.Text = Program.mHoten;
+                maSV = Program.username;
                 panelControlTopLeft.Enabled = false;
-                Program.myReader.Close();
-                Program.conn.Close();
                 btnXemKetQua.Enabled = true;
             }
         }
 
-        private void txtMaLop_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Boolean flag = false;
-                for (int i = 0; i < bdsLop.Count; i++)
-                {
-                    if ((txtMaLop.Text).Equals(((DataRowView)bdsLop[i])["MALOP"].ToString().Trim()))
-                    {
-                        flag = true;
-                        txtTenLop.Text = ((DataRowView)bdsLop[i])["TENLOP"].ToString();
-
-                        break;
-                    }
-                }
-                if (flag == false)
-                {
-                    MessageBox.Show("Mã Lớp không tồn tại. Mời nhập mã lớp khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    txtTenLop.Text = "";
-                    txtMaLop.Focus();
-                    return;
-                }
-                load_ThongTinThi();
-            }
-        }
-
-        private void dateEditNgayThi_EditValueChanged_1(object sender, EventArgs e)
+        private void dateEditNgayThi_EditValueChanged(object sender, EventArgs e)
         {
             load_ThongTinThi();
         }
@@ -211,7 +179,7 @@ namespace CSDLPT
                 phut = Int32.Parse(txtThoiGian.Text) - 1;
                 timer1.Start();
 
-                string strLenh = "SELECT TOP 10 * FROM dbo.BODE ORDER BY NEWID()";
+                string strLenh = "EXEC SP_Thi '" + txtTrinhDo.Text + "' , '" + cmbTenMH.SelectedValue.ToString() + "', " + txtSoCauThi.Text;
 
                 for (int i = 0; i < Int32.Parse(txtSoCauThi.Text); i++)
                 {
@@ -234,7 +202,6 @@ namespace CSDLPT
 
         private void btnNopBai_Click(object sender, EventArgs e)
         {
-            //((DataRowView)bdsChiTietBaiThi[i])["DAP_AN"].
             if (MessageBox.Show("Bạn có chắc chắn muốn Nộp bài thi không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Hand) == DialogResult.Yes)
             {
                 timer1.Stop();
@@ -242,7 +209,7 @@ namespace CSDLPT
                 btnBatDauThi.Enabled = false;
                 btnThoat.Enabled = true;
                 btnXemKetQua.Enabled = true;
-                TinhDiem(); 
+                TinhDiem();
             }
         }
 
@@ -301,7 +268,44 @@ namespace CSDLPT
 
         private void ThemVaoChiTietBaiThi()
         {
+            string strLenh = "SELECT MABD FROM BANGDIEM WHERE MASV = '" + maSV + "' AND MAMH = '" + cmbTenMH.SelectedValue.ToString() + "' AND LAN = " + cmbLan.SelectedItem.ToString();
+            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            Program.myReader.Read();
+            int maBD = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+            Program.myReader.Close();
 
+            string traLoi = "", noiDung = "", A = "", B = "", C = "", D = "", dapAnCH = "", strLenh1 ="";
+            int cauHoi = 0;
+
+            try
+            {
+                for (int i = 0; i < Int32.Parse(txtSoCauThi.Text); i++)
+                {
+                    traLoi = dapAn[i].ToString();
+                    cauHoi = Int32.Parse(((DataRowView)bdsChiTietBaiThi[i])["CAUHOI"].ToString());
+
+                    MessageBox.Show("cau hoi " + cauHoi);
+
+                    //noiDung = ((DataRowView)bdsChiTietBaiThi[i])["NOIDUNG"].ToString();
+                    //A = ((DataRowView)bdsChiTietBaiThi[i])["A"].ToString();
+                    //B = ((DataRowView)bdsChiTietBaiThi[i])["B"].ToString();
+                    //C = ((DataRowView)bdsChiTietBaiThi[i])["C"].ToString();
+                    //D = ((DataRowView)bdsChiTietBaiThi[i])["D"].ToString();
+                    //dapAnCH = ((DataRowView)bdsChiTietBaiThi[i])["DAP_AN"].ToString();
+
+                    //strLenh1 = "INSERT INTO CHITIET_BAITHI (MABD, CAUHOI, NOIDUNG, A, B, C, D, DAP_AN, TRALOI) VALUES(" + maBD + " , " + cauHoi + ", '" + noiDung + "' , '" + A + "' , '" + B + "' , '" + C + "' , '" + D + "' , '" + dapAnCH + "' , '" + traLoi + "')";
+                    //Program.myReader = Program.ExecSqlDataReader(strLenh1);
+                    //Program.myReader.Read();
+                    //Program.myReader.Close();
+                }
+
+                Program.conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Lỗi ghi Chi tiết bài thi  "+ e.Message, "", MessageBoxButtons.OK);
+                return;
+            }
         }
 
         private void ThemVaoBangDiem(float diem)
@@ -311,6 +315,8 @@ namespace CSDLPT
             Program.myReader.Read();
             Program.myReader.Close();
             Program.conn.Close();
+
+            ThemVaoChiTietBaiThi(); 
         }
 
         private void TinhDiem()
@@ -323,7 +329,16 @@ namespace CSDLPT
                     cauDung = cauDung + 1;
                 }
             }
-            ThemVaoBangDiem(((float)cauDung / Int32.Parse(bdsChiTietBaiThi.Count.ToString())) * 10);
+
+            if (Program.mGroup == "Sinhvien")
+            {
+                ThemVaoBangDiem(((float)cauDung / Int32.Parse(bdsChiTietBaiThi.Count.ToString())) * 10);
+            }
+            else
+            {
+                btnXemKetQua.Enabled = false;
+            }
+
             MessageBox.Show("Điểm số của bạn là :" + ((float)cauDung / Int32.Parse(bdsChiTietBaiThi.Count.ToString())) * 10
                 + "\nSố câu đúng: " + cauDung
                 + "\nTổng số câu hỏi: " + Int32.Parse(bdsChiTietBaiThi.Count.ToString()),
@@ -335,7 +350,7 @@ namespace CSDLPT
         {
             XoaChon();
             cau = Int32.Parse(bindingNavigatorPositionItem.Text);
-            lbCau.Text = "Câu " + (cau ) + ":";
+            lbCau.Text = "Câu " + (cau) + ":";
             DaChon();
         }
 
@@ -402,16 +417,17 @@ namespace CSDLPT
 
         private void btnXemKetQua_Click(object sender, EventArgs e)
         {
-            //if (!KTDaThi())
-            //{
-                frmXemKetQua f = new frmXemKetQua();
-                f.ShowDialog();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Bạn chưa thi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            //    return;
-            //}
+            frmXemKetQua f = new frmXemKetQua();
+            f.ShowDialog();
+        }
+
+        private void cmbTenLop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMaLop.Text = cmbTenLop.SelectedValue.ToString();
+            }
+            catch(Exception) { }
         }
 
         private void rbtnD_CheckedChanged(object sender, EventArgs e)

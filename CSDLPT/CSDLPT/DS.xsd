@@ -2,7 +2,7 @@
 <xs:schema id="DS" targetNamespace="http://tempuri.org/DS.xsd" xmlns:mstns="http://tempuri.org/DS.xsd" xmlns="http://tempuri.org/DS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TRACNGHIEMConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TRACNGHIEMConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CSDLPT.Properties.Settings.GlobalReference.Default.TRACNGHIEMConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -758,17 +758,531 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DSPMTableAdapter" GeneratorDataComponentClassName="V_DSPMTableAdapter" Name="V_DSPM" UserDataComponentName="V_DSPMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.V_DSPM" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT TENCS, TENSERVER FROM dbo.V_DSPM</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TENCS" DataSetColumn="TENCS" />
+              <Mapping SourceColumn="TENSERVER" DataSetColumn="TENSERVER" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DSGVChuaCoTaiKhoanTableAdapter" GeneratorDataComponentClassName="V_DSGVChuaCoTaiKhoanTableAdapter" Name="V_DSGVChuaCoTaiKhoan" UserDataComponentName="V_DSGVChuaCoTaiKhoanTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.V_DSGVChuaCoTaiKhoan" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT MAGV, HOTEN FROM dbo.V_DSGVChuaCoTaiKhoan</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAGV" DataSetColumn="MAGV" />
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DSSVTableAdapter" GeneratorDataComponentClassName="DSSVTableAdapter" Name="DSSV" UserDataComponentName="DSSVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SINHVIEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MASV, HOTEN = HO + ' ' + TEN FROM SINHVIEN</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MASV" DataSetColumn="MASV" />
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_DangNhapGiangVienTableAdapter" GeneratorDataComponentClassName="SP_DangNhapGiangVienTableAdapter" Name="SP_DangNhapGiangVien" UserDataComponentName="SP_DangNhapGiangVienTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_DangNhapGiangVien" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_DangNhapGiangVien</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@TENLOGIN" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+              <Mapping SourceColumn="TENNHOM" DataSetColumn="TENNHOM" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_DangNhapSinhVienTableAdapter" GeneratorDataComponentClassName="SP_DangNhapSinhVienTableAdapter" Name="SP_DangNhapSinhVien" UserDataComponentName="SP_DangNhapSinhVienTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_DangNhapSinhVien" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_DangNhapSinhVien</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@TENLOGIN" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+              <Mapping SourceColumn="TENNHOM" DataSetColumn="TENNHOM" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraDangKyTableAdapter" GeneratorDataComponentClassName="SP_KiemTraDangKyTableAdapter" Name="SP_KiemTraDangKy" UserDataComponentName="SP_KiemTraDangKyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraDangKy" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraDangKy</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAGV" DataSetColumn="MAGV" />
+              <Mapping SourceColumn="MAMH" DataSetColumn="MAMH" />
+              <Mapping SourceColumn="MALOP" DataSetColumn="MALOP" />
+              <Mapping SourceColumn="TRINHDO" DataSetColumn="TRINHDO" />
+              <Mapping SourceColumn="NGAYTHI" DataSetColumn="NGAYTHI" />
+              <Mapping SourceColumn="LAN" DataSetColumn="LAN" />
+              <Mapping SourceColumn="SOCAUTHI" DataSetColumn="SOCAUTHI" />
+              <Mapping SourceColumn="THOIGIAN" DataSetColumn="THOIGIAN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraDaThiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraDaThiTableAdapter" Name="SP_KiemTraDaThi" UserDataComponentName="SP_KiemTraDaThiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraDaThi" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraDaThi</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+              <Mapping SourceColumn="MABD" DataSetColumn="MABD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraGVTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraGVTonTaiTableAdapter" Name="SP_KiemTraGVTonTai" UserDataComponentName="SP_KiemTraGVTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraGVTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraGVTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAGV" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraKhoaTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraKhoaTonTaiTableAdapter" Name="SP_KiemTraKhoaTonTai" UserDataComponentName="SP_KiemTraKhoaTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraKhoaTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraKhoaTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAKH" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraLopTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraLopTonTaiTableAdapter" Name="SP_KiemTraLopTonTai" UserDataComponentName="SP_KiemTraLopTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraLopTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraLopTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraSVTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraSVTonTaiTableAdapter" Name="SP_KiemTraSVTonTai" UserDataComponentName="SP_KiemTraSVTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraSVTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraSVTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraTenKhoaTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraTenKhoaTonTaiTableAdapter" Name="SP_KiemTraTenKhoaTonTai" UserDataComponentName="SP_KiemTraTenKhoaTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraTenKhoaTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraTenKhoaTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@TENKH" Precision="0" ProviderType="NVarChar" Scale="0" Size="40" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KiemTraTenLopTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KiemTraTenLopTonTaiTableAdapter" Name="SP_KiemTraTenLopTonTai" UserDataComponentName="SP_KiemTraTenLopTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KiemTraTenLopTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KiemTraTenLopTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@TENLOP" Precision="0" ProviderType="NVarChar" Scale="0" Size="40" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTBANGDIEMTableAdapter" GeneratorDataComponentClassName="SP_KTBANGDIEMTableAdapter" Name="SP_KTBANGDIEM" UserDataComponentName="SP_KTBANGDIEMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTBANGDIEM" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTBANGDIEM</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTDKTableAdapter" GeneratorDataComponentClassName="SP_KTDKTableAdapter" Name="SP_KTDK" UserDataComponentName="SP_KTDKTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTDK" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTDK</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAGV" DataSetColumn="MAGV" />
+              <Mapping SourceColumn="MAMH" DataSetColumn="MAMH" />
+              <Mapping SourceColumn="MALOP" DataSetColumn="MALOP" />
+              <Mapping SourceColumn="TRINHDO" DataSetColumn="TRINHDO" />
+              <Mapping SourceColumn="NGAYTHI" DataSetColumn="NGAYTHI" />
+              <Mapping SourceColumn="LAN" DataSetColumn="LAN" />
+              <Mapping SourceColumn="SOCAUTHI" DataSetColumn="SOCAUTHI" />
+              <Mapping SourceColumn="THOIGIAN" DataSetColumn="THOIGIAN" />
+              <Mapping SourceColumn="rowguid" DataSetColumn="rowguid" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTGVDKTonTaiTableAdapter" GeneratorDataComponentClassName="SP_KTGVDKTonTaiTableAdapter" Name="SP_KTGVDKTonTai" UserDataComponentName="SP_KTGVDKTonTaiTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTGVDKTonTai" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTGVDKTonTai</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTSVThuocLopTableAdapter" GeneratorDataComponentClassName="SP_KTSVThuocLopTableAdapter" Name="SP_KTSVThuocLop" UserDataComponentName="SP_KTSVThuocLopTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTSVThuocLop" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTSVThuocLop</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTTrinhDoTableAdapter" GeneratorDataComponentClassName="SP_KTTrinhDoTableAdapter" Name="SP_KTTrinhDo" UserDataComponentName="SP_KTTrinhDoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTTrinhDo" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTTrinhDo</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@TRINHDO" Precision="0" ProviderType="NChar" Scale="0" Size="1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_LayThongTinSVTableAdapter" GeneratorDataComponentClassName="SP_LayThongTinSVTableAdapter" Name="SP_LayThongTinSV" UserDataComponentName="SP_LayThongTinSVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_LayThongTinSV" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_LayThongTinSV</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@X" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MALOP" DataSetColumn="MALOP" />
+              <Mapping SourceColumn="TENLOP" DataSetColumn="TENLOP" />
+              <Mapping SourceColumn="HO" DataSetColumn="HO" />
+              <Mapping SourceColumn="TEN" DataSetColumn="TEN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_SOCAUHOITableAdapter" GeneratorDataComponentClassName="SP_SOCAUHOITableAdapter" Name="SP_SOCAUHOI" UserDataComponentName="SP_SOCAUHOITableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_SOCAUHOI" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_SOCAUHOI</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Column1" DataSetColumn="Column1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_ThongTinSVTableAdapter" GeneratorDataComponentClassName="SP_ThongTinSVTableAdapter" Name="SP_ThongTinSV" UserDataComponentName="SP_ThongTinSVTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_ThongTinSV" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_ThongTinSV</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NVarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MALOP" DataSetColumn="MALOP" />
+              <Mapping SourceColumn="TENLOP" DataSetColumn="TENLOP" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_ThongTinXemKQTableAdapter" GeneratorDataComponentClassName="SP_ThongTinXemKQTableAdapter" Name="SP_ThongTinXemKQ" UserDataComponentName="SP_ThongTinXemKQTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_ThongTinXemKQ" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_ThongTinXemKQ</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@MABD" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NGAYTHI" DataSetColumn="NGAYTHI" />
+              <Mapping SourceColumn="LAN" DataSetColumn="LAN" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_TimKiemMHTableAdapter" GeneratorDataComponentClassName="SP_TimKiemMHTableAdapter" Name="SP_TimKiemMH" UserDataComponentName="SP_TimKiemMHTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_TimKiemMH" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_TimKiemMH</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_TimKiemTenMHTableAdapter" GeneratorDataComponentClassName="SP_TimKiemTenMHTableAdapter" Name="SP_TimKiemTenMH" UserDataComponentName="SP_TimKiemTenMHTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_TimKiemTenMH" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_TimKiemTenMH</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@TENMH" Precision="0" ProviderType="NVarChar" Scale="0" Size="40" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_XemBangDiemTableAdapter" GeneratorDataComponentClassName="SP_XemBangDiemTableAdapter" Name="SP_XemBangDiem" UserDataComponentName="SP_XemBangDiemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_XemBangDiem" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_XemBangDiem</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="smallint" DbType="Int16" Direction="Input" ParameterName="@LAN" Precision="5" ProviderType="SmallInt" Scale="0" Size="2" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MASV" DataSetColumn="MASV" />
+              <Mapping SourceColumn="HOTEN" DataSetColumn="HOTEN" />
+              <Mapping SourceColumn="DIEM" DataSetColumn="DIEM" />
+              <Mapping SourceColumn="DIEMCHU" DataSetColumn="DIEMCHU" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_XemKetQuaTableAdapter" GeneratorDataComponentClassName="SP_XemKetQuaTableAdapter" Name="SP_XemKetQua" UserDataComponentName="SP_XemKetQuaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_XemKetQua" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_XemKetQua" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.SP_XemKetQua</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MALOP" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MASV" Precision="0" ProviderType="NChar" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@MABD" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -786,15 +1300,142 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_XemDSDangKyTableAdapter" GeneratorDataComponentClassName="SP_XemDSDangKyTableAdapter" Name="SP_XemDSDangKy" UserDataComponentName="SP_XemDSDangKyTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_XemDSDangKy" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_XemDSDangKy</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@TUNGAY" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="datetime" DbType="DateTime" Direction="Input" ParameterName="@DENNGAY" Precision="23" ProviderType="DateTime" Scale="3" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="TENLOP" DataSetColumn="TENLOP" />
+              <Mapping SourceColumn="TENMH" DataSetColumn="TENMH" />
+              <Mapping SourceColumn="HOTENGV" DataSetColumn="HOTENGV" />
+              <Mapping SourceColumn="SOCAUTHI" DataSetColumn="SOCAUTHI" />
+              <Mapping SourceColumn="NGAYTHI" DataSetColumn="NGAYTHI" />
+              <Mapping SourceColumn="DATHI" DataSetColumn="DATHI" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTBoDeNoiDungTableAdapter" GeneratorDataComponentClassName="SP_KTBoDeNoiDungTableAdapter" Name="SP_KTBoDeNoiDung" UserDataComponentName="SP_KTBoDeNoiDungTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTBoDeNoiDung" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTBoDeNoiDung</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@NOIDUNG" Precision="0" ProviderType="NVarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@A" Precision="0" ProviderType="NVarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@B" Precision="0" ProviderType="NVarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@C" Precision="0" ProviderType="NVarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nvarchar" DbType="String" Direction="Input" ParameterName="@D" Precision="0" ProviderType="NVarChar" Scale="0" Size="2147483647" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_TimKiemMaBoDeTableAdapter" GeneratorDataComponentClassName="SP_TimKiemMaBoDeTableAdapter" Name="SP_TimKiemMaBoDe" UserDataComponentName="SP_TimKiemMaBoDeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_TimKiemMaBoDe" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_TimKiemMaBoDe</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@CAUHOI" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Result" DataSetColumn="Result" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_KTSoCauTableAdapter" GeneratorDataComponentClassName="SP_KTSoCauTableAdapter" Name="SP_KTSoCau" UserDataComponentName="SP_KTSoCauTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_KTSoCau" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.SP_KTSoCau</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@TRINHDO" Precision="0" ProviderType="NChar" Scale="0" Size="1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SOCAU" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="RESULT" DataSetColumn="RESULT" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
-        <Sources />
+        <Sources>
+          <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.KiemTraMonHocDaThi" DbObjectType="Function" GenerateShortCommands="true" GeneratorSourceName="KiemTraMonHocDaThi" MethodsParameterType="CLR" Modifier="Public" Name="KiemTraMonHocDaThi" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="KiemTraMonHocDaThi">
+            <SelectCommand>
+              <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                <CommandText>dbo.KiemTraMonHocDaThi</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+          <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_TaoTaiKhoan" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="SP_TaoTaiKhoan" MethodsParameterType="CLR" Modifier="Public" Name="SP_TaoTaiKhoan" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="SP_TaoTaiKhoan">
+            <SelectCommand>
+              <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                <CommandText>dbo.SP_TaoTaiKhoan</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@LGNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@PASS" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@USERNAME" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="varchar" DbType="AnsiString" Direction="Input" ParameterName="@ROLE" Precision="0" ProviderType="VarChar" Scale="0" Size="50" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+          <DbSource ConnectionRef="TRACNGHIEMConnectionString (Settings)" DbObjectName="TRACNGHIEM.dbo.SP_Thi" DbObjectType="StoredProcedure" GenerateShortCommands="true" GeneratorSourceName="SP_Thi" MethodsParameterType="CLR" Modifier="Public" Name="SP_Thi" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="SP_Thi">
+            <SelectCommand>
+              <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                <CommandText>dbo.SP_Thi</CommandText>
+                <Parameters>
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@TRINHDO" Precision="0" ProviderType="NChar" Scale="0" Size="1" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="nchar" DbType="StringFixedLength" Direction="Input" ParameterName="@MAMH" Precision="0" ProviderType="NChar" Scale="0" Size="5" SourceColumnNullMapping="false" SourceVersion="Current" />
+                  <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SOCAU" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                </Parameters>
+              </DbCommand>
+            </SelectCommand>
+          </DbSource>
+        </Sources>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
   <xs:element name="DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS" msprop:Generator_UserDSName="DS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="BANGDIEM" msprop:Generator_TableClassName="BANGDIEMDataTable" msprop:Generator_TableVarName="tableBANGDIEM" msprop:Generator_RowChangedName="BANGDIEMRowChanged" msprop:Generator_TablePropName="BANGDIEM" msprop:Generator_RowDeletingName="BANGDIEMRowDeleting" msprop:Generator_RowChangingName="BANGDIEMRowChanging" msprop:Generator_RowEvHandlerName="BANGDIEMRowChangeEventHandler" msprop:Generator_RowDeletedName="BANGDIEMRowDeleted" msprop:Generator_RowClassName="BANGDIEMRow" msprop:Generator_UserTableName="BANGDIEM" msprop:Generator_RowEvArgName="BANGDIEMRowChangeEvent">
+        <xs:element name="BANGDIEM" msprop:Generator_TableClassName="BANGDIEMDataTable" msprop:Generator_TableVarName="tableBANGDIEM" msprop:Generator_TablePropName="BANGDIEM" msprop:Generator_RowDeletingName="BANGDIEMRowDeleting" msprop:Generator_RowChangingName="BANGDIEMRowChanging" msprop:Generator_RowEvHandlerName="BANGDIEMRowChangeEventHandler" msprop:Generator_RowDeletedName="BANGDIEMRowDeleted" msprop:Generator_UserTableName="BANGDIEM" msprop:Generator_RowChangedName="BANGDIEMRowChanged" msprop:Generator_RowEvArgName="BANGDIEMRowChangeEvent" msprop:Generator_RowClassName="BANGDIEMRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
@@ -818,7 +1459,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BODE" msprop:Generator_TableClassName="BODEDataTable" msprop:Generator_TableVarName="tableBODE" msprop:Generator_RowChangedName="BODERowChanged" msprop:Generator_TablePropName="BODE" msprop:Generator_RowDeletingName="BODERowDeleting" msprop:Generator_RowChangingName="BODERowChanging" msprop:Generator_RowEvHandlerName="BODERowChangeEventHandler" msprop:Generator_RowDeletedName="BODERowDeleted" msprop:Generator_RowClassName="BODERow" msprop:Generator_UserTableName="BODE" msprop:Generator_RowEvArgName="BODERowChangeEvent">
+        <xs:element name="BODE" msprop:Generator_TableClassName="BODEDataTable" msprop:Generator_TableVarName="tableBODE" msprop:Generator_TablePropName="BODE" msprop:Generator_RowDeletingName="BODERowDeleting" msprop:Generator_RowChangingName="BODERowChanging" msprop:Generator_RowEvHandlerName="BODERowChangeEventHandler" msprop:Generator_RowDeletedName="BODERowDeleted" msprop:Generator_UserTableName="BODE" msprop:Generator_RowChangedName="BODERowChanged" msprop:Generator_RowEvArgName="BODERowChangeEvent" msprop:Generator_RowClassName="BODERow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CAUHOI" msprop:Generator_ColumnVarNameInTable="columnCAUHOI" msprop:Generator_ColumnPropNameInRow="CAUHOI" msprop:Generator_ColumnPropNameInTable="CAUHOIColumn" msprop:Generator_UserColumnName="CAUHOI" type="xs:int" />
@@ -888,7 +1529,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CHITIET_BAITHI" msprop:Generator_TableClassName="CHITIET_BAITHIDataTable" msprop:Generator_TableVarName="tableCHITIET_BAITHI" msprop:Generator_RowChangedName="CHITIET_BAITHIRowChanged" msprop:Generator_TablePropName="CHITIET_BAITHI" msprop:Generator_RowDeletingName="CHITIET_BAITHIRowDeleting" msprop:Generator_RowChangingName="CHITIET_BAITHIRowChanging" msprop:Generator_RowEvHandlerName="CHITIET_BAITHIRowChangeEventHandler" msprop:Generator_RowDeletedName="CHITIET_BAITHIRowDeleted" msprop:Generator_RowClassName="CHITIET_BAITHIRow" msprop:Generator_UserTableName="CHITIET_BAITHI" msprop:Generator_RowEvArgName="CHITIET_BAITHIRowChangeEvent">
+        <xs:element name="CHITIET_BAITHI" msprop:Generator_TableClassName="CHITIET_BAITHIDataTable" msprop:Generator_TableVarName="tableCHITIET_BAITHI" msprop:Generator_TablePropName="CHITIET_BAITHI" msprop:Generator_RowDeletingName="CHITIET_BAITHIRowDeleting" msprop:Generator_RowChangingName="CHITIET_BAITHIRowChanging" msprop:Generator_RowEvHandlerName="CHITIET_BAITHIRowChangeEventHandler" msprop:Generator_RowDeletedName="CHITIET_BAITHIRowDeleted" msprop:Generator_UserTableName="CHITIET_BAITHI" msprop:Generator_RowChangedName="CHITIET_BAITHIRowChanged" msprop:Generator_RowEvArgName="CHITIET_BAITHIRowChangeEvent" msprop:Generator_RowClassName="CHITIET_BAITHIRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MACAUHOI" msprop:Generator_ColumnVarNameInTable="columnMACAUHOI" msprop:Generator_ColumnPropNameInRow="MACAUHOI" msprop:Generator_ColumnPropNameInTable="MACAUHOIColumn" msprop:Generator_UserColumnName="MACAUHOI" type="xs:int" />
@@ -946,7 +1587,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="COSO" msprop:Generator_TableClassName="COSODataTable" msprop:Generator_TableVarName="tableCOSO" msprop:Generator_RowChangedName="COSORowChanged" msprop:Generator_TablePropName="COSO" msprop:Generator_RowDeletingName="COSORowDeleting" msprop:Generator_RowChangingName="COSORowChanging" msprop:Generator_RowEvHandlerName="COSORowChangeEventHandler" msprop:Generator_RowDeletedName="COSORowDeleted" msprop:Generator_RowClassName="COSORow" msprop:Generator_UserTableName="COSO" msprop:Generator_RowEvArgName="COSORowChangeEvent">
+        <xs:element name="COSO" msprop:Generator_TableClassName="COSODataTable" msprop:Generator_TableVarName="tableCOSO" msprop:Generator_TablePropName="COSO" msprop:Generator_RowDeletingName="COSORowDeleting" msprop:Generator_RowChangingName="COSORowChanging" msprop:Generator_RowEvHandlerName="COSORowChangeEventHandler" msprop:Generator_RowDeletedName="COSORowDeleted" msprop:Generator_UserTableName="COSO" msprop:Generator_RowChangedName="COSORowChanged" msprop:Generator_RowEvArgName="COSORowChangeEvent" msprop:Generator_RowClassName="COSORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MACS" msprop:Generator_ColumnVarNameInTable="columnMACS" msprop:Generator_ColumnPropNameInRow="MACS" msprop:Generator_ColumnPropNameInTable="MACSColumn" msprop:Generator_UserColumnName="MACS">
@@ -973,7 +1614,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GIAOVIEN" msprop:Generator_TableClassName="GIAOVIENDataTable" msprop:Generator_TableVarName="tableGIAOVIEN" msprop:Generator_RowChangedName="GIAOVIENRowChanged" msprop:Generator_TablePropName="GIAOVIEN" msprop:Generator_RowDeletingName="GIAOVIENRowDeleting" msprop:Generator_RowChangingName="GIAOVIENRowChanging" msprop:Generator_RowEvHandlerName="GIAOVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="GIAOVIENRowDeleted" msprop:Generator_RowClassName="GIAOVIENRow" msprop:Generator_UserTableName="GIAOVIEN" msprop:Generator_RowEvArgName="GIAOVIENRowChangeEvent">
+        <xs:element name="GIAOVIEN" msprop:Generator_TableClassName="GIAOVIENDataTable" msprop:Generator_TableVarName="tableGIAOVIEN" msprop:Generator_TablePropName="GIAOVIEN" msprop:Generator_RowDeletingName="GIAOVIENRowDeleting" msprop:Generator_RowChangingName="GIAOVIENRowChanging" msprop:Generator_RowEvHandlerName="GIAOVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="GIAOVIENRowDeleted" msprop:Generator_UserTableName="GIAOVIEN" msprop:Generator_RowChangedName="GIAOVIENRowChanged" msprop:Generator_RowEvArgName="GIAOVIENRowChangeEvent" msprop:Generator_RowClassName="GIAOVIENRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
@@ -1021,7 +1662,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GIAOVIEN_DANGKY" msprop:Generator_TableClassName="GIAOVIEN_DANGKYDataTable" msprop:Generator_TableVarName="tableGIAOVIEN_DANGKY" msprop:Generator_RowChangedName="GIAOVIEN_DANGKYRowChanged" msprop:Generator_TablePropName="GIAOVIEN_DANGKY" msprop:Generator_RowDeletingName="GIAOVIEN_DANGKYRowDeleting" msprop:Generator_RowChangingName="GIAOVIEN_DANGKYRowChanging" msprop:Generator_RowEvHandlerName="GIAOVIEN_DANGKYRowChangeEventHandler" msprop:Generator_RowDeletedName="GIAOVIEN_DANGKYRowDeleted" msprop:Generator_RowClassName="GIAOVIEN_DANGKYRow" msprop:Generator_UserTableName="GIAOVIEN_DANGKY" msprop:Generator_RowEvArgName="GIAOVIEN_DANGKYRowChangeEvent">
+        <xs:element name="GIAOVIEN_DANGKY" msprop:Generator_TableClassName="GIAOVIEN_DANGKYDataTable" msprop:Generator_TableVarName="tableGIAOVIEN_DANGKY" msprop:Generator_TablePropName="GIAOVIEN_DANGKY" msprop:Generator_RowDeletingName="GIAOVIEN_DANGKYRowDeleting" msprop:Generator_RowChangingName="GIAOVIEN_DANGKYRowChanging" msprop:Generator_RowEvHandlerName="GIAOVIEN_DANGKYRowChangeEventHandler" msprop:Generator_RowDeletedName="GIAOVIEN_DANGKYRowDeleted" msprop:Generator_UserTableName="GIAOVIEN_DANGKY" msprop:Generator_RowChangedName="GIAOVIEN_DANGKYRowChanged" msprop:Generator_RowEvArgName="GIAOVIEN_DANGKYRowChangeEvent" msprop:Generator_RowClassName="GIAOVIEN_DANGKYRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
@@ -1059,7 +1700,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="KHOA" msprop:Generator_TableClassName="KHOADataTable" msprop:Generator_TableVarName="tableKHOA" msprop:Generator_RowChangedName="KHOARowChanged" msprop:Generator_TablePropName="KHOA" msprop:Generator_RowDeletingName="KHOARowDeleting" msprop:Generator_RowChangingName="KHOARowChanging" msprop:Generator_RowEvHandlerName="KHOARowChangeEventHandler" msprop:Generator_RowDeletedName="KHOARowDeleted" msprop:Generator_RowClassName="KHOARow" msprop:Generator_UserTableName="KHOA" msprop:Generator_RowEvArgName="KHOARowChangeEvent">
+        <xs:element name="KHOA" msprop:Generator_TableClassName="KHOADataTable" msprop:Generator_TableVarName="tableKHOA" msprop:Generator_TablePropName="KHOA" msprop:Generator_RowDeletingName="KHOARowDeleting" msprop:Generator_RowChangingName="KHOARowChanging" msprop:Generator_RowEvHandlerName="KHOARowChangeEventHandler" msprop:Generator_RowDeletedName="KHOARowDeleted" msprop:Generator_UserTableName="KHOA" msprop:Generator_RowChangedName="KHOARowChanged" msprop:Generator_RowEvArgName="KHOARowChangeEvent" msprop:Generator_RowClassName="KHOARow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAKH" msprop:Generator_ColumnVarNameInTable="columnMAKH" msprop:Generator_ColumnPropNameInRow="MAKH" msprop:Generator_ColumnPropNameInTable="MAKHColumn" msprop:Generator_UserColumnName="MAKH">
@@ -1086,7 +1727,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LOP" msprop:Generator_TableClassName="LOPDataTable" msprop:Generator_TableVarName="tableLOP" msprop:Generator_RowChangedName="LOPRowChanged" msprop:Generator_TablePropName="LOP" msprop:Generator_RowDeletingName="LOPRowDeleting" msprop:Generator_RowChangingName="LOPRowChanging" msprop:Generator_RowEvHandlerName="LOPRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPRowDeleted" msprop:Generator_RowClassName="LOPRow" msprop:Generator_UserTableName="LOP" msprop:Generator_RowEvArgName="LOPRowChangeEvent">
+        <xs:element name="LOP" msprop:Generator_TableClassName="LOPDataTable" msprop:Generator_TableVarName="tableLOP" msprop:Generator_TablePropName="LOP" msprop:Generator_RowDeletingName="LOPRowDeleting" msprop:Generator_RowChangingName="LOPRowChanging" msprop:Generator_RowEvHandlerName="LOPRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPRowDeleted" msprop:Generator_UserTableName="LOP" msprop:Generator_RowChangedName="LOPRowChanged" msprop:Generator_RowEvArgName="LOPRowChangeEvent" msprop:Generator_RowClassName="LOPRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MALOP" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP">
@@ -1113,7 +1754,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MONHOC" msprop:Generator_TableClassName="MONHOCDataTable" msprop:Generator_TableVarName="tableMONHOC" msprop:Generator_RowChangedName="MONHOCRowChanged" msprop:Generator_TablePropName="MONHOC" msprop:Generator_RowDeletingName="MONHOCRowDeleting" msprop:Generator_RowChangingName="MONHOCRowChanging" msprop:Generator_RowEvHandlerName="MONHOCRowChangeEventHandler" msprop:Generator_RowDeletedName="MONHOCRowDeleted" msprop:Generator_RowClassName="MONHOCRow" msprop:Generator_UserTableName="MONHOC" msprop:Generator_RowEvArgName="MONHOCRowChangeEvent">
+        <xs:element name="MONHOC" msprop:Generator_TableClassName="MONHOCDataTable" msprop:Generator_TableVarName="tableMONHOC" msprop:Generator_TablePropName="MONHOC" msprop:Generator_RowDeletingName="MONHOCRowDeleting" msprop:Generator_RowChangingName="MONHOCRowChanging" msprop:Generator_RowEvHandlerName="MONHOCRowChangeEventHandler" msprop:Generator_RowDeletedName="MONHOCRowDeleted" msprop:Generator_UserTableName="MONHOC" msprop:Generator_RowChangedName="MONHOCRowChanged" msprop:Generator_RowEvArgName="MONHOCRowChangeEvent" msprop:Generator_RowClassName="MONHOCRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAMH" msprop:Generator_ColumnVarNameInTable="columnMAMH" msprop:Generator_ColumnPropNameInRow="MAMH" msprop:Generator_ColumnPropNameInTable="MAMHColumn" msprop:Generator_UserColumnName="MAMH">
@@ -1133,7 +1774,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="SINHVIEN" msprop:Generator_TableClassName="SINHVIENDataTable" msprop:Generator_TableVarName="tableSINHVIEN" msprop:Generator_RowChangedName="SINHVIENRowChanged" msprop:Generator_TablePropName="SINHVIEN" msprop:Generator_RowDeletingName="SINHVIENRowDeleting" msprop:Generator_RowChangingName="SINHVIENRowChanging" msprop:Generator_RowEvHandlerName="SINHVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="SINHVIENRowDeleted" msprop:Generator_RowClassName="SINHVIENRow" msprop:Generator_UserTableName="SINHVIEN" msprop:Generator_RowEvArgName="SINHVIENRowChangeEvent">
+        <xs:element name="SINHVIEN" msprop:Generator_TableClassName="SINHVIENDataTable" msprop:Generator_TableVarName="tableSINHVIEN" msprop:Generator_TablePropName="SINHVIEN" msprop:Generator_RowDeletingName="SINHVIENRowDeleting" msprop:Generator_RowChangingName="SINHVIENRowChanging" msprop:Generator_RowEvHandlerName="SINHVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="SINHVIENRowDeleted" msprop:Generator_UserTableName="SINHVIEN" msprop:Generator_RowChangedName="SINHVIENRowChanged" msprop:Generator_RowEvArgName="SINHVIENRowChangeEvent" msprop:Generator_RowClassName="SINHVIENRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
@@ -1175,7 +1816,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DSKHOA" msprop:Generator_TableClassName="DSKHOADataTable" msprop:Generator_TableVarName="tableDSKHOA" msprop:Generator_TablePropName="DSKHOA" msprop:Generator_RowDeletingName="DSKHOARowDeleting" msprop:Generator_RowChangingName="DSKHOARowChanging" msprop:Generator_RowEvHandlerName="DSKHOARowChangeEventHandler" msprop:Generator_RowDeletedName="DSKHOARowDeleted" msprop:Generator_UserTableName="DSKHOA" msprop:Generator_RowChangedName="DSKHOARowChanged" msprop:Generator_RowEvArgName="DSKHOARowChangeEvent" msprop:Generator_RowClassName="DSKHOARow">
+        <xs:element name="DSKHOA" msprop:Generator_TableClassName="DSKHOADataTable" msprop:Generator_TableVarName="tableDSKHOA" msprop:Generator_RowChangedName="DSKHOARowChanged" msprop:Generator_TablePropName="DSKHOA" msprop:Generator_RowDeletingName="DSKHOARowDeleting" msprop:Generator_RowChangingName="DSKHOARowChanging" msprop:Generator_RowEvHandlerName="DSKHOARowChangeEventHandler" msprop:Generator_RowDeletedName="DSKHOARowDeleted" msprop:Generator_RowClassName="DSKHOARow" msprop:Generator_UserTableName="DSKHOA" msprop:Generator_RowEvArgName="DSKHOARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TENKH" msprop:Generator_ColumnVarNameInTable="columnTENKH" msprop:Generator_ColumnPropNameInRow="TENKH" msprop:Generator_ColumnPropNameInTable="TENKHColumn" msprop:Generator_UserColumnName="TENKH" minOccurs="0">
@@ -1195,7 +1836,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DSGV" msprop:Generator_TableClassName="DSGVDataTable" msprop:Generator_TableVarName="tableDSGV" msprop:Generator_RowChangedName="DSGVRowChanged" msprop:Generator_TablePropName="DSGV" msprop:Generator_RowDeletingName="DSGVRowDeleting" msprop:Generator_RowChangingName="DSGVRowChanging" msprop:Generator_RowEvHandlerName="DSGVRowChangeEventHandler" msprop:Generator_RowDeletedName="DSGVRowDeleted" msprop:Generator_RowClassName="DSGVRow" msprop:Generator_UserTableName="DSGV" msprop:Generator_RowEvArgName="DSGVRowChangeEvent">
+        <xs:element name="DSGV" msprop:Generator_TableClassName="DSGVDataTable" msprop:Generator_TableVarName="tableDSGV" msprop:Generator_TablePropName="DSGV" msprop:Generator_RowDeletingName="DSGVRowDeleting" msprop:Generator_RowChangingName="DSGVRowChanging" msprop:Generator_RowEvHandlerName="DSGVRowChangeEventHandler" msprop:Generator_RowDeletedName="DSGVRowDeleted" msprop:Generator_UserTableName="DSGV" msprop:Generator_RowChangedName="DSGVRowChanged" msprop:Generator_RowEvArgName="DSGVRowChangeEvent" msprop:Generator_RowClassName="DSGVRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
@@ -1215,7 +1856,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DSMH" msprop:Generator_TableClassName="DSMHDataTable" msprop:Generator_TableVarName="tableDSMH" msprop:Generator_TablePropName="DSMH" msprop:Generator_RowDeletingName="DSMHRowDeleting" msprop:Generator_RowChangingName="DSMHRowChanging" msprop:Generator_RowEvHandlerName="DSMHRowChangeEventHandler" msprop:Generator_RowDeletedName="DSMHRowDeleted" msprop:Generator_UserTableName="DSMH" msprop:Generator_RowChangedName="DSMHRowChanged" msprop:Generator_RowEvArgName="DSMHRowChangeEvent" msprop:Generator_RowClassName="DSMHRow">
+        <xs:element name="DSMH" msprop:Generator_TableClassName="DSMHDataTable" msprop:Generator_TableVarName="tableDSMH" msprop:Generator_RowChangedName="DSMHRowChanged" msprop:Generator_TablePropName="DSMH" msprop:Generator_RowDeletingName="DSMHRowDeleting" msprop:Generator_RowChangingName="DSMHRowChanging" msprop:Generator_RowEvHandlerName="DSMHRowChangeEventHandler" msprop:Generator_RowDeletedName="DSMHRowDeleted" msprop:Generator_RowClassName="DSMHRow" msprop:Generator_UserTableName="DSMH" msprop:Generator_RowEvArgName="DSMHRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TENMH" msprop:Generator_ColumnVarNameInTable="columnTENMH" msprop:Generator_ColumnPropNameInRow="TENMH" msprop:Generator_ColumnPropNameInTable="TENMHColumn" msprop:Generator_UserColumnName="TENMH" minOccurs="0">
@@ -1235,7 +1876,7 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DSLOP" msprop:Generator_TableClassName="DSLOPDataTable" msprop:Generator_TableVarName="tableDSLOP" msprop:Generator_TablePropName="DSLOP" msprop:Generator_RowDeletingName="DSLOPRowDeleting" msprop:Generator_RowChangingName="DSLOPRowChanging" msprop:Generator_RowEvHandlerName="DSLOPRowChangeEventHandler" msprop:Generator_RowDeletedName="DSLOPRowDeleted" msprop:Generator_UserTableName="DSLOP" msprop:Generator_RowChangedName="DSLOPRowChanged" msprop:Generator_RowEvArgName="DSLOPRowChangeEvent" msprop:Generator_RowClassName="DSLOPRow">
+        <xs:element name="DSLOP" msprop:Generator_TableClassName="DSLOPDataTable" msprop:Generator_TableVarName="tableDSLOP" msprop:Generator_RowChangedName="DSLOPRowChanged" msprop:Generator_TablePropName="DSLOP" msprop:Generator_RowDeletingName="DSLOPRowDeleting" msprop:Generator_RowChangingName="DSLOPRowChanging" msprop:Generator_RowEvHandlerName="DSLOPRowChangeEventHandler" msprop:Generator_RowDeletedName="DSLOPRowDeleted" msprop:Generator_RowClassName="DSLOPRow" msprop:Generator_UserTableName="DSLOP" msprop:Generator_RowEvArgName="DSLOPRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TENLOP" msprop:Generator_ColumnVarNameInTable="columnTENLOP" msprop:Generator_ColumnPropNameInRow="TENLOP" msprop:Generator_ColumnPropNameInTable="TENLOPColumn" msprop:Generator_UserColumnName="TENLOP" minOccurs="0">
@@ -1249,6 +1890,386 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_DSPM" msprop:Generator_TableClassName="V_DSPMDataTable" msprop:Generator_TableVarName="tableV_DSPM" msprop:Generator_TablePropName="V_DSPM" msprop:Generator_RowDeletingName="V_DSPMRowDeleting" msprop:Generator_RowChangingName="V_DSPMRowChanging" msprop:Generator_RowEvHandlerName="V_DSPMRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DSPMRowDeleted" msprop:Generator_UserTableName="V_DSPM" msprop:Generator_RowChangedName="V_DSPMRowChanged" msprop:Generator_RowEvArgName="V_DSPMRowChangeEvent" msprop:Generator_RowClassName="V_DSPMRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TENCS" msprop:Generator_ColumnVarNameInTable="columnTENCS" msprop:Generator_ColumnPropNameInRow="TENCS" msprop:Generator_ColumnPropNameInTable="TENCSColumn" msprop:Generator_UserColumnName="TENCS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENSERVER" msprop:Generator_ColumnVarNameInTable="columnTENSERVER" msprop:Generator_ColumnPropNameInRow="TENSERVER" msprop:Generator_ColumnPropNameInTable="TENSERVERColumn" msprop:Generator_UserColumnName="TENSERVER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_DSGVChuaCoTaiKhoan" msprop:Generator_TableClassName="V_DSGVChuaCoTaiKhoanDataTable" msprop:Generator_TableVarName="tableV_DSGVChuaCoTaiKhoan" msprop:Generator_TablePropName="V_DSGVChuaCoTaiKhoan" msprop:Generator_RowDeletingName="V_DSGVChuaCoTaiKhoanRowDeleting" msprop:Generator_RowChangingName="V_DSGVChuaCoTaiKhoanRowChanging" msprop:Generator_RowEvHandlerName="V_DSGVChuaCoTaiKhoanRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DSGVChuaCoTaiKhoanRowDeleted" msprop:Generator_UserTableName="V_DSGVChuaCoTaiKhoan" msprop:Generator_RowChangedName="V_DSGVChuaCoTaiKhoanRowChanged" msprop:Generator_RowEvArgName="V_DSGVChuaCoTaiKhoanRowChangeEvent" msprop:Generator_RowClassName="V_DSGVChuaCoTaiKhoanRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="51" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DSSV" msprop:Generator_TableClassName="DSSVDataTable" msprop:Generator_TableVarName="tableDSSV" msprop:Generator_RowChangedName="DSSVRowChanged" msprop:Generator_TablePropName="DSSV" msprop:Generator_RowDeletingName="DSSVRowDeleting" msprop:Generator_RowChangingName="DSSVRowChanging" msprop:Generator_RowEvHandlerName="DSSVRowChangeEventHandler" msprop:Generator_RowDeletedName="DSSVRowDeleted" msprop:Generator_RowClassName="DSSVRow" msprop:Generator_UserTableName="DSSV" msprop:Generator_RowEvArgName="DSSVRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="51" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_DangNhapGiangVien" msprop:Generator_TableClassName="SP_DangNhapGiangVienDataTable" msprop:Generator_TableVarName="tableSP_DangNhapGiangVien" msprop:Generator_TablePropName="SP_DangNhapGiangVien" msprop:Generator_RowDeletingName="SP_DangNhapGiangVienRowDeleting" msprop:Generator_RowChangingName="SP_DangNhapGiangVienRowChanging" msprop:Generator_RowEvHandlerName="SP_DangNhapGiangVienRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_DangNhapGiangVienRowDeleted" msprop:Generator_UserTableName="SP_DangNhapGiangVien" msprop:Generator_RowChangedName="SP_DangNhapGiangVienRowChanged" msprop:Generator_RowEvArgName="SP_DangNhapGiangVienRowChangeEvent" msprop:Generator_RowClassName="SP_DangNhapGiangVienRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USERNAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="51" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENNHOM" msprop:Generator_ColumnVarNameInTable="columnTENNHOM" msprop:Generator_ColumnPropNameInRow="TENNHOM" msprop:Generator_ColumnPropNameInTable="TENNHOMColumn" msprop:Generator_UserColumnName="TENNHOM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_DangNhapSinhVien" msprop:Generator_TableClassName="SP_DangNhapSinhVienDataTable" msprop:Generator_TableVarName="tableSP_DangNhapSinhVien" msprop:Generator_TablePropName="SP_DangNhapSinhVien" msprop:Generator_RowDeletingName="SP_DangNhapSinhVienRowDeleting" msprop:Generator_RowChangingName="SP_DangNhapSinhVienRowChanging" msprop:Generator_RowEvHandlerName="SP_DangNhapSinhVienRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_DangNhapSinhVienRowDeleted" msprop:Generator_UserTableName="SP_DangNhapSinhVien" msprop:Generator_RowChangedName="SP_DangNhapSinhVienRowChanged" msprop:Generator_RowEvArgName="SP_DangNhapSinhVienRowChangeEvent" msprop:Generator_RowClassName="SP_DangNhapSinhVienRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USERNAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENNHOM" msprop:Generator_ColumnVarNameInTable="columnTENNHOM" msprop:Generator_ColumnPropNameInRow="TENNHOM" msprop:Generator_ColumnPropNameInTable="TENNHOMColumn" msprop:Generator_UserColumnName="TENNHOM">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraDangKy" msprop:Generator_TableClassName="SP_KiemTraDangKyDataTable" msprop:Generator_TableVarName="tableSP_KiemTraDangKy" msprop:Generator_TablePropName="SP_KiemTraDangKy" msprop:Generator_RowDeletingName="SP_KiemTraDangKyRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraDangKyRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraDangKyRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraDangKyRowDeleted" msprop:Generator_UserTableName="SP_KiemTraDangKy" msprop:Generator_RowChangedName="SP_KiemTraDangKyRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraDangKyRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraDangKyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAMH" msprop:Generator_ColumnVarNameInTable="columnMAMH" msprop:Generator_ColumnPropNameInRow="MAMH" msprop:Generator_ColumnPropNameInTable="MAMHColumn" msprop:Generator_UserColumnName="MAMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MALOP" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TRINHDO" msprop:Generator_ColumnVarNameInTable="columnTRINHDO" msprop:Generator_ColumnPropNameInRow="TRINHDO" msprop:Generator_ColumnPropNameInTable="TRINHDOColumn" msprop:Generator_UserColumnName="TRINHDO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGAYTHI" msprop:Generator_ColumnVarNameInTable="columnNGAYTHI" msprop:Generator_ColumnPropNameInRow="NGAYTHI" msprop:Generator_ColumnPropNameInTable="NGAYTHIColumn" msprop:Generator_UserColumnName="NGAYTHI" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAN" msprop:Generator_ColumnVarNameInTable="columnLAN" msprop:Generator_ColumnPropNameInRow="LAN" msprop:Generator_ColumnPropNameInTable="LANColumn" msprop:Generator_UserColumnName="LAN" type="xs:short" />
+              <xs:element name="SOCAUTHI" msprop:Generator_ColumnVarNameInTable="columnSOCAUTHI" msprop:Generator_ColumnPropNameInRow="SOCAUTHI" msprop:Generator_ColumnPropNameInTable="SOCAUTHIColumn" msprop:Generator_UserColumnName="SOCAUTHI" type="xs:short" minOccurs="0" />
+              <xs:element name="THOIGIAN" msprop:Generator_ColumnVarNameInTable="columnTHOIGIAN" msprop:Generator_ColumnPropNameInRow="THOIGIAN" msprop:Generator_ColumnPropNameInTable="THOIGIANColumn" msprop:Generator_UserColumnName="THOIGIAN" type="xs:short" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraDaThi" msprop:Generator_TableClassName="SP_KiemTraDaThiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraDaThi" msprop:Generator_TablePropName="SP_KiemTraDaThi" msprop:Generator_RowDeletingName="SP_KiemTraDaThiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraDaThiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraDaThiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraDaThiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraDaThi" msprop:Generator_RowChangedName="SP_KiemTraDaThiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraDaThiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraDaThiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+              <xs:element name="MABD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMABD" msprop:Generator_ColumnPropNameInRow="MABD" msprop:Generator_ColumnPropNameInTable="MABDColumn" msprop:Generator_UserColumnName="MABD" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraGVTonTai" msprop:Generator_TableClassName="SP_KiemTraGVTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraGVTonTai" msprop:Generator_TablePropName="SP_KiemTraGVTonTai" msprop:Generator_RowDeletingName="SP_KiemTraGVTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraGVTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraGVTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraGVTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraGVTonTai" msprop:Generator_RowChangedName="SP_KiemTraGVTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraGVTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraGVTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraKhoaTonTai" msprop:Generator_TableClassName="SP_KiemTraKhoaTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraKhoaTonTai" msprop:Generator_TablePropName="SP_KiemTraKhoaTonTai" msprop:Generator_RowDeletingName="SP_KiemTraKhoaTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraKhoaTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraKhoaTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraKhoaTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraKhoaTonTai" msprop:Generator_RowChangedName="SP_KiemTraKhoaTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraKhoaTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraKhoaTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraLopTonTai" msprop:Generator_TableClassName="SP_KiemTraLopTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraLopTonTai" msprop:Generator_TablePropName="SP_KiemTraLopTonTai" msprop:Generator_RowDeletingName="SP_KiemTraLopTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraLopTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraLopTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraLopTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraLopTonTai" msprop:Generator_RowChangedName="SP_KiemTraLopTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraLopTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraLopTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraSVTonTai" msprop:Generator_TableClassName="SP_KiemTraSVTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraSVTonTai" msprop:Generator_TablePropName="SP_KiemTraSVTonTai" msprop:Generator_RowDeletingName="SP_KiemTraSVTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraSVTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraSVTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraSVTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraSVTonTai" msprop:Generator_RowChangedName="SP_KiemTraSVTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraSVTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraSVTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraTenKhoaTonTai" msprop:Generator_TableClassName="SP_KiemTraTenKhoaTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraTenKhoaTonTai" msprop:Generator_TablePropName="SP_KiemTraTenKhoaTonTai" msprop:Generator_RowDeletingName="SP_KiemTraTenKhoaTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraTenKhoaTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraTenKhoaTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraTenKhoaTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraTenKhoaTonTai" msprop:Generator_RowChangedName="SP_KiemTraTenKhoaTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraTenKhoaTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraTenKhoaTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KiemTraTenLopTonTai" msprop:Generator_TableClassName="SP_KiemTraTenLopTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KiemTraTenLopTonTai" msprop:Generator_TablePropName="SP_KiemTraTenLopTonTai" msprop:Generator_RowDeletingName="SP_KiemTraTenLopTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KiemTraTenLopTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KiemTraTenLopTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KiemTraTenLopTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KiemTraTenLopTonTai" msprop:Generator_RowChangedName="SP_KiemTraTenLopTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KiemTraTenLopTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KiemTraTenLopTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTBANGDIEM" msprop:Generator_TableClassName="SP_KTBANGDIEMDataTable" msprop:Generator_TableVarName="tableSP_KTBANGDIEM" msprop:Generator_TablePropName="SP_KTBANGDIEM" msprop:Generator_RowDeletingName="SP_KTBANGDIEMRowDeleting" msprop:Generator_RowChangingName="SP_KTBANGDIEMRowChanging" msprop:Generator_RowEvHandlerName="SP_KTBANGDIEMRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTBANGDIEMRowDeleted" msprop:Generator_UserTableName="SP_KTBANGDIEM" msprop:Generator_RowChangedName="SP_KTBANGDIEMRowChanged" msprop:Generator_RowEvArgName="SP_KTBANGDIEMRowChangeEvent" msprop:Generator_RowClassName="SP_KTBANGDIEMRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTDK" msprop:Generator_TableClassName="SP_KTDKDataTable" msprop:Generator_TableVarName="tableSP_KTDK" msprop:Generator_TablePropName="SP_KTDK" msprop:Generator_RowDeletingName="SP_KTDKRowDeleting" msprop:Generator_RowChangingName="SP_KTDKRowChanging" msprop:Generator_RowEvHandlerName="SP_KTDKRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTDKRowDeleted" msprop:Generator_UserTableName="SP_KTDK" msprop:Generator_RowChangedName="SP_KTDKRowChanged" msprop:Generator_RowEvArgName="SP_KTDKRowChangeEvent" msprop:Generator_RowClassName="SP_KTDKRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MAMH" msprop:Generator_ColumnVarNameInTable="columnMAMH" msprop:Generator_ColumnPropNameInRow="MAMH" msprop:Generator_ColumnPropNameInTable="MAMHColumn" msprop:Generator_UserColumnName="MAMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MALOP" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TRINHDO" msprop:Generator_ColumnVarNameInTable="columnTRINHDO" msprop:Generator_ColumnPropNameInRow="TRINHDO" msprop:Generator_ColumnPropNameInTable="TRINHDOColumn" msprop:Generator_UserColumnName="TRINHDO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NGAYTHI" msprop:Generator_ColumnVarNameInTable="columnNGAYTHI" msprop:Generator_ColumnPropNameInRow="NGAYTHI" msprop:Generator_ColumnPropNameInTable="NGAYTHIColumn" msprop:Generator_UserColumnName="NGAYTHI" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAN" msprop:Generator_ColumnVarNameInTable="columnLAN" msprop:Generator_ColumnPropNameInRow="LAN" msprop:Generator_ColumnPropNameInTable="LANColumn" msprop:Generator_UserColumnName="LAN" type="xs:short" />
+              <xs:element name="SOCAUTHI" msprop:Generator_ColumnVarNameInTable="columnSOCAUTHI" msprop:Generator_ColumnPropNameInRow="SOCAUTHI" msprop:Generator_ColumnPropNameInTable="SOCAUTHIColumn" msprop:Generator_UserColumnName="SOCAUTHI" type="xs:short" minOccurs="0" />
+              <xs:element name="THOIGIAN" msprop:Generator_ColumnVarNameInTable="columnTHOIGIAN" msprop:Generator_ColumnPropNameInRow="THOIGIAN" msprop:Generator_ColumnPropNameInTable="THOIGIANColumn" msprop:Generator_UserColumnName="THOIGIAN" type="xs:short" minOccurs="0" />
+              <xs:element name="rowguid" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnrowguid" msprop:Generator_ColumnPropNameInRow="rowguid" msprop:Generator_ColumnPropNameInTable="rowguidColumn" msprop:Generator_UserColumnName="rowguid" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTGVDKTonTai" msprop:Generator_TableClassName="SP_KTGVDKTonTaiDataTable" msprop:Generator_TableVarName="tableSP_KTGVDKTonTai" msprop:Generator_TablePropName="SP_KTGVDKTonTai" msprop:Generator_RowDeletingName="SP_KTGVDKTonTaiRowDeleting" msprop:Generator_RowChangingName="SP_KTGVDKTonTaiRowChanging" msprop:Generator_RowEvHandlerName="SP_KTGVDKTonTaiRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTGVDKTonTaiRowDeleted" msprop:Generator_UserTableName="SP_KTGVDKTonTai" msprop:Generator_RowChangedName="SP_KTGVDKTonTaiRowChanged" msprop:Generator_RowEvArgName="SP_KTGVDKTonTaiRowChangeEvent" msprop:Generator_RowClassName="SP_KTGVDKTonTaiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTSVThuocLop" msprop:Generator_TableClassName="SP_KTSVThuocLopDataTable" msprop:Generator_TableVarName="tableSP_KTSVThuocLop" msprop:Generator_TablePropName="SP_KTSVThuocLop" msprop:Generator_RowDeletingName="SP_KTSVThuocLopRowDeleting" msprop:Generator_RowChangingName="SP_KTSVThuocLopRowChanging" msprop:Generator_RowEvHandlerName="SP_KTSVThuocLopRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTSVThuocLopRowDeleted" msprop:Generator_UserTableName="SP_KTSVThuocLop" msprop:Generator_RowChangedName="SP_KTSVThuocLopRowChanged" msprop:Generator_RowEvArgName="SP_KTSVThuocLopRowChangeEvent" msprop:Generator_RowClassName="SP_KTSVThuocLopRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTTrinhDo" msprop:Generator_TableClassName="SP_KTTrinhDoDataTable" msprop:Generator_TableVarName="tableSP_KTTrinhDo" msprop:Generator_TablePropName="SP_KTTrinhDo" msprop:Generator_RowDeletingName="SP_KTTrinhDoRowDeleting" msprop:Generator_RowChangingName="SP_KTTrinhDoRowChanging" msprop:Generator_RowEvHandlerName="SP_KTTrinhDoRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTTrinhDoRowDeleted" msprop:Generator_UserTableName="SP_KTTrinhDo" msprop:Generator_RowChangedName="SP_KTTrinhDoRowChanged" msprop:Generator_RowEvArgName="SP_KTTrinhDoRowChangeEvent" msprop:Generator_RowClassName="SP_KTTrinhDoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_LayThongTinSV" msprop:Generator_TableClassName="SP_LayThongTinSVDataTable" msprop:Generator_TableVarName="tableSP_LayThongTinSV" msprop:Generator_TablePropName="SP_LayThongTinSV" msprop:Generator_RowDeletingName="SP_LayThongTinSVRowDeleting" msprop:Generator_RowChangingName="SP_LayThongTinSVRowChanging" msprop:Generator_RowEvHandlerName="SP_LayThongTinSVRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_LayThongTinSVRowDeleted" msprop:Generator_UserTableName="SP_LayThongTinSV" msprop:Generator_RowChangedName="SP_LayThongTinSVRowChanged" msprop:Generator_RowEvArgName="SP_LayThongTinSVRowChangeEvent" msprop:Generator_RowClassName="SP_LayThongTinSVRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MALOP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENLOP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENLOP" msprop:Generator_ColumnPropNameInRow="TENLOP" msprop:Generator_ColumnPropNameInTable="TENLOPColumn" msprop:Generator_UserColumnName="TENLOP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHO" msprop:Generator_ColumnPropNameInRow="HO" msprop:Generator_ColumnPropNameInTable="HOColumn" msprop:Generator_UserColumnName="HO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTEN" msprop:Generator_ColumnPropNameInRow="TEN" msprop:Generator_ColumnPropNameInTable="TENColumn" msprop:Generator_UserColumnName="TEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_SOCAUHOI" msprop:Generator_TableClassName="SP_SOCAUHOIDataTable" msprop:Generator_TableVarName="tableSP_SOCAUHOI" msprop:Generator_TablePropName="SP_SOCAUHOI" msprop:Generator_RowDeletingName="SP_SOCAUHOIRowDeleting" msprop:Generator_RowChangingName="SP_SOCAUHOIRowChanging" msprop:Generator_RowEvHandlerName="SP_SOCAUHOIRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_SOCAUHOIRowDeleted" msprop:Generator_UserTableName="SP_SOCAUHOI" msprop:Generator_RowChangedName="SP_SOCAUHOIRowChanged" msprop:Generator_RowEvArgName="SP_SOCAUHOIRowChangeEvent" msprop:Generator_RowClassName="SP_SOCAUHOIRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Column1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnColumn1" msprop:Generator_ColumnPropNameInRow="Column1" msprop:Generator_ColumnPropNameInTable="Column1Column" msprop:Generator_UserColumnName="Column1" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_ThongTinSV" msprop:Generator_TableClassName="SP_ThongTinSVDataTable" msprop:Generator_TableVarName="tableSP_ThongTinSV" msprop:Generator_TablePropName="SP_ThongTinSV" msprop:Generator_RowDeletingName="SP_ThongTinSVRowDeleting" msprop:Generator_RowChangingName="SP_ThongTinSVRowChanging" msprop:Generator_RowEvHandlerName="SP_ThongTinSVRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_ThongTinSVRowDeleted" msprop:Generator_UserTableName="SP_ThongTinSV" msprop:Generator_RowChangedName="SP_ThongTinSVRowChanged" msprop:Generator_RowEvArgName="SP_ThongTinSVRowChangeEvent" msprop:Generator_RowClassName="SP_ThongTinSVRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MALOP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENLOP" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENLOP" msprop:Generator_ColumnPropNameInRow="TENLOP" msprop:Generator_ColumnPropNameInTable="TENLOPColumn" msprop:Generator_UserColumnName="TENLOP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_ThongTinXemKQ" msprop:Generator_TableClassName="SP_ThongTinXemKQDataTable" msprop:Generator_TableVarName="tableSP_ThongTinXemKQ" msprop:Generator_TablePropName="SP_ThongTinXemKQ" msprop:Generator_RowDeletingName="SP_ThongTinXemKQRowDeleting" msprop:Generator_RowChangingName="SP_ThongTinXemKQRowChanging" msprop:Generator_RowEvHandlerName="SP_ThongTinXemKQRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_ThongTinXemKQRowDeleted" msprop:Generator_UserTableName="SP_ThongTinXemKQ" msprop:Generator_RowChangedName="SP_ThongTinXemKQRowChanged" msprop:Generator_RowEvArgName="SP_ThongTinXemKQRowChangeEvent" msprop:Generator_RowClassName="SP_ThongTinXemKQRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NGAYTHI" msprop:Generator_ColumnVarNameInTable="columnNGAYTHI" msprop:Generator_ColumnPropNameInRow="NGAYTHI" msprop:Generator_ColumnPropNameInTable="NGAYTHIColumn" msprop:Generator_UserColumnName="NGAYTHI" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="LAN" msprop:Generator_ColumnVarNameInTable="columnLAN" msprop:Generator_ColumnPropNameInRow="LAN" msprop:Generator_ColumnPropNameInTable="LANColumn" msprop:Generator_UserColumnName="LAN" type="xs:short" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_TimKiemMH" msprop:Generator_TableClassName="SP_TimKiemMHDataTable" msprop:Generator_TableVarName="tableSP_TimKiemMH" msprop:Generator_TablePropName="SP_TimKiemMH" msprop:Generator_RowDeletingName="SP_TimKiemMHRowDeleting" msprop:Generator_RowChangingName="SP_TimKiemMHRowChanging" msprop:Generator_RowEvHandlerName="SP_TimKiemMHRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_TimKiemMHRowDeleted" msprop:Generator_UserTableName="SP_TimKiemMH" msprop:Generator_RowChangedName="SP_TimKiemMHRowChanged" msprop:Generator_RowEvArgName="SP_TimKiemMHRowChangeEvent" msprop:Generator_RowClassName="SP_TimKiemMHRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_TimKiemTenMH" msprop:Generator_TableClassName="SP_TimKiemTenMHDataTable" msprop:Generator_TableVarName="tableSP_TimKiemTenMH" msprop:Generator_TablePropName="SP_TimKiemTenMH" msprop:Generator_RowDeletingName="SP_TimKiemTenMHRowDeleting" msprop:Generator_RowChangingName="SP_TimKiemTenMHRowChanging" msprop:Generator_RowEvHandlerName="SP_TimKiemTenMHRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_TimKiemTenMHRowDeleted" msprop:Generator_UserTableName="SP_TimKiemTenMH" msprop:Generator_RowChangedName="SP_TimKiemTenMHRowChanged" msprop:Generator_RowEvArgName="SP_TimKiemTenMHRowChangeEvent" msprop:Generator_RowClassName="SP_TimKiemTenMHRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_XemBangDiem" msprop:Generator_TableClassName="SP_XemBangDiemDataTable" msprop:Generator_TableVarName="tableSP_XemBangDiem" msprop:Generator_TablePropName="SP_XemBangDiem" msprop:Generator_RowDeletingName="SP_XemBangDiemRowDeleting" msprop:Generator_RowChangingName="SP_XemBangDiemRowChanging" msprop:Generator_RowEvHandlerName="SP_XemBangDiemRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_XemBangDiemRowDeleted" msprop:Generator_UserTableName="SP_XemBangDiem" msprop:Generator_RowChangedName="SP_XemBangDiemRowChanged" msprop:Generator_RowEvArgName="SP_XemBangDiemRowChangeEvent" msprop:Generator_RowClassName="SP_XemBangDiemRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTEN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTEN" msprop:Generator_ColumnPropNameInRow="HOTEN" msprop:Generator_ColumnPropNameInTable="HOTENColumn" msprop:Generator_UserColumnName="HOTEN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="51" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DIEM" msprop:Generator_ColumnVarNameInTable="columnDIEM" msprop:Generator_ColumnPropNameInRow="DIEM" msprop:Generator_ColumnPropNameInTable="DIEMColumn" msprop:Generator_UserColumnName="DIEM" type="xs:double" minOccurs="0" />
+              <xs:element name="DIEMCHU" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDIEMCHU" msprop:Generator_ColumnPropNameInRow="DIEMCHU" msprop:Generator_ColumnPropNameInTable="DIEMCHUColumn" msprop:Generator_UserColumnName="DIEMCHU" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1269,28 +2290,28 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
               <xs:element name="A" msprop:Generator_ColumnVarNameInTable="columnA" msprop:Generator_ColumnPropNameInRow="A" msprop:Generator_ColumnPropNameInTable="AColumn" msprop:Generator_UserColumnName="A">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
+                    <xs:maxLength value="1073741823" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="B" msprop:Generator_ColumnVarNameInTable="columnB" msprop:Generator_ColumnPropNameInRow="B" msprop:Generator_ColumnPropNameInTable="BColumn" msprop:Generator_UserColumnName="B">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
+                    <xs:maxLength value="1073741823" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="C" msprop:Generator_ColumnVarNameInTable="columnC" msprop:Generator_ColumnPropNameInRow="C" msprop:Generator_ColumnPropNameInTable="CColumn" msprop:Generator_UserColumnName="C">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
+                    <xs:maxLength value="1073741823" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="D" msprop:Generator_ColumnVarNameInTable="columnD" msprop:Generator_ColumnPropNameInRow="D" msprop:Generator_ColumnPropNameInTable="DColumn" msprop:Generator_UserColumnName="D">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
+                    <xs:maxLength value="1073741823" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1308,6 +2329,63 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_XemDSDangKy" msprop:Generator_TableClassName="SP_XemDSDangKyDataTable" msprop:Generator_TableVarName="tableSP_XemDSDangKy" msprop:Generator_RowChangedName="SP_XemDSDangKyRowChanged" msprop:Generator_TablePropName="SP_XemDSDangKy" msprop:Generator_RowDeletingName="SP_XemDSDangKyRowDeleting" msprop:Generator_RowChangingName="SP_XemDSDangKyRowChanging" msprop:Generator_RowEvHandlerName="SP_XemDSDangKyRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_XemDSDangKyRowDeleted" msprop:Generator_RowClassName="SP_XemDSDangKyRow" msprop:Generator_UserTableName="SP_XemDSDangKy" msprop:Generator_RowEvArgName="SP_XemDSDangKyRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TENLOP" msprop:Generator_ColumnVarNameInTable="columnTENLOP" msprop:Generator_ColumnPropNameInRow="TENLOP" msprop:Generator_ColumnPropNameInTable="TENLOPColumn" msprop:Generator_UserColumnName="TENLOP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENMH" msprop:Generator_ColumnVarNameInTable="columnTENMH" msprop:Generator_ColumnPropNameInRow="TENMH" msprop:Generator_ColumnPropNameInTable="TENMHColumn" msprop:Generator_UserColumnName="TENMH" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HOTENGV" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHOTENGV" msprop:Generator_ColumnPropNameInRow="HOTENGV" msprop:Generator_ColumnPropNameInTable="HOTENGVColumn" msprop:Generator_UserColumnName="HOTENGV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="51" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SOCAUTHI" msprop:Generator_ColumnVarNameInTable="columnSOCAUTHI" msprop:Generator_ColumnPropNameInRow="SOCAUTHI" msprop:Generator_ColumnPropNameInTable="SOCAUTHIColumn" msprop:Generator_UserColumnName="SOCAUTHI" type="xs:short" minOccurs="0" />
+              <xs:element name="NGAYTHI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNGAYTHI" msprop:Generator_ColumnPropNameInRow="NGAYTHI" msprop:Generator_ColumnPropNameInTable="NGAYTHIColumn" msprop:Generator_UserColumnName="NGAYTHI" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DATHI" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDATHI" msprop:Generator_ColumnPropNameInRow="DATHI" msprop:Generator_ColumnPropNameInTable="DATHIColumn" msprop:Generator_UserColumnName="DATHI" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTBoDeNoiDung" msprop:Generator_TableClassName="SP_KTBoDeNoiDungDataTable" msprop:Generator_TableVarName="tableSP_KTBoDeNoiDung" msprop:Generator_TablePropName="SP_KTBoDeNoiDung" msprop:Generator_RowDeletingName="SP_KTBoDeNoiDungRowDeleting" msprop:Generator_RowChangingName="SP_KTBoDeNoiDungRowChanging" msprop:Generator_RowEvHandlerName="SP_KTBoDeNoiDungRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTBoDeNoiDungRowDeleted" msprop:Generator_UserTableName="SP_KTBoDeNoiDung" msprop:Generator_RowChangedName="SP_KTBoDeNoiDungRowChanged" msprop:Generator_RowEvArgName="SP_KTBoDeNoiDungRowChangeEvent" msprop:Generator_RowClassName="SP_KTBoDeNoiDungRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_TimKiemMaBoDe" msprop:Generator_TableClassName="SP_TimKiemMaBoDeDataTable" msprop:Generator_TableVarName="tableSP_TimKiemMaBoDe" msprop:Generator_RowChangedName="SP_TimKiemMaBoDeRowChanged" msprop:Generator_TablePropName="SP_TimKiemMaBoDe" msprop:Generator_RowDeletingName="SP_TimKiemMaBoDeRowDeleting" msprop:Generator_RowChangingName="SP_TimKiemMaBoDeRowChanging" msprop:Generator_RowEvHandlerName="SP_TimKiemMaBoDeRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_TimKiemMaBoDeRowDeleted" msprop:Generator_RowClassName="SP_TimKiemMaBoDeRow" msprop:Generator_UserTableName="SP_TimKiemMaBoDe" msprop:Generator_RowEvArgName="SP_TimKiemMaBoDeRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Result" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnResult" msprop:Generator_ColumnPropNameInRow="Result" msprop:Generator_ColumnPropNameInTable="ResultColumn" msprop:Generator_UserColumnName="Result" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SP_KTSoCau" msprop:Generator_TableClassName="SP_KTSoCauDataTable" msprop:Generator_TableVarName="tableSP_KTSoCau" msprop:Generator_TablePropName="SP_KTSoCau" msprop:Generator_RowDeletingName="SP_KTSoCauRowDeleting" msprop:Generator_RowChangingName="SP_KTSoCauRowChanging" msprop:Generator_RowEvHandlerName="SP_KTSoCauRowChangeEventHandler" msprop:Generator_RowDeletedName="SP_KTSoCauRowDeleted" msprop:Generator_UserTableName="SP_KTSoCau" msprop:Generator_RowChangedName="SP_KTSoCauRowChanged" msprop:Generator_RowEvArgName="SP_KTSoCauRowChangeEvent" msprop:Generator_RowClassName="SP_KTSoCauRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RESULT" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRESULT" msprop:Generator_ColumnPropNameInRow="RESULT" msprop:Generator_ColumnPropNameInTable="RESULTColumn" msprop:Generator_UserColumnName="RESULT" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -1373,34 +2451,64 @@ SELECT MASV, HO, TEN, NGAYSINH, DIACHI, MALOP FROM SINHVIEN WHERE (MASV = @MASV)
       <xs:selector xpath=".//mstns:DSLOP" />
       <xs:field xpath="mstns:MALOP" />
     </xs:unique>
-    <xs:keyref name="FK_SINHVIEN_LOP" refer="LOP_Constraint1" msprop:rel_Generator_UserChildTable="SINHVIEN" msprop:rel_Generator_ChildPropName="GetSINHVIENRows" msprop:rel_Generator_UserRelationName="FK_SINHVIEN_LOP" msprop:rel_Generator_RelationVarName="relationFK_SINHVIEN_LOP" msprop:rel_Generator_UserParentTable="LOP" msprop:rel_Generator_ParentPropName="LOPRow" msdata:UpdateRule="None" msdata:DeleteRule="None">
+    <xs:unique name="V_DSGVChuaCoTaiKhoan_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_DSGVChuaCoTaiKhoan" />
+      <xs:field xpath="mstns:MAGV" />
+    </xs:unique>
+    <xs:unique name="DSSV_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DSSV" />
+      <xs:field xpath="mstns:MASV" />
+    </xs:unique>
+    <xs:unique name="SP_KiemTraDangKy_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SP_KiemTraDangKy" />
+      <xs:field xpath="mstns:MAMH" />
+      <xs:field xpath="mstns:MALOP" />
+      <xs:field xpath="mstns:LAN" />
+    </xs:unique>
+    <xs:unique name="SP_KTDK_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:SP_KTDK" />
+      <xs:field xpath="mstns:MAMH" />
+      <xs:field xpath="mstns:MALOP" />
+      <xs:field xpath="mstns:LAN" />
+    </xs:unique>
+    <xs:keyref name="FK_SINHVIEN_LOP" refer="LOP_Constraint1" msprop:rel_Generator_UserChildTable="SINHVIEN" msprop:rel_Generator_ChildPropName="GetSINHVIENRows" msprop:rel_Generator_UserRelationName="FK_SINHVIEN_LOP" msprop:rel_Generator_ParentPropName="LOPRow" msprop:rel_Generator_RelationVarName="relationFK_SINHVIEN_LOP" msprop:rel_Generator_UserParentTable="LOP" msdata:UpdateRule="None" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:SINHVIEN" />
       <xs:field xpath="mstns:MALOP" />
     </xs:keyref>
-    <xs:keyref name="FK_BODE_MONHOC" refer="MONHOC_Constraint1" msprop:rel_Generator_UserChildTable="BODE" msprop:rel_Generator_ChildPropName="GetBODERows" msprop:rel_Generator_UserRelationName="FK_BODE_MONHOC" msprop:rel_Generator_ParentPropName="MONHOCRow" msprop:rel_Generator_RelationVarName="relationFK_BODE_MONHOC" msprop:rel_Generator_UserParentTable="MONHOC" msdata:UpdateRule="None" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:BODE" />
+    <xs:keyref name="FK_GIAOVIEN_KHOA" refer="KHOA_Constraint1" msprop:rel_Generator_UserChildTable="GIAOVIEN" msprop:rel_Generator_ChildPropName="GetGIAOVIENRows" msprop:rel_Generator_UserRelationName="FK_GIAOVIEN_KHOA" msprop:rel_Generator_ParentPropName="KHOARow" msprop:rel_Generator_RelationVarName="relationFK_GIAOVIEN_KHOA" msprop:rel_Generator_UserParentTable="KHOA" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:GIAOVIEN" />
+      <xs:field xpath="mstns:MAKH" />
+    </xs:keyref>
+    <xs:keyref name="FK_BANGDIEM_MONHOC1" refer="MONHOC_Constraint1" msprop:rel_Generator_UserChildTable="BANGDIEM" msprop:rel_Generator_ChildPropName="GetBANGDIEMRows" msprop:rel_Generator_UserRelationName="FK_BANGDIEM_MONHOC1" msprop:rel_Generator_RelationVarName="relationFK_BANGDIEM_MONHOC1" msprop:rel_Generator_UserParentTable="MONHOC" msprop:rel_Generator_ParentPropName="MONHOCRow" msdata:UpdateRule="None" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:BANGDIEM" />
       <xs:field xpath="mstns:MAMH" />
     </xs:keyref>
-    <xs:keyref name="FK_BANGDIEM_SINHVIEN" refer="SINHVIEN_Constraint1" msprop:rel_Generator_UserChildTable="BANGDIEM" msprop:rel_Generator_ChildPropName="GetBANGDIEMRows" msprop:rel_Generator_UserRelationName="FK_BANGDIEM_SINHVIEN" msprop:rel_Generator_ParentPropName="SINHVIENRow" msprop:rel_Generator_RelationVarName="relationFK_BANGDIEM_SINHVIEN" msprop:rel_Generator_UserParentTable="SINHVIEN" msdata:UpdateRule="None" msdata:DeleteRule="None">
+    <xs:keyref name="FK_BANGDIEM_SINHVIEN" refer="SINHVIEN_Constraint1" msprop:rel_Generator_UserChildTable="BANGDIEM" msprop:rel_Generator_ChildPropName="GetBANGDIEMRows" msprop:rel_Generator_UserRelationName="FK_BANGDIEM_SINHVIEN" msprop:rel_Generator_RelationVarName="relationFK_BANGDIEM_SINHVIEN" msprop:rel_Generator_UserParentTable="SINHVIEN" msprop:rel_Generator_ParentPropName="SINHVIENRow" msdata:UpdateRule="None" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:BANGDIEM" />
       <xs:field xpath="mstns:MASV" />
-    </xs:keyref>
-    <xs:keyref name="FK_BANGDIEM_MONHOC1" refer="MONHOC_Constraint1" msprop:rel_Generator_UserChildTable="BANGDIEM" msprop:rel_Generator_ChildPropName="GetBANGDIEMRows" msprop:rel_Generator_UserRelationName="FK_BANGDIEM_MONHOC1" msprop:rel_Generator_ParentPropName="MONHOCRow" msprop:rel_Generator_RelationVarName="relationFK_BANGDIEM_MONHOC1" msprop:rel_Generator_UserParentTable="MONHOC" msdata:UpdateRule="None" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:BANGDIEM" />
-      <xs:field xpath="mstns:MAMH" />
     </xs:keyref>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_BODE_GIAOVIEN" msdata:parent="GIAOVIEN" msdata:child="BODE" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="BODE" msprop:Generator_ChildPropName="GetBODERows" msprop:Generator_UserRelationName="FK_BODE_GIAOVIEN" msprop:Generator_ParentPropName="GIAOVIENRow" msprop:Generator_RelationVarName="relationFK_BODE_GIAOVIEN" msprop:Generator_UserParentTable="GIAOVIEN" />
-      <msdata:Relationship name="FK_CHITIET_BAITHI_BANGDIEM1" msdata:parent="BANGDIEM" msdata:child="CHITIET_BAITHI" msdata:parentkey="MABD" msdata:childkey="MABD" msprop:Generator_UserChildTable="CHITIET_BAITHI" msprop:Generator_ChildPropName="GetCHITIET_BAITHIRows" msprop:Generator_UserRelationName="FK_CHITIET_BAITHI_BANGDIEM1" msprop:Generator_RelationVarName="relationFK_CHITIET_BAITHI_BANGDIEM1" msprop:Generator_UserParentTable="BANGDIEM" msprop:Generator_ParentPropName="BANGDIEMRow" />
-      <msdata:Relationship name="FK_CHITIET_BAITHI_BODE" msdata:parent="BODE" msdata:child="CHITIET_BAITHI" msdata:parentkey="CAUHOI" msdata:childkey="CAUHOI" msprop:Generator_UserChildTable="CHITIET_BAITHI" msprop:Generator_ChildPropName="GetCHITIET_BAITHIRows" msprop:Generator_UserRelationName="FK_CHITIET_BAITHI_BODE" msprop:Generator_RelationVarName="relationFK_CHITIET_BAITHI_BODE" msprop:Generator_UserParentTable="BODE" msprop:Generator_ParentPropName="BODERow" />
-      <msdata:Relationship name="FK_GIAOVIEN_KHOA" msdata:parent="KHOA" msdata:child="GIAOVIEN" msdata:parentkey="MAKH" msdata:childkey="MAKH" msprop:Generator_UserChildTable="GIAOVIEN" msprop:Generator_ChildPropName="GetGIAOVIENRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_KHOA" msprop:Generator_ParentPropName="KHOARow" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_KHOA" msprop:Generator_UserParentTable="KHOA" />
-      <msdata:Relationship name="FK_KHOA_COSO" msdata:parent="COSO" msdata:child="KHOA" msdata:parentkey="MACS" msdata:childkey="MACS" msprop:Generator_UserChildTable="KHOA" msprop:Generator_ChildPropName="GetKHOARows" msprop:Generator_UserRelationName="FK_KHOA_COSO" msprop:Generator_RelationVarName="relationFK_KHOA_COSO" msprop:Generator_UserParentTable="COSO" msprop:Generator_ParentPropName="COSORow" />
-      <msdata:Relationship name="FK_LOP_KHOA" msdata:parent="KHOA" msdata:child="LOP" msdata:parentkey="MAKH" msdata:childkey="MAKH" msprop:Generator_UserChildTable="LOP" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_UserRelationName="FK_LOP_KHOA" msprop:Generator_RelationVarName="relationFK_LOP_KHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_ParentPropName="KHOARow" />
-      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_MONHOC" msdata:parent="MONHOC" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_MONHOC" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_MONHOC" msprop:Generator_UserParentTable="MONHOC" msprop:Generator_ParentPropName="MONHOCRow" />
-      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_GIAOVIEN" msdata:parent="GIAOVIEN" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_GIAOVIEN" msprop:Generator_ParentPropName="GIAOVIENRow" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_GIAOVIEN" msprop:Generator_UserParentTable="GIAOVIEN" />
-      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_LOP" msdata:parent="LOP" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MALOP" msdata:childkey="MALOP" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_LOP" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_LOP" msprop:Generator_UserParentTable="LOP" msprop:Generator_ParentPropName="LOPRow" />
+      <msdata:Relationship name="FK_BODE_GIAOVIEN" msdata:parent="GIAOVIEN" msdata:child="BODE" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="BODE" msprop:Generator_ChildPropName="GetBODERows" msprop:Generator_UserRelationName="FK_BODE_GIAOVIEN" msprop:Generator_RelationVarName="relationFK_BODE_GIAOVIEN" msprop:Generator_UserParentTable="GIAOVIEN" msprop:Generator_ParentPropName="GIAOVIENRow" />
+      <msdata:Relationship name="FK_CHITIET_BAITHI_BANGDIEM1" msdata:parent="BANGDIEM" msdata:child="CHITIET_BAITHI" msdata:parentkey="MABD" msdata:childkey="MABD" msprop:Generator_UserChildTable="CHITIET_BAITHI" msprop:Generator_ChildPropName="GetCHITIET_BAITHIRows" msprop:Generator_UserRelationName="FK_CHITIET_BAITHI_BANGDIEM1" msprop:Generator_ParentPropName="BANGDIEMRow" msprop:Generator_RelationVarName="relationFK_CHITIET_BAITHI_BANGDIEM1" msprop:Generator_UserParentTable="BANGDIEM" />
+      <msdata:Relationship name="FK_CHITIET_BAITHI_BODE" msdata:parent="BODE" msdata:child="CHITIET_BAITHI" msdata:parentkey="CAUHOI" msdata:childkey="CAUHOI" msprop:Generator_UserChildTable="CHITIET_BAITHI" msprop:Generator_ChildPropName="GetCHITIET_BAITHIRows" msprop:Generator_UserRelationName="FK_CHITIET_BAITHI_BODE" msprop:Generator_ParentPropName="BODERow" msprop:Generator_RelationVarName="relationFK_CHITIET_BAITHI_BODE" msprop:Generator_UserParentTable="BODE" />
+      <msdata:Relationship name="FK_KHOA_COSO" msdata:parent="COSO" msdata:child="KHOA" msdata:parentkey="MACS" msdata:childkey="MACS" msprop:Generator_UserChildTable="KHOA" msprop:Generator_ChildPropName="GetKHOARows" msprop:Generator_UserRelationName="FK_KHOA_COSO" msprop:Generator_ParentPropName="COSORow" msprop:Generator_RelationVarName="relationFK_KHOA_COSO" msprop:Generator_UserParentTable="COSO" />
+      <msdata:Relationship name="FK_LOP_KHOA" msdata:parent="KHOA" msdata:child="LOP" msdata:parentkey="MAKH" msdata:childkey="MAKH" msprop:Generator_UserChildTable="LOP" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_UserRelationName="FK_LOP_KHOA" msprop:Generator_ParentPropName="KHOARow" msprop:Generator_RelationVarName="relationFK_LOP_KHOA" msprop:Generator_UserParentTable="KHOA" />
+      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_MONHOC" msdata:parent="MONHOC" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_MONHOC" msprop:Generator_ParentPropName="MONHOCRow" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_MONHOC" msprop:Generator_UserParentTable="MONHOC" />
+      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_GIAOVIEN" msdata:parent="GIAOVIEN" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_GIAOVIEN" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_GIAOVIEN" msprop:Generator_UserParentTable="GIAOVIEN" msprop:Generator_ParentPropName="GIAOVIENRow" />
+      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_LOP" msdata:parent="LOP" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MALOP" msdata:childkey="MALOP" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_LOP" msprop:Generator_ParentPropName="LOPRow" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_LOP" msprop:Generator_UserParentTable="LOP" />
+      <msdata:Relationship name="FK_BANGDIEM_MONHOC11" msdata:parent="DSMH" msdata:child="BANGDIEM" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="BANGDIEM" msprop:Generator_ChildPropName="GetBANGDIEMRows" msprop:Generator_UserRelationName="FK_BANGDIEM_MONHOC11" msprop:Generator_RelationVarName="relationFK_BANGDIEM_MONHOC11" msprop:Generator_UserParentTable="DSMH" msprop:Generator_ParentPropName="DSMHRow" />
+      <msdata:Relationship name="FK_BODE_GIAOVIEN1" msdata:parent="DSGV" msdata:child="BODE" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="BODE" msprop:Generator_ChildPropName="GetBODERows" msprop:Generator_UserRelationName="FK_BODE_GIAOVIEN1" msprop:Generator_RelationVarName="relationFK_BODE_GIAOVIEN1" msprop:Generator_UserParentTable="DSGV" msprop:Generator_ParentPropName="DSGVRow" />
+      <msdata:Relationship name="FK_BODE_MONHOC1" msdata:parent="DSMH" msdata:child="BODE" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="BODE" msprop:Generator_ChildPropName="GetBODERows" msprop:Generator_UserRelationName="FK_BODE_MONHOC1" msprop:Generator_RelationVarName="relationFK_BODE_MONHOC1" msprop:Generator_UserParentTable="DSMH" msprop:Generator_ParentPropName="DSMHRow" />
+      <msdata:Relationship name="FK_GIAOVIEN_KHOA1" msdata:parent="DSKHOA" msdata:child="GIAOVIEN" msdata:parentkey="MAKH" msdata:childkey="MAKH" msprop:Generator_UserChildTable="GIAOVIEN" msprop:Generator_ChildPropName="GetGIAOVIENRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_KHOA1" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_KHOA1" msprop:Generator_UserParentTable="DSKHOA" msprop:Generator_ParentPropName="DSKHOARow" />
+      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_GIAOVIEN1" msdata:parent="DSGV" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_GIAOVIEN1" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_GIAOVIEN1" msprop:Generator_UserParentTable="DSGV" msprop:Generator_ParentPropName="DSGVRow" />
+      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_LOP1" msdata:parent="DSLOP" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MALOP" msdata:childkey="MALOP" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_LOP1" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_LOP1" msprop:Generator_UserParentTable="DSLOP" msprop:Generator_ParentPropName="DSLOPRow" />
+      <msdata:Relationship name="FK_GIAOVIEN_DANGKY_MONHOC1" msdata:parent="DSMH" msdata:child="GIAOVIEN_DANGKY" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="GIAOVIEN_DANGKY" msprop:Generator_ChildPropName="GetGIAOVIEN_DANGKYRows" msprop:Generator_UserRelationName="FK_GIAOVIEN_DANGKY_MONHOC1" msprop:Generator_RelationVarName="relationFK_GIAOVIEN_DANGKY_MONHOC1" msprop:Generator_UserParentTable="DSMH" msprop:Generator_ParentPropName="DSMHRow" />
+      <msdata:Relationship name="FK_LOP_KHOA1" msdata:parent="DSKHOA" msdata:child="LOP" msdata:parentkey="MAKH" msdata:childkey="MAKH" msprop:Generator_UserChildTable="LOP" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_UserRelationName="FK_LOP_KHOA1" msprop:Generator_RelationVarName="relationFK_LOP_KHOA1" msprop:Generator_UserParentTable="DSKHOA" msprop:Generator_ParentPropName="DSKHOARow" />
+      <msdata:Relationship name="FK_SINHVIEN_LOP1" msdata:parent="DSLOP" msdata:child="SINHVIEN" msdata:parentkey="MALOP" msdata:childkey="MALOP" msprop:Generator_UserChildTable="SINHVIEN" msprop:Generator_ChildPropName="GetSINHVIENRows" msprop:Generator_UserRelationName="FK_SINHVIEN_LOP1" msprop:Generator_RelationVarName="relationFK_SINHVIEN_LOP1" msprop:Generator_UserParentTable="DSLOP" msprop:Generator_ParentPropName="DSLOPRow" />
+      <msdata:Relationship name="FK_BANGDIEM_SINHVIEN1" msdata:parent="DSSV" msdata:child="BANGDIEM" msdata:parentkey="MASV" msdata:childkey="MASV" msprop:Generator_UserChildTable="BANGDIEM" msprop:Generator_ChildPropName="GetBANGDIEMRows" msprop:Generator_UserRelationName="FK_BANGDIEM_SINHVIEN1" msprop:Generator_ParentPropName="DSSVRow" msprop:Generator_RelationVarName="relationFK_BANGDIEM_SINHVIEN1" msprop:Generator_UserParentTable="DSSV" />
+      <msdata:Relationship name="FK_BODE_MONHOC" msdata:parent="MONHOC" msdata:child="BODE" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="BODE" msprop:Generator_ChildPropName="GetBODERows" msprop:Generator_UserRelationName="FK_BODE_MONHOC" msprop:Generator_RelationVarName="relationFK_BODE_MONHOC" msprop:Generator_UserParentTable="MONHOC" msprop:Generator_ParentPropName="MONHOCRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

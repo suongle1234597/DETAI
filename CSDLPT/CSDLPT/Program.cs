@@ -24,16 +24,20 @@ namespace CSDLPT
         public static String password = ""; //password hiện hành
 
         public static String database = "TRACNGHIEM";
-        public static String remotelogin = "sa"; //hỗ trợ kết nối ra ngoài, giống nhau trên tất cả phân mảnh
+        public static String remotelogin = "HTKN"; //hỗ trợ kết nối ra ngoài, giống nhau trên tất cả phân mảnh
         public static String remotepassword = "123456";
         public static String mloginDN = ""; 
         public static String passwordDN = "";
         public static String mGroup = "";
         public static String mHoten = "";
+        public static String mMaLop = "";
+        public static String mLop = "";
         public static int mCoso = 0;
 
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
-        //public static frmMain frmChinh;
+        //public static frmDangNhap frmDN;
+        //public static frmThi frmThi;
+        //public static frmGiaoDienChinh frmChinh;
 
         public static int KetNoi()
         {
@@ -65,7 +69,6 @@ namespace CSDLPT
             try
             {
                 myreader = sqlcmd.ExecuteReader(); return myreader;
-
             }
             catch (SqlException ex)
             {
@@ -120,8 +123,8 @@ namespace CSDLPT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //frmDN = new frmDangNhap();
             Application.Run(new frmDangNhap());
-            //Application.Run(new frmGiaoDienNhomTruong());
         }
     }
 }
