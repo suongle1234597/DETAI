@@ -45,6 +45,9 @@ namespace CSDLPT
             if (Program.mGroup == "Giangvien")
             {
                 btnTaoTK.Enabled = false;
+                btnMonHoc.Enabled = false;
+                btnSinhVien.Enabled = false;
+                btnGiaoVien.Enabled = false;
             }
         }
 

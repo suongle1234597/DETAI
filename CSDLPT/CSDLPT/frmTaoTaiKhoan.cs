@@ -56,46 +56,53 @@ namespace CSDLPT
             cmbTenGV.DisplayMember = "HOTEN"; //ten cot muon hien len
             cmbTenGV.ValueMember = "MAGV"; //gia tri muon hien len
 
-            cmbTenGV.SelectedIndex = 0;
+            if (cmbTenGV.SelectedValue == null)
+            {
+                 MessageBox.Show("Không có giáo viên nào chưa có tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                 return;
+            }
+            else
+            {
+                cmbTenGV.SelectedIndex = 0;
+            }
         }
 
         private void btnTaoTK_Click(object sender, EventArgs e)
         {
-            if(txtTaiKhoan.Text.Trim() == "")
+            if (cmbTenGV.SelectedValue == null)
             {
-                MessageBox.Show("Tài khoản không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtTaiKhoan.Focus();
-                return;
+                MessageBox.Show("Không có giáo viên nào chưa có tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
             }
-            if (txtMatKhau.Text.Trim() == "")
+            else
             {
-                MessageBox.Show("Mật khẩu không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                txtMatKhau.Focus();
-                return;
-            }
+                if (txtTaiKhoan.Text.Trim() == "")
+                {
+                    MessageBox.Show("Tài khoản không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtTaiKhoan.Focus();
+                    return;
+                }
+                if (txtMatKhau.Text.Trim() == "")
+                {
+                    MessageBox.Show("Mật khẩu không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    txtMatKhau.Focus();
+                    return;
+                }
 
-            try
-            {
-                string strLenh = "EXEC sp_TaoTaiKhoan '" + txtTaiKhoan.Text + "', '" + txtMatKhau.Text + "', '" + cmbTenGV.SelectedValue.ToString() + "' , '" + cmbNhom.SelectedItem.ToString() + "'";
-                Program.myReader = Program.ExecSqlDataReader(strLenh);
-                if (Program.myReader == null) return;
-                Program.myReader.Read();
-                //int kq = Int32.Parse(Program.myReader.GetInt32(0).ToString());
-                //if (kq == 1)
-                //{
-                //    MessageBox.Show("Tên tài khoản đã tồn tại. Mời nhập tên tài khoản khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //    Program.myReader.Close();
-                //    Program.conn.Close();
-                //    txtTaiKhoan.Focus();
-                //    return;
-                //}
-                Program.myReader.Close();
-                MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.myReader.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi tạo tài khoản", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                try
+                {
+                    string strLenh = "EXEC sp_TaoTaiKhoan '" + txtTaiKhoan.Text + "', '" + txtMatKhau.Text + "', '" + cmbTenGV.SelectedValue.ToString() + "' , '" + cmbNhom.SelectedItem.ToString() + "'";
+                    Program.myReader = Program.ExecSqlDataReader(strLenh);
+                    if (Program.myReader == null) return;
+                    Program.myReader.Read();
+                    Program.myReader.Close();
+                    MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi tạo tài khoản", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 

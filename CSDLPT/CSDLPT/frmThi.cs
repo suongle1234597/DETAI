@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -210,6 +211,7 @@ namespace CSDLPT
                 btnThoat.Enabled = true;
                 btnXemKetQua.Enabled = true;
                 TinhDiem();
+                btnNopBai.Enabled = false;
             }
         }
 
@@ -273,30 +275,46 @@ namespace CSDLPT
             Program.myReader.Read();
             int maBD = Int32.Parse(Program.myReader.GetInt32(0).ToString());
             Program.myReader.Close();
+            Program.conn.Close();
 
             string traLoi = "", noiDung = "", A = "", B = "", C = "", D = "", dapAnCH = "", strLenh1 ="";
             int cauHoi = 0;
 
             try
             {
+                Program.conn.Open();
+
                 for (int i = 0; i < Int32.Parse(txtSoCauThi.Text); i++)
                 {
-                    traLoi = dapAn[i].ToString();
+                    traLoi = dapAn[i].ToString().Trim();
                     cauHoi = Int32.Parse(((DataRowView)bdsChiTietBaiThi[i])["CAUHOI"].ToString());
 
-                    MessageBox.Show("cau hoi " + cauHoi);
+                    noiDung = ((DataRowView)bdsChiTietBaiThi[i])["NOIDUNG"].ToString();
+                    A = ((DataRowView)bdsChiTietBaiThi[i])["A"].ToString();
+                    B = ((DataRowView)bdsChiTietBaiThi[i])["B"].ToString();
+                    C = ((DataRowView)bdsChiTietBaiThi[i])["C"].ToString();
+                    D = ((DataRowView)bdsChiTietBaiThi[i])["D"].ToString();
+                    dapAnCH = ((DataRowView)bdsChiTietBaiThi[i])["DAP_AN"].ToString();
 
-                    //noiDung = ((DataRowView)bdsChiTietBaiThi[i])["NOIDUNG"].ToString();
-                    //A = ((DataRowView)bdsChiTietBaiThi[i])["A"].ToString();
-                    //B = ((DataRowView)bdsChiTietBaiThi[i])["B"].ToString();
-                    //C = ((DataRowView)bdsChiTietBaiThi[i])["C"].ToString();
-                    //D = ((DataRowView)bdsChiTietBaiThi[i])["D"].ToString();
-                    //dapAnCH = ((DataRowView)bdsChiTietBaiThi[i])["DAP_AN"].ToString();
-
-                    //strLenh1 = "INSERT INTO CHITIET_BAITHI (MABD, CAUHOI, NOIDUNG, A, B, C, D, DAP_AN, TRALOI) VALUES(" + maBD + " , " + cauHoi + ", '" + noiDung + "' , '" + A + "' , '" + B + "' , '" + C + "' , '" + D + "' , '" + dapAnCH + "' , '" + traLoi + "')";
+                    //strLenh1 = "INSERT INTO CHITIET_BAITHI (MABD, CAUHOI, NOIDUNG, A, B, C, D, DAP_AN, TRALOI) VALUES(" + maBD + " , " + cauHoi + ", N'" + noiDung + "' , N'" + A + "' , N'" + B + "' , N'" + C + "' , N'" + D + "' , '" + dapAnCH + "' , '" + traLoi + "')";
+                    //strLenh1.Replace("'", "\'");
                     //Program.myReader = Program.ExecSqlDataReader(strLenh1);
                     //Program.myReader.Read();
                     //Program.myReader.Close();
+                    
+                    String MyCommand = "INSERT INTO CHITIET_BAITHI (MABD, CAUHOI, NOIDUNG, A, B, C, D, DAP_AN, TRALOI) VALUES(@MABD, @CAUHOI, @NOIDUNG, @A, @B, @C, @D, @DAP_AN, @TRALOI)";
+                    SqlCommand adder = new SqlCommand(MyCommand, Program.conn);
+                    adder.CommandType = CommandType.Text;
+                    adder.Parameters.Add(new SqlParameter("@MABD", maBD));
+                    adder.Parameters.Add(new SqlParameter("@CAUHOI", cauHoi));
+                    adder.Parameters.Add(new SqlParameter("@NOIDUNG", noiDung));
+                    adder.Parameters.Add(new SqlParameter("@A", A));
+                    adder.Parameters.Add(new SqlParameter("@B", B));
+                    adder.Parameters.Add(new SqlParameter("@C", C));
+                    adder.Parameters.Add(new SqlParameter("@D", D));
+                    adder.Parameters.Add(new SqlParameter("@DAP_AN", dapAnCH));
+                    adder.Parameters.Add(new SqlParameter("@TRALOI", traLoi));
+                    adder.ExecuteNonQuery();
                 }
 
                 Program.conn.Close();

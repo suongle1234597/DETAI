@@ -43,8 +43,6 @@
             this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnKhoa = new DevExpress.XtraBars.BarButtonItem();
-            this.btnLop = new DevExpress.XtraBars.BarButtonItem();
             this.btnSinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnGiaoVien = new DevExpress.XtraBars.BarButtonItem();
             this.btnDe = new DevExpress.XtraBars.BarButtonItem();
@@ -112,8 +110,6 @@
             this.barButtonItem10,
             this.barButtonItem11,
             this.barButtonItem12,
-            this.btnKhoa,
-            this.btnLop,
             this.btnSinhVien,
             this.btnGiaoVien,
             this.btnDe,
@@ -242,24 +238,6 @@
             this.barButtonItem12.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.ImageOptions.Image")));
             this.barButtonItem12.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.ImageOptions.LargeImage")));
             this.barButtonItem12.Name = "barButtonItem12";
-            // 
-            // btnKhoa
-            // 
-            this.btnKhoa.Caption = "Khoa";
-            this.btnKhoa.Id = 18;
-            this.btnKhoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnKhoa.ImageOptions.Image")));
-            this.btnKhoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnKhoa.ImageOptions.LargeImage")));
-            this.btnKhoa.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoa.ItemAppearance.Disabled.Options.UseFont = true;
-            this.btnKhoa.Name = "btnKhoa";
-            // 
-            // btnLop
-            // 
-            this.btnLop.Caption = "Lớp";
-            this.btnLop.Id = 19;
-            this.btnLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLop.ImageOptions.Image")));
-            this.btnLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLop.ImageOptions.LargeImage")));
-            this.btnLop.Name = "btnLop";
             // 
             // btnSinhVien
             // 
@@ -603,8 +581,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem10;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
         private DevExpress.XtraBars.BarButtonItem barButtonItem12;
-        private DevExpress.XtraBars.BarButtonItem btnKhoa;
-        private DevExpress.XtraBars.BarButtonItem btnLop;
         private DevExpress.XtraBars.BarButtonItem btnSinhVien;
         private DevExpress.XtraBars.BarButtonItem btnGiaoVien;
         private DevExpress.XtraBars.BarButtonItem btnDe;

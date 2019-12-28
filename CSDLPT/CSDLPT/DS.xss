@@ -49,10 +49,22 @@
     <Shape ID="DesignTable:SP_XemDSDangKy" ZOrder="4" X="18904" Y="69" Height="227" Width="299" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
     <Shape ID="DesignTable:SP_KTBoDeNoiDung" ZOrder="3" X="19273" Y="69" Height="112" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="54" />
     <Shape ID="DesignTable:SP_TimKiemMaBoDe" ZOrder="2" X="19643" Y="69" Height="112" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="54" />
-    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="32" X="10181" Y="69" Height="102" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="75" />
     <Shape ID="DesignTable:SP_KTSoCau" ZOrder="1" X="20013" Y="69" Height="112" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="54" />
+    <Shape ID="DesignSources:QueriesTableAdapter" ZOrder="32" X="10181" Y="69" Height="125" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="98" />
   </Shapes>
   <Connectors>
+    <Connector ID="DesignRelation:FK_BANGDIEM_MONHOC1" ZOrder="55" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>388</X>
+          <Y>148</Y>
+        </Point>
+        <Point>
+          <X>334</X>
+          <Y>148</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
     <Connector ID="DesignRelation:FK_BANGDIEM_SINHVIEN" ZOrder="56" LineWidth="11">
       <RoutePoints>
         <Point>
@@ -66,18 +78,6 @@
         <Point>
           <X>317</X>
           <Y>296</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:FK_BANGDIEM_MONHOC1" ZOrder="55" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>388</X>
-          <Y>148</Y>
-        </Point>
-        <Point>
-          <X>334</X>
-          <Y>148</Y>
         </Point>
       </RoutePoints>
     </Connector>

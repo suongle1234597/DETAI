@@ -45,6 +45,13 @@
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbLan = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbTenLop = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbTenMH = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lbCoSo = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.table1 = new DevExpress.XtraReports.UI.XRTable();
@@ -62,13 +69,6 @@
             this.tableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ds1 = new CSDLPT.DS();
             this.sP_XemBangDiemTableAdapter = new CSDLPT.DSTableAdapters.SP_XemBangDiemTableAdapter();
-            this.lbCoSo = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbTenMH = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbTenLop = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lbLan = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ds1)).BeginInit();
@@ -187,6 +187,71 @@
             this.label1});
             this.ReportHeader.HeightF = 144.1667F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // xrLabel6
+            // 
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(561.0864F, 92.66668F);
+            this.xrLabel6.Multiline = true;
+            this.xrLabel6.Name = "xrLabel6";
+            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel6.SizeF = new System.Drawing.SizeF(51.66656F, 23F);
+            this.xrLabel6.Text = "Lần:";
+            // 
+            // lbLan
+            // 
+            this.lbLan.LocationFloat = new DevExpress.Utils.PointFloat(612.7529F, 92.66668F);
+            this.lbLan.Multiline = true;
+            this.lbLan.Name = "lbLan";
+            this.lbLan.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbLan.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lbLan.Text = "lbLan";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(160F, 92.66668F);
+            this.xrLabel4.Multiline = true;
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel4.Text = "Tên môn học:";
+            // 
+            // lbTenLop
+            // 
+            this.lbTenLop.LocationFloat = new DevExpress.Utils.PointFloat(270.8334F, 49.33334F);
+            this.lbTenLop.Multiline = true;
+            this.lbTenLop.Name = "lbTenLop";
+            this.lbTenLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbTenLop.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lbTenLop.Text = "lbTenLop";
+            // 
+            // lbTenMH
+            // 
+            this.lbTenMH.LocationFloat = new DevExpress.Utils.PointFloat(270.8334F, 92.66668F);
+            this.lbTenMH.Multiline = true;
+            this.lbTenMH.Name = "lbTenMH";
+            this.lbTenMH.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbTenMH.SizeF = new System.Drawing.SizeF(223.3333F, 23F);
+            this.lbTenMH.Text = "lbTenMH";
+            // 
+            // xrLabel1
+            // 
+            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(160F, 49.33334F);
+            this.xrLabel1.Multiline = true;
+            this.xrLabel1.Name = "xrLabel1";
+            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xrLabel1.Text = "Tên Lớp:";
+            // 
+            // lbCoSo
+            // 
+            this.lbCoSo.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCoSo.LocationFloat = new DevExpress.Utils.PointFloat(557.5F, 11.19433F);
+            this.lbCoSo.Multiline = true;
+            this.lbCoSo.Name = "lbCoSo";
+            this.lbCoSo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbCoSo.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.lbCoSo.StylePriority.UseFont = false;
+            this.lbCoSo.Text = "CƠ SỞ";
             // 
             // label1
             // 
@@ -326,71 +391,6 @@
             // sP_XemBangDiemTableAdapter
             // 
             this.sP_XemBangDiemTableAdapter.ClearBeforeFill = true;
-            // 
-            // lbCoSo
-            // 
-            this.lbCoSo.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCoSo.LocationFloat = new DevExpress.Utils.PointFloat(557.5F, 11.19433F);
-            this.lbCoSo.Multiline = true;
-            this.lbCoSo.Name = "lbCoSo";
-            this.lbCoSo.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.lbCoSo.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.lbCoSo.StylePriority.UseFont = false;
-            this.lbCoSo.Text = "CƠ SỞ";
-            // 
-            // xrLabel1
-            // 
-            this.xrLabel1.LocationFloat = new DevExpress.Utils.PointFloat(160F, 49.33334F);
-            this.xrLabel1.Multiline = true;
-            this.xrLabel1.Name = "xrLabel1";
-            this.xrLabel1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 96F);
-            this.xrLabel1.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel1.Text = "Tên Lớp:";
-            // 
-            // lbTenMH
-            // 
-            this.lbTenMH.LocationFloat = new DevExpress.Utils.PointFloat(270.8334F, 92.66668F);
-            this.lbTenMH.Multiline = true;
-            this.lbTenMH.Name = "lbTenMH";
-            this.lbTenMH.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbTenMH.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.lbTenMH.Text = "lbTenMH";
-            // 
-            // lbTenLop
-            // 
-            this.lbTenLop.LocationFloat = new DevExpress.Utils.PointFloat(270.8334F, 49.33334F);
-            this.lbTenLop.Multiline = true;
-            this.lbTenLop.Name = "lbTenLop";
-            this.lbTenLop.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbTenLop.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.lbTenLop.Text = "lbTenLop";
-            // 
-            // xrLabel4
-            // 
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(160F, 92.66668F);
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel4.Text = "Tên môn học:";
-            // 
-            // lbLan
-            // 
-            this.lbLan.LocationFloat = new DevExpress.Utils.PointFloat(626.6667F, 92.66668F);
-            this.lbLan.Multiline = true;
-            this.lbLan.Name = "lbLan";
-            this.lbLan.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lbLan.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.lbLan.Text = "lbLan";
-            // 
-            // xrLabel6
-            // 
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(508.5864F, 92.66668F);
-            this.xrLabel6.Multiline = true;
-            this.xrLabel6.Name = "xrLabel6";
-            this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel6.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel6.Text = "Lần:";
             // 
             // Xrpt_XemBangDiem
             // 

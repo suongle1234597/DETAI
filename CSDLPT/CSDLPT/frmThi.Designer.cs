@@ -52,6 +52,7 @@
             this.panelControlTopLeft = new DevExpress.XtraEditors.PanelControl();
             this.cmbTenLop = new System.Windows.Forms.ComboBox();
             this.bdsLop = new System.Windows.Forms.BindingSource(this.components);
+            this.dSLOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLop = new DevExpress.XtraEditors.TextEdit();
             this.panelControlTime = new DevExpress.XtraEditors.PanelControl();
@@ -98,7 +99,6 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bdsBangDiem = new System.Windows.Forms.BindingSource(this.components);
             this.bANGDIEMTableAdapter = new CSDLPT.DSTableAdapters.BANGDIEMTableAdapter();
-            this.dSLOPBindingSource = new System.Windows.Forms.BindingSource(this.components);
             mALOPLabel = new System.Windows.Forms.Label();
             tENLOPLabel = new System.Windows.Forms.Label();
             hOLabel = new System.Windows.Forms.Label();
@@ -122,6 +122,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTopLeft)).BeginInit();
             this.panelControlTopLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSLOPBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTime)).BeginInit();
@@ -134,7 +135,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSLOPBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mALOPLabel
@@ -365,6 +365,11 @@
             this.bdsLop.DataMember = "DSLOP";
             this.bdsLop.DataSource = this.dS;
             // 
+            // dSLOPBindingSource
+            // 
+            this.dSLOPBindingSource.DataMember = "DSLOP";
+            this.dSLOPBindingSource.DataSource = this.dS;
+            // 
             // txtHoTen
             // 
             this.txtHoTen.Location = new System.Drawing.Point(140, 119);
@@ -497,7 +502,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // bdsChiTietBaiThi
@@ -812,11 +817,6 @@
             // 
             this.bANGDIEMTableAdapter.ClearBeforeFill = true;
             // 
-            // dSLOPBindingSource
-            // 
-            this.dSLOPBindingSource.DataMember = "DSLOP";
-            this.dSLOPBindingSource.DataSource = this.dS;
-            // 
             // frmThi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -845,6 +845,7 @@
             this.panelControlTopLeft.ResumeLayout(false);
             this.panelControlTopLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsLop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSLOPBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLop.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlTime)).EndInit();
@@ -860,7 +861,6 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBangDiem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSLOPBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

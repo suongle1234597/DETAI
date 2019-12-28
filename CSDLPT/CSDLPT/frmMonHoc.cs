@@ -67,6 +67,7 @@ namespace CSDLPT
                 btnGhi.Enabled = false;
                 cmbCoSo.Enabled = false;
             }
+            panelControl1.Enabled = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

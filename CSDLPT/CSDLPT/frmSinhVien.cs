@@ -74,6 +74,8 @@ namespace CSDLPT
             }
 
             cmbTenKhoa.SelectedIndex = 0;
+            panelControlLop.Enabled = false;
+            panelControlSV.Enabled = false;
         }
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -134,14 +136,14 @@ namespace CSDLPT
                 Program.myReader = Program.ExecSqlDataReader(strLenh);
                 Program.myReader.Read();
                 int kq = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+                Program.myReader.Close();
+
                 if (kq == 1)
                 {
                     MessageBox.Show("Mã Lớp đã tồn tại. Mời nhập mã lớp khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Program.myReader.Close();
                     txtMaLop.Focus();
                     return;
                 }
-                Program.myReader.Close();
             }
 
             if (txtTenLop.Text.Trim() == "")
@@ -161,14 +163,14 @@ namespace CSDLPT
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
             Program.myReader.Read();
             int kq1 = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+            Program.myReader.Close();
+
             if (kq1 == 1)
             {
                 MessageBox.Show("Tên lớp không được trùng. Mời nhập tên lớp khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.myReader.Close();
                 txtTenLop.Focus();
                 return;
             }
-            Program.myReader.Close();
 
             try
             {
@@ -180,7 +182,7 @@ namespace CSDLPT
             {
                 MessageBox.Show("Lỗi ghi lớp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
+            panelControlSV.Enabled = false;
             panelControlLop.Enabled = false;
             btnGhi.Enabled = false;
             btnPhucHoi.Enabled = false;
@@ -246,6 +248,9 @@ namespace CSDLPT
         {
             bdsLop.CancelEdit(); //huy chinh sua tren hang
             bdsLop.Position = vitri;
+            bdsLop.RemoveFilter();
+            dS.EnforceConstraints = false; //cac quy tac khong duoc thi hanh
+            this.lOPTableAdapter.Fill(this.dS.LOP);
             gcLop.Enabled = true;
             panelControlLop.Enabled = false;
             btnGhi.Enabled = false;
@@ -487,6 +492,9 @@ namespace CSDLPT
         private void btnPhucHoiSV_Click(object sender, EventArgs e)
         {
             bdsSinhVien.CancelEdit();
+            bdsSinhVien.RemoveFilter();
+            dS.EnforceConstraints = false; //cac quy tac khong duoc thi hanh
+            this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
             panelControl1.Enabled = true;
             gcLop.Enabled = true;
             btnThem.Enabled = true;
@@ -516,6 +524,66 @@ namespace CSDLPT
             btnXoaSV.Enabled = true;
             btnRefreshSV.Enabled = true;
             btnPhucHoiSV.Enabled = true;
+        }
+
+        private void btnTimKiemSV_Click(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtTimKiem.Focus();
+                return;
+            }
+            string ds = "", ds2 = "";
+            try
+            {
+                string strLenh = "SELECT MALOP, MASV FROM SINHVIEN WHERE MASV LIKE N'%" + txtTimKiem.Text + "%' OR HO LIKE N'%" + txtTimKiem.Text + "%' OR TEN LIKE N'%" + txtTimKiem.Text + "%'";
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                while (Program.myReader.Read())
+                {
+                    ds += "'" + Program.myReader.GetString(0).Trim() + "',";
+                    ds2 += "'" + Program.myReader.GetString(1).Trim() + "',";
+                }
+                Program.myReader.Close();
+                Program.conn.Close();
+                bdsLop.Filter = "MALOP IN (" + ds + ")";
+                bdsSinhVien.Filter = "MASV IN (" + ds2 + ")";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Tìm kiếm không có kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtTimKiem.Focus();
+                return;
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            if(txtTimKiem.Text.Trim() == "")
+            {
+                MessageBox.Show("Vui lòng nhập từ khóa tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtTimKiem.Focus();
+                return;
+            }
+            string ds = "";
+            try
+            {
+                string strLenh = "SELECT MALOP FROM LOP WHERE MALOP LIKE N'%" + txtTimKiem.Text + "%' OR TENLOP LIKE N'%" + txtTimKiem.Text + "%'";
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                while (Program.myReader.Read())
+                {
+                    ds += "'" + Program.myReader.GetString(0).Trim() + "',";
+                }
+                Program.myReader.Close();
+                Program.conn.Close();
+                bdsLop.Filter = "MALOP IN (" + ds + ")";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Tìm kiếm không có kết quả", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtTimKiem.Focus();
+                return;
+            }
         }
 
         private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)

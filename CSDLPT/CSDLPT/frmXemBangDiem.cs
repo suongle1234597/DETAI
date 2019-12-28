@@ -49,7 +49,7 @@ namespace CSDLPT
                 Program.conn.Close();
                 return;
             }
-            string strLenh1 = "SELECT dbo.KiemTraMonHocDaThi('" + cmbTenMH.SelectedValue.ToString() + "', " + cmbLan.SelectedItem.ToString() + ") AS DATHI";
+            string strLenh1 = "SELECT dbo.KiemTraMonHocDaThi('" + cmbTenMH.SelectedValue.ToString() + "', " + cmbLan.SelectedItem.ToString() + ", ' "  + cmbTenLop.SelectedValue.ToString() + "') AS DATHI";
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
             Program.myReader.Read();
             string kt = Program.myReader[0].ToString();
@@ -72,8 +72,8 @@ namespace CSDLPT
                 tenCoSo = "CƠ SỞ 2";
             }
             xrpt.lbCoSo.Text = tenCoSo;
-            xrpt.lbTenLop.Text = cmbTenLop.DisplayMember;
-            xrpt.lbTenMH.Text = cmbTenMH.DisplayMember;
+            xrpt.lbTenLop.Text = cmbTenLop.Text;
+            xrpt.lbTenMH.Text = cmbTenMH.Text;
             xrpt.lbLan.Text = cmbLan.SelectedItem.ToString();
             ReportPrintTool print = new ReportPrintTool(xrpt);
             print.ShowPreviewDialog();

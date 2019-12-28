@@ -156,7 +156,7 @@ namespace CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string strLenh = "SELECT dbo.KiemTraMonHocDaThi('" + txtMaMH.Text.Trim() + "', " + cmbLan.SelectedItem.ToString() + ") AS DATHI";
+            string strLenh = "SELECT dbo.KiemTraMonHocDaThi('" + txtMaMH.Text.Trim() + "', " + cmbLan.SelectedItem.ToString() + ", '" + txtMaLop.Text + "') AS DATHI";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
             string kt = Program.myReader[0].ToString();
@@ -293,7 +293,7 @@ namespace CSDLPT
                 return;
             }
 
-            string strLenh = "SELECT dbo.KiemTraMonHocDaThi('" + txtMaMH.Text.Trim() + "', " + cmbLan.SelectedItem.ToString() + ") AS DATHI";
+            string strLenh = "SELECT dbo.KiemTraMonHocDaThi('" + txtMaMH.Text.Trim() + "', " + cmbLan.SelectedItem.ToString() + ", '" + txtMaLop.Text + "') AS DATHI";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
             string kt = Program.myReader[0].ToString();

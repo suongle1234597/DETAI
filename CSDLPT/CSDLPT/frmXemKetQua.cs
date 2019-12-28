@@ -150,8 +150,17 @@ namespace CSDLPT
             Program.myReader.Close();
             Xrpt_XemKetQua xrpt = new Xrpt_XemKetQua(maBD);
             xrpt.lbLop.Text = cmbTenLop.SelectedValue.ToString();
-            xrpt.lbHoTen.Text = Program.mHoten;
-            xrpt.lbMonThi.Text = cmbTenMH.SelectedValue.ToString();
+
+            if(Program.mGroup != "Sinhvien")
+            {
+                xrpt.lbHoTen.Text = cmbHoTen.Text;
+            }
+            else
+            {
+                xrpt.lbHoTen.Text = Program.mHoten;
+            }
+
+            xrpt.lbMonThi.Text = cmbTenMH.Text;
             xrpt.lbNgayThi.Text = str[0];
             xrpt.lbLanThi.Text = lan;
             ReportPrintTool print = new ReportPrintTool(xrpt);

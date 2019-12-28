@@ -97,6 +97,7 @@
             this.btnXoaSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnPhucHoiSV = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefreshSV = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTimKiemSV = new System.Windows.Forms.ToolStripMenuItem();
             this.sINHVIENTableAdapter = new CSDLPT.DSTableAdapters.SINHVIENTableAdapter();
             this.dSKHOATableAdapter = new CSDLPT.DSTableAdapters.DSKHOATableAdapter();
             this.v_DSPMTableAdapter = new CSDLPT.DSTableAdapters.V_DSPMTableAdapter();
@@ -106,6 +107,7 @@
             this.gIAOVIEN_DANGKYTableAdapter = new CSDLPT.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             tENLOPLabel = new System.Windows.Forms.Label();
             mALOPLabel = new System.Windows.Forms.Label();
             tENKHLabel = new System.Windows.Forms.Label();
@@ -457,7 +459,7 @@
             this.gcLop.MainView = this.gridView1;
             this.gcLop.MenuManager = this.barManager1;
             this.gcLop.Name = "gcLop";
-            this.gcLop.Size = new System.Drawing.Size(1539, 220);
+            this.gcLop.Size = new System.Drawing.Size(1539, 313);
             this.gcLop.TabIndex = 48;
             this.gcLop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -503,9 +505,9 @@
             this.panelControl1.Controls.Add(this.panelControlSV);
             this.panelControl1.Controls.Add(this.panelControlLop);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelControl1.Location = new System.Drawing.Point(0, 271);
+            this.panelControl1.Location = new System.Drawing.Point(0, 364);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(915, 320);
+            this.panelControl1.Size = new System.Drawing.Size(915, 227);
             this.panelControl1.TabIndex = 49;
             // 
             // panelControlSV
@@ -525,7 +527,7 @@
             this.panelControlSV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlSV.Location = new System.Drawing.Point(383, 2);
             this.panelControlSV.Name = "panelControlSV";
-            this.panelControlSV.Size = new System.Drawing.Size(530, 316);
+            this.panelControlSV.Size = new System.Drawing.Size(530, 223);
             this.panelControlSV.TabIndex = 1;
             // 
             // txtMaSV
@@ -605,7 +607,7 @@
             this.panelControlLop.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControlLop.Location = new System.Drawing.Point(2, 2);
             this.panelControlLop.Name = "panelControlLop";
-            this.panelControlLop.Size = new System.Drawing.Size(381, 316);
+            this.panelControlLop.Size = new System.Drawing.Size(381, 223);
             this.panelControlLop.TabIndex = 0;
             // 
             // txtMaKH
@@ -658,9 +660,9 @@
             // 
             this.panelControl2.Controls.Add(this.sINHVIENDataGridView);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(915, 271);
+            this.panelControl2.Location = new System.Drawing.Point(915, 364);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(624, 320);
+            this.panelControl2.Size = new System.Drawing.Size(624, 227);
             this.panelControl2.TabIndex = 50;
             // 
             // sINHVIENDataGridView
@@ -680,7 +682,7 @@
             this.sINHVIENDataGridView.Location = new System.Drawing.Point(2, 2);
             this.sINHVIENDataGridView.Name = "sINHVIENDataGridView";
             this.sINHVIENDataGridView.RowTemplate.Height = 24;
-            this.sINHVIENDataGridView.Size = new System.Drawing.Size(620, 316);
+            this.sINHVIENDataGridView.Size = new System.Drawing.Size(620, 223);
             this.sINHVIENDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -728,51 +730,59 @@
             this.btnGhiSV,
             this.btnXoaSV,
             this.btnPhucHoiSV,
-            this.btnRefreshSV});
+            this.btnRefreshSV,
+            this.btnTimKiemSV});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(140, 172);
             // 
             // btnThemSV
             // 
             this.btnThemSV.Name = "btnThemSV";
-            this.btnThemSV.Size = new System.Drawing.Size(134, 24);
+            this.btnThemSV.Size = new System.Drawing.Size(139, 24);
             this.btnThemSV.Text = "Thêm";
             this.btnThemSV.Click += new System.EventHandler(this.btnThemSV_Click);
             // 
             // btnSuaSV
             // 
             this.btnSuaSV.Name = "btnSuaSV";
-            this.btnSuaSV.Size = new System.Drawing.Size(134, 24);
+            this.btnSuaSV.Size = new System.Drawing.Size(139, 24);
             this.btnSuaSV.Text = "Sửa";
             this.btnSuaSV.Click += new System.EventHandler(this.btnSuaSV_Click);
             // 
             // btnGhiSV
             // 
             this.btnGhiSV.Name = "btnGhiSV";
-            this.btnGhiSV.Size = new System.Drawing.Size(134, 24);
+            this.btnGhiSV.Size = new System.Drawing.Size(139, 24);
             this.btnGhiSV.Text = "Ghi";
             this.btnGhiSV.Click += new System.EventHandler(this.btnGhiSV_Click);
             // 
             // btnXoaSV
             // 
             this.btnXoaSV.Name = "btnXoaSV";
-            this.btnXoaSV.Size = new System.Drawing.Size(134, 24);
+            this.btnXoaSV.Size = new System.Drawing.Size(139, 24);
             this.btnXoaSV.Text = "Xóa";
             this.btnXoaSV.Click += new System.EventHandler(this.btnXoaSV_Click);
             // 
             // btnPhucHoiSV
             // 
             this.btnPhucHoiSV.Name = "btnPhucHoiSV";
-            this.btnPhucHoiSV.Size = new System.Drawing.Size(134, 24);
+            this.btnPhucHoiSV.Size = new System.Drawing.Size(139, 24);
             this.btnPhucHoiSV.Text = "Phục hồi";
             this.btnPhucHoiSV.Click += new System.EventHandler(this.btnPhucHoiSV_Click);
             // 
             // btnRefreshSV
             // 
             this.btnRefreshSV.Name = "btnRefreshSV";
-            this.btnRefreshSV.Size = new System.Drawing.Size(134, 24);
+            this.btnRefreshSV.Size = new System.Drawing.Size(139, 24);
             this.btnRefreshSV.Text = "Refresh";
             this.btnRefreshSV.Click += new System.EventHandler(this.btnRefreshSV_Click);
+            // 
+            // btnTimKiemSV
+            // 
+            this.btnTimKiemSV.Name = "btnTimKiemSV";
+            this.btnTimKiemSV.Size = new System.Drawing.Size(139, 24);
+            this.btnTimKiemSV.Text = "Tìm kiếm";
+            this.btnTimKiemSV.Click += new System.EventHandler(this.btnTimKiemSV_Click);
             // 
             // sINHVIENTableAdapter
             // 
@@ -820,11 +830,22 @@
             this.txtTimKiem.Size = new System.Drawing.Size(300, 22);
             this.txtTimKiem.TabIndex = 56;
             // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.Location = new System.Drawing.Point(1105, 26);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(75, 23);
+            this.btnTimKiem.TabIndex = 61;
+            this.btnTimKiem.Text = "Tìm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
+            // 
             // frmSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1539, 611);
+            this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panelControl2);
@@ -945,5 +966,7 @@
         private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
         private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem btnTimKiemSV;
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }
