@@ -164,6 +164,7 @@
             this.cmbCoSo.Size = new System.Drawing.Size(343, 30);
             this.cmbCoSo.TabIndex = 52;
             this.cmbCoSo.ValueMember = "TENSERVER";
+            this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
             // labelCoSo
             // 

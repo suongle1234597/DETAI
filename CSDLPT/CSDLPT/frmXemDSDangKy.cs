@@ -24,6 +24,11 @@ namespace CSDLPT
             cmbCoSo.DisplayMember = "TENCS";
             cmbCoSo.ValueMember = "TENSERVER";
             cmbCoSo.SelectedIndex = Program.mCoso;
+
+            if(Program.mGroup == "Coso")
+            {
+                cmbCoSo.Enabled = false;
+            }
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -46,14 +51,14 @@ namespace CSDLPT
                 dateEditDenNgay.Focus();
                 return;
             }
-            
+
             Xrpt_XemDSDangKy xrpt = new Xrpt_XemDSDangKy(dateEditNgayBatDau.Text, dateEditDenNgay.Text);
             string tenCoSo = "";
-            if(Program.mCoso == 0)
+            if(cmbCoSo.SelectedIndex == 0)
             {
                 tenCoSo = "CƠ SỞ 1";
             }
-            else if (Program.mCoso == 1)
+            else if (cmbCoSo.SelectedIndex == 1)
             {
                 tenCoSo = "CƠ SỞ 2";
             }
@@ -103,5 +108,6 @@ namespace CSDLPT
                 catch (Exception ex) { }
             }
         }
+        
     }
 }

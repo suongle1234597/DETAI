@@ -20,9 +20,12 @@ namespace CSDLPT
         
         private void frmXemBangDiem_Load(object sender, EventArgs e)
         {
+            dS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS.DSMH' table. You can move, or remove it, as needed.
+            this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr; 
             this.dSMHTableAdapter.Fill(this.dS.DSMH);
             // TODO: This line of code loads data into the 'dS.DSLOP' table. You can move, or remove it, as needed.
+            this.dSLOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSLOPTableAdapter.Fill(this.dS.DSLOP);
 
             cmbLan.Items.Add("1");
@@ -38,7 +41,7 @@ namespace CSDLPT
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-            string strLenh = "EXEC dbo.SP_KTGVDKTonTai '" + cmbTenMH.SelectedValue.ToString() + "', '" + cmbTenLop.SelectedValue.ToString() + "' , " + cmbLan.SelectedItem.ToString();
+            string strLenh = "EXEC dbo.SP_KTGVDKTonTaiTungCoSo '" + cmbTenMH.SelectedValue.ToString() + "', '" + cmbTenLop.SelectedValue.ToString() + "' , " + cmbLan.SelectedItem.ToString();
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
             int kq = int.Parse(Program.myReader[0].ToString());
@@ -49,12 +52,13 @@ namespace CSDLPT
                 Program.conn.Close();
                 return;
             }
-            string strLenh1 = "SELECT dbo.KiemTraMonHocDaThi('" + cmbTenMH.SelectedValue.ToString() + "', " + cmbLan.SelectedItem.ToString() + ", ' "  + cmbTenLop.SelectedValue.ToString() + "') AS DATHI";
+            string strLenh1 = "SELECT dbo.KiemTraMonHocDaThi('" + cmbTenMH.SelectedValue.ToString() + "', " + cmbLan.SelectedItem.ToString() + ", '"  + cmbTenLop.SelectedValue.ToString().Trim() + "') AS DATHI";
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
             Program.myReader.Read();
             string kt = Program.myReader[0].ToString();
             Program.myReader.Close();
-            if (kt == "")
+
+            if (kt.Trim() == "")
             {
                 MessageBox.Show("Môn học này chưa thi. Xin chọn lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Program.conn.Close();
@@ -63,11 +67,11 @@ namespace CSDLPT
 
             Xrpt_XemBangDiem xrpt = new Xrpt_XemBangDiem(cmbTenLop.SelectedValue.ToString(), cmbTenMH.SelectedValue.ToString(), cmbLan.SelectedItem.ToString());
             string tenCoSo = "";
-            if (Program.mCoso == 0)
+            if (cmbCoSo.SelectedIndex == 0)
             {
                 tenCoSo = "CƠ SỞ 1";
             }
-            else if (Program.mCoso == 1)
+            else if (cmbCoSo.SelectedIndex == 1)
             {
                 tenCoSo = "CƠ SỞ 2";
             }
@@ -87,5 +91,40 @@ namespace CSDLPT
             }
         }
 
+        private void cmbCoSo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbCoSo.SelectedValue.ToString() == "System.Data.DataRowView") return;
+                Program.servername = cmbCoSo.SelectedValue.ToString();
+            }
+            catch (Exception) { };
+            if (cmbCoSo.SelectedIndex != Program.mCoso)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+
+            if (Program.KetNoi() == 0)
+            {
+                MessageBox.Show("Lỗi kết nối về cơ sở mới", "", MessageBoxButtons.OK);
+            }
+            else
+            {
+                try
+                {
+                    this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.dSMHTableAdapter.Fill(this.dS.DSMH);
+                    this.dSLOPTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.dSLOPTableAdapter.Fill(this.dS.DSLOP);
+                }
+                catch (Exception ex) { }
+            }
+        }
     }
 }

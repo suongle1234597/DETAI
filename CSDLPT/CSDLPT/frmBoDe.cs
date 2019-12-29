@@ -64,6 +64,10 @@ namespace CSDLPT
             cmbTrinhDo.SelectedIndex = 0;
             cmbDapAn.SelectedIndex = 0;
 
+            btnPhucHoi.Enabled = false;
+            btnGhi.Enabled = false;
+
+
             if (Program.mGroup == "Truong")
             {
                 panelControl1.Enabled = false;
@@ -72,17 +76,14 @@ namespace CSDLPT
                 btnThem.Enabled = false;
                 btnSua.Enabled = false;
                 btnXoa.Enabled = false;
-                btnPhucHoi.Enabled = false;
                 btnRefresh.Enabled = false;
                 btnThoat.Enabled = true;
-                btnGhi.Enabled = false;
                 cmbCoSo.Enabled = true;
             }
             else
             {
                 //gcMonHoc.Enabled = false;
                 //gcMonHoc.UseDisabledStatePainter = false; //khong phan biet mau
-                btnGhi.Enabled = false;
                 cmbCoSo.Enabled = false;
             }
         }
@@ -107,10 +108,11 @@ namespace CSDLPT
             btnRefresh.Enabled = false;
             btnThoat.Enabled = false;
             btnGhi.Enabled = true;
+            txtCauHoi.Enabled = true;
+            cmbTenMH.Enabled = true;
             txtMaMH.Enabled = true;
-
            
-            txtMaMH.Focus(); //dieu khien con tro toi o textbox
+            txtCauHoi.Focus(); //dieu khien con tro toi o textbox
             status = "Them";
         }
 
@@ -127,7 +129,9 @@ namespace CSDLPT
             btnPhucHoi.Enabled = true;
             btnRefresh.Enabled = false;
             gcBoDe.Enabled = false;
+            cmbTenMH.Enabled = false;
             txtMaMH.Enabled = false;
+            txtCauHoi.Enabled = false;
         }
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -136,7 +140,7 @@ namespace CSDLPT
             {
                 if (txtCauHoi.Text.Trim() == "")
                 {
-                    MessageBox.Show("Nội dung không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Câu hỏi không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     txtCauHoi.Focus();
                     return;
                 }
@@ -272,6 +276,10 @@ namespace CSDLPT
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdsBoDe.CancelEdit(); //huy chinh sua tren hang
+
+            dS.EnforceConstraints = false;
+            this.bODETableAdapter.Fill(this.dS.BODE);
+
             bdsBoDe.Position = vitri;
             gcBoDe.Enabled = true;
             panelControl1.Enabled = false;

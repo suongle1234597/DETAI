@@ -22,21 +22,26 @@ namespace CSDLPT
 
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
-            this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
             // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
             this.bODETableAdapter.Fill(this.dS.BODE);
+            dS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
+            this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
             // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
+            this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
             this.bODETableAdapter.Fill(this.dS.BODE);
-            dS.EnforceConstraints = false; //khong kt khao ngoai
-
-            this.kHOATableAdapter.Connection.ConnectionString = Program.connstr; 
-            this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
+            // TODO: This line of code loads data into the 'dS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
+            this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
+            this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
+            // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
+            this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+            this.bODETableAdapter.Fill(this.dS.BODE);
             // TODO: This line of code loads data into the 'dS.KHOA' table. You can move, or remove it, as needed.
+            this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
             this.kHOATableAdapter.Fill(this.dS.KHOA);
             // TODO: This line of code loads data into the 'dS.GIAOVIEN' table. You can move, or remove it, as needed.
+            this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
 
             cmbCoSo.DataSource = Program.bds_dspm;
@@ -45,11 +50,11 @@ namespace CSDLPT
             cmbCoSo.SelectedIndex = Program.mCoso;
             txtMaKH2.Enabled = false;
             
-            if(Program.mCoso == 0)
+            if(cmbCoSo.SelectedIndex == 0)
             {
                 txtMaCS.Text = "CS1";
             }
-            else if (Program.mCoso == 1)
+            else if (cmbCoSo.SelectedIndex == 1)
             {
                 txtMaCS.Text = "CS2";
             }
@@ -113,9 +118,17 @@ namespace CSDLPT
             {
                 try
                 {
+                    this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.bODETableAdapter.Fill(this.dS.BODE);
+                    this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
+                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
+                    this.bODETableAdapter.Fill(this.dS.BODE);
                     this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.kHOATableAdapter.Fill(this.dS.KHOA);
+                    this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
                 }
                 catch (Exception ex) { }
@@ -140,11 +153,11 @@ namespace CSDLPT
             txtMaKH.Enabled = true;
 
             txtMaKH.Focus(); //dieu khien con tro toi o textbox
-            if (Program.mCoso == 0)
+            if (cmbCoSo.SelectedIndex == 0)
             {
                 txtMaCS.Text = "CS1";
             }
-            else if (Program.mCoso == 1)
+            else if (cmbCoSo.SelectedIndex == 1)
             {
                 txtMaCS.Text = "CS2";
             }
@@ -299,6 +312,8 @@ namespace CSDLPT
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdsKhoa.CancelEdit(); //huy chinh sua tren hang
+            dS.EnforceConstraints = false; 
+            this.kHOATableAdapter.Fill(this.dS.KHOA);
             bdsKhoa.Position = vitri;
             gcKhoa.Enabled = true;
             panelControlKhoa.Enabled = false;
@@ -531,6 +546,8 @@ namespace CSDLPT
         private void btnPhucHoiGV_Click(object sender, EventArgs e)
         {
             bdsGiaoVien.CancelEdit();
+            dS.EnforceConstraints = false;
+            this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
             panelControl1.Enabled = true;
             gcKhoa.Enabled = true;
             btnThem.Enabled = true;
@@ -564,7 +581,6 @@ namespace CSDLPT
             btnXoaGV.Enabled = true;
             btnRefreshGV.Enabled = true;
             btnPhucHoiGV.Enabled = true;
-
         }
     }
 }

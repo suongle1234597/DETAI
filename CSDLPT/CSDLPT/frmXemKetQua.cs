@@ -21,8 +21,7 @@ namespace CSDLPT
 
         private void frmXemKetQua_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.V_DSPM' table. You can move, or remove it, as needed.
-            this.v_DSPMTableAdapter.Fill(this.dS.V_DSPM);
+            dS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS.DSSV' table. You can move, or remove it, as needed.
             this.dSSVTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSSVTableAdapter.Fill(this.dS.DSSV);
@@ -60,9 +59,10 @@ namespace CSDLPT
                 cmbTenLop.SelectedValue = Program.mMaLop;
             }
             gcXemKetQua.Enabled = false;
+            btnIn.Enabled = false;
         }
 
-        public void KiemTra()
+        private void btnXem_Click(object sender, EventArgs e)
         {
             string maSV = "";
             if (Program.mGroup == "Sinhvien")
@@ -119,27 +119,29 @@ namespace CSDLPT
                 }
                 Program.myReader.Close();
             }
-        }
-
-        private void btnXem_Click(object sender, EventArgs e)
-        {
-            KiemTra();
 
             this.sP_XemKetQuaTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_XemKetQuaTableAdapter.Fill(this.dS.SP_XemKetQua, maBD);
 
-            string strLenh = "EXEC SP_XemKetQua '" + maBD + "'";
-            Program.myReader = Program.ExecSqlDataReader(strLenh);
+            string strLenh3 = "EXEC SP_XemKetQua '" + maBD + "'";
+            Program.myReader = Program.ExecSqlDataReader(strLenh3);
             Program.myReader.Read();
             Program.myReader.Close();
             gcXemKetQua.Enabled = true;
             btnXem.Enabled = false;
+
+            cmbTenLop.Enabled = false;
+            cmbTenMH.Enabled = false;
+            cmbCoSo.Enabled = false;
+            cmbLan.Enabled = false;
+            cmbHoTen.Enabled = false;
+            cmbTrinhDo.Enabled = false;
+
+            btnIn.Enabled = true;
         }
 
         private void btnIn_Click(object sender, EventArgs e)
         {
-            KiemTra();
-
             string strLenh1 = "EXEC SP_ThongTinXemKQ '" + cmbTenMH.SelectedValue.ToString() + "', '" + cmbTenLop.SelectedValue.ToString() + "', " + maBD;
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
 
@@ -165,6 +167,13 @@ namespace CSDLPT
             xrpt.lbLanThi.Text = lan;
             ReportPrintTool print = new ReportPrintTool(xrpt);
             print.ShowPreviewDialog();
+
+            cmbTenLop.Enabled = false;
+            cmbTenMH.Enabled = false;
+            cmbCoSo.Enabled = false;
+            cmbLan.Enabled = false;
+            cmbHoTen.Enabled = false;
+            cmbTrinhDo.Enabled = false;
         }
 
         private void btnThoat_Click(object sender, EventArgs e)

@@ -12,6 +12,7 @@ namespace CSDLPT
         {
             InitializeComponent();
             ds1.EnforceConstraints = false;
+            this.sP_XemBangDiemTableAdapter.Connection.ConnectionString = Program.connstr;
             this.sP_XemBangDiemTableAdapter.Fill(ds1.SP_XemBangDiem, maMH, maLop, Int16.Parse(lan));
         }
 

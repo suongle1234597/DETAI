@@ -37,11 +37,11 @@
             this.dateEditDenNgay = new DevExpress.XtraEditors.DateEdit();
             this.dateEditNgayBatDau = new DevExpress.XtraEditors.DateEdit();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
-            this.vDSPMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS = new CSDLPT.DS();
             this.label1 = new System.Windows.Forms.Label();
-            this.v_DSPMTableAdapter = new CSDLPT.DSTableAdapters.V_DSPMTableAdapter();
+            this.dS = new CSDLPT.DS();
             this.tableAdapterManager = new CSDLPT.DSTableAdapters.TableAdapterManager();
+            this.sP_XemDSDangKyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sP_XemDSDangKyTableAdapter = new CSDLPT.DSTableAdapters.SP_XemDSDangKyTableAdapter();
             nGAYTHILabel = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -50,8 +50,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDenNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayBatDau.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayBatDau.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_XemDSDangKyBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nGAYTHILabel
@@ -152,16 +152,6 @@
             this.cmbCoSo.TabIndex = 41;
             this.cmbCoSo.SelectedIndexChanged += new System.EventHandler(this.cmbCoSo_SelectedIndexChanged);
             // 
-            // vDSPMBindingSource
-            // 
-            this.vDSPMBindingSource.DataMember = "V_DSPM";
-            this.vDSPMBindingSource.DataSource = this.dS;
-            // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -173,9 +163,10 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "CƠ SỞ:";
             // 
-            // v_DSPMTableAdapter
+            // dS
             // 
-            this.v_DSPMTableAdapter.ClearBeforeFill = true;
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tableAdapterManager
             // 
@@ -192,6 +183,15 @@
             this.tableAdapterManager.MONHOCTableAdapter = null;
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = CSDLPT.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // sP_XemDSDangKyBindingSource
+            // 
+            this.sP_XemDSDangKyBindingSource.DataMember = "SP_XemDSDangKy";
+            this.sP_XemDSDangKyBindingSource.DataSource = this.dS;
+            // 
+            // sP_XemDSDangKyTableAdapter
+            // 
+            this.sP_XemDSDangKyTableAdapter.ClearBeforeFill = true;
             // 
             // frmXemDSDangKy
             // 
@@ -211,8 +211,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDenNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayBatDau.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditNgayBatDau.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vDSPMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sP_XemDSDangKyBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -223,12 +223,12 @@
         private System.Windows.Forms.ComboBox cmbCoSo;
         private System.Windows.Forms.Label label1;
         private DS dS;
-        private System.Windows.Forms.BindingSource vDSPMBindingSource;
-        private DSTableAdapters.V_DSPMTableAdapter v_DSPMTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
         private DevExpress.XtraEditors.DateEdit dateEditDenNgay;
         private DevExpress.XtraEditors.DateEdit dateEditNgayBatDau;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnXem;
+        private System.Windows.Forms.BindingSource sP_XemDSDangKyBindingSource;
+        private DSTableAdapters.SP_XemDSDangKyTableAdapter sP_XemDSDangKyTableAdapter;
     }
 }
