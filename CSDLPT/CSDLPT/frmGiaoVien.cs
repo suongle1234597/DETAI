@@ -12,7 +12,6 @@ namespace CSDLPT
 {
     public partial class frmGiaoVien : Form
     {
-        int vitri;
         string status = "", status1 = "";
 
         public frmGiaoVien()
@@ -22,15 +21,8 @@ namespace CSDLPT
 
         private void frmGiaoVien_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
-            this.bODETableAdapter.Fill(this.dS.BODE);
             dS.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'dS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
-            this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
-            // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
-            this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-            this.bODETableAdapter.Fill(this.dS.BODE);
+
             // TODO: This line of code loads data into the 'dS.GIAOVIEN_DANGKY' table. You can move, or remove it, as needed.
             this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
@@ -75,7 +67,6 @@ namespace CSDLPT
             }
             else
             {
-                //gcMonHoc.Enabled = false;
                 btnGhi.Enabled = false;
                 cmbCoSo.Enabled = false;
             }
@@ -118,14 +109,6 @@ namespace CSDLPT
             {
                 try
                 {
-                    this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
-                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bODETableAdapter.Fill(this.dS.BODE);
-                    this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
-                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bODETableAdapter.Fill(this.dS.BODE);
                     this.kHOATableAdapter.Connection.ConnectionString = Program.connstr;
                     this.kHOATableAdapter.Fill(this.dS.KHOA);
                     this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -138,7 +121,6 @@ namespace CSDLPT
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.bdsKhoa.AddNew(); //Them mot muc moi vao danh sach
-            vitri = bdsKhoa.Position;
             panelControlKhoa.Enabled = true;
             panelControlGiaoVien.Enabled = false;
 
@@ -166,7 +148,6 @@ namespace CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsKhoa.Position;
             status = "Sua";
             panelControlKhoa.Enabled = true;
             panelControlGiaoVien.Enabled = false;
@@ -314,7 +295,6 @@ namespace CSDLPT
             bdsKhoa.CancelEdit(); //huy chinh sua tren hang
             dS.EnforceConstraints = false; 
             this.kHOATableAdapter.Fill(this.dS.KHOA);
-            bdsKhoa.Position = vitri;
             gcKhoa.Enabled = true;
             panelControlKhoa.Enabled = false;
             panelControlGiaoVien.Enabled = false;

@@ -58,6 +58,11 @@ namespace CSDLPT
                 cmbTenLop.Enabled = false;
                 cmbTenLop.SelectedValue = Program.mMaLop;
             }
+            else if (Program.mGroup == "Coso" || Program.mGroup == "Giangvien")
+            {
+                cmbCoSo.Enabled = false;
+            }
+
             gcXemKetQua.Enabled = false;
             btnIn.Enabled = false;
         }
@@ -80,20 +85,22 @@ namespace CSDLPT
                 Program.myReader = Program.ExecSqlDataReader(lenh);
                 Program.myReader.Read();
                 int result = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+                Program.myReader.Close();
+
                 if (result == 0)
                 {
                     MessageBox.Show("Sinh viên không thuộc lớp này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    Program.myReader.Close();
                     cmbHoTen.Focus();
                     return;
                 }
-                Program.myReader.Close();
             }
 
             string strLenh = "EXEC SP_KiemTraDaThi '" + maSV + "', '" + cmbTenMH.SelectedValue.ToString() + "',  " + cmbLan.SelectedItem.ToString();
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
             int kq = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+            
+
             if (kq == 0)
             {
                 MessageBox.Show("Sinh viên chưa thi môn này lần " + cmbLan.SelectedItem.ToString() + "\nVui lòng chọn lại môn hoặc lần thi", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -110,14 +117,14 @@ namespace CSDLPT
                 Program.myReader = Program.ExecSqlDataReader(lenh2);
                 Program.myReader.Read();
                 int result2 = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+                Program.myReader.Close();
+
                 if (result2 == 0)
                 {
                     MessageBox.Show("Trình độ không đúng. Xin chọn lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    Program.myReader.Close();
                     cmbTrinhDo.Focus();
                     return;
                 }
-                Program.myReader.Close();
             }
 
             this.sP_XemKetQuaTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -127,6 +134,7 @@ namespace CSDLPT
             Program.myReader = Program.ExecSqlDataReader(strLenh3);
             Program.myReader.Read();
             Program.myReader.Close();
+            Program.conn.Close();
             gcXemKetQua.Enabled = true;
             btnXem.Enabled = false;
 
@@ -144,7 +152,6 @@ namespace CSDLPT
         {
             string strLenh1 = "EXEC SP_ThongTinXemKQ '" + cmbTenMH.SelectedValue.ToString() + "', '" + cmbTenLop.SelectedValue.ToString() + "', " + maBD;
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
-
             Program.myReader.Read();
             string ngayThi = Program.myReader.GetDateTime(0).ToString();
             string lan = Program.myReader.GetInt16(1).ToString(); //vi smallint

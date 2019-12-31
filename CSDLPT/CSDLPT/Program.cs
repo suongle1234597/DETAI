@@ -35,9 +35,6 @@ namespace CSDLPT
         public static int mCoso = 0;
 
         public static BindingSource bds_dspm = new BindingSource();  // giữ bdsPM khi đăng nhập
-        //public static frmDangNhap frmDN;
-        //public static frmThi frmThi;
-        //public static frmGiaoDienChinh frmChinh;
 
         public static int KetNoi()
         {
@@ -110,20 +107,17 @@ namespace CSDLPT
         }
         public static void SetEnableOfButton(Form frm, Boolean Active)
         {
-
             foreach (Control ctl in frm.Controls)
                 if ((ctl) is Button)
                     ctl.Enabled = Active;
         }
 
-        //public static int ExecSqlCheck
 
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //frmDN = new frmDangNhap();
             Application.Run(new frmDangNhap());
         }
     }

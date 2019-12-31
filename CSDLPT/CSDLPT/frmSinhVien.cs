@@ -12,7 +12,6 @@ namespace CSDLPT
 {
     public partial class frmSinhVien : Form
     {
-        int vitri;
         string status = "", status1 ="";
         public frmSinhVien()
         {
@@ -82,7 +81,6 @@ namespace CSDLPT
             this.bdsLop.AddNew(); //Them mot muc moi vao danh sach
             cmbTenKhoa.SelectedIndex = 0;
 
-            vitri = bdsLop.Position;
             panelControlLop.Enabled = true;
 
             gcLop.Enabled = false;
@@ -101,7 +99,6 @@ namespace CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsLop.Position;
             status = "Sua";
             panelControlLop.Enabled = true;
             btnThem.Enabled = false;
@@ -164,6 +161,7 @@ namespace CSDLPT
             Program.myReader.Read();
             int kq1 = Int32.Parse(Program.myReader.GetInt32(0).ToString());
             Program.myReader.Close();
+            Program.conn.Close();
 
             if (kq1 == 1)
             {
@@ -247,7 +245,6 @@ namespace CSDLPT
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdsLop.CancelEdit(); //huy chinh sua tren hang
-            bdsLop.Position = vitri;
             bdsLop.RemoveFilter();
             dS.EnforceConstraints = false; //cac quy tac khong duoc thi hanh
             this.lOPTableAdapter.Fill(this.dS.LOP);
@@ -307,6 +304,7 @@ namespace CSDLPT
 
             this.bdsSinhVien.AddNew();
             txtMaLop2.Text = txtMaLop.Text;
+            txtMaLop2.Enabled = false;
             txtMaSV.Focus(); 
             status1 = "Them";
         }
@@ -324,6 +322,7 @@ namespace CSDLPT
             btnThoat.Enabled = false;
             btnGhi.Enabled = false;
             txtMaSV.Enabled = false;
+            txtMaLop2.Enabled = false;
 
             btnThemSV.Enabled = false;
             btnSuaSV.Enabled = false;
@@ -354,14 +353,15 @@ namespace CSDLPT
                 Program.myReader = Program.ExecSqlDataReader(strLenh);
                 Program.myReader.Read();
                 int kq = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+                Program.myReader.Close();
+                Program.conn.Close();
+
                 if (kq == 1)
                 {
                     MessageBox.Show("Mã SV đã tồn tại. Mời nhập mã SV khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Program.myReader.Close();
                     txtMaLop.Focus();
                     return;
                 }
-                Program.myReader.Close();
             }
 
             if (txtHo.Text.Trim() == "")
@@ -613,11 +613,9 @@ namespace CSDLPT
             {
                 try
                 {
-                    this.dSKHOATableAdapter.Connection.ConnectionString = Program.connstr; //chay tren tai khaon moi nhat khi dang nhap
                     this.lOPTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.sINHVIENTableAdapter.Connection.ConnectionString = Program.connstr;
 
-                    this.dSKHOATableAdapter.Fill(this.dS.DSKHOA);
                     this.lOPTableAdapter.Fill(this.dS.LOP);
                     this.sINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
                 }

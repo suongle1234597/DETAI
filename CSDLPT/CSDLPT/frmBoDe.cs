@@ -13,7 +13,6 @@ namespace CSDLPT
     public partial class frmBoDe : Form
     {
         String status = "";
-        int vitri;
         public frmBoDe()
         {
             InitializeComponent();
@@ -33,19 +32,15 @@ namespace CSDLPT
             // TODO: This line of code loads data into the 'dS.DSMH' table. You can move, or remove it, as needed.
             this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSMHTableAdapter.Fill(this.dS.DSMH);
-
             // TODO: This line of code loads data into the 'dS.DSGV' table. You can move, or remove it, as needed.
             this.dSGVTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSGVTableAdapter.Fill(this.dS.DSGV);
-            // TODO: This line of code loads data into the 'dS.DSMH' table. You can move, or remove it, as needed.
-          
             // TODO: This line of code loads data into the 'dS.CHITIET_BAITHI' table. You can move, or remove it, as needed.
             this.cHITIET_BAITHITableAdapter.Connection.ConnectionString = Program.connstr;
             this.cHITIET_BAITHITableAdapter.Fill(this.dS.CHITIET_BAITHI);
             // TODO: This line of code loads data into the 'dS.BODE' table. You can move, or remove it, as needed.
             this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
             this.bODETableAdapter.Fill(this.dS.BODE);
-
 
             cmbCoSo.DataSource = Program.bds_dspm;
             cmbCoSo.DisplayMember = "TENCS";
@@ -66,7 +61,6 @@ namespace CSDLPT
 
             btnPhucHoi.Enabled = false;
             btnGhi.Enabled = false;
-
 
             if (Program.mGroup == "Truong")
             {
@@ -97,7 +91,6 @@ namespace CSDLPT
             cmbTrinhDo.SelectedIndex = 0;
             cmbDapAn.SelectedIndex = 0;
 
-            vitri = bdsBoDe.Position;
             panelControl1.Enabled = true;
 
             gcBoDe.Enabled = false;
@@ -118,7 +111,6 @@ namespace CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsBoDe.Position;
             status = "Sua";
             panelControl1.Enabled = true;
             btnThem.Enabled = false;
@@ -149,15 +141,16 @@ namespace CSDLPT
                 Program.myReader = Program.ExecSqlDataReader(strLenh);
                 Program.myReader.Read();
                 int kq = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+                Program.myReader.Close();
+                Program.conn.Close();
+
                 if (kq == 1)
                 {
                     MessageBox.Show("Câu hỏi đã tồn tại. Mời nhập mã câu hỏi khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Program.myReader.Close();
-                    Program.conn.Close();
                     txtCauHoi.Focus();
                     return;
                 }
-                Program.myReader.Close();
+
             }
 
             if (txtNoiDung.Text.Trim() == "")
@@ -196,15 +189,15 @@ namespace CSDLPT
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
             Program.myReader.Read();
             int kq1 = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+            Program.myReader.Close();
+            Program.conn.Close();
+
             if (kq1 == 1)
             {
                 MessageBox.Show("Nội dung và đáp án của câu hỏi bị trùng. Mời nhập lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.myReader.Close();
-                Program.conn.Close();
                 txtNoiDung.Focus();
                 return;
             }
-            Program.myReader.Close();
 
             try
             {
@@ -280,7 +273,6 @@ namespace CSDLPT
             dS.EnforceConstraints = false;
             this.bODETableAdapter.Fill(this.dS.BODE);
 
-            bdsBoDe.Position = vitri;
             gcBoDe.Enabled = true;
             panelControl1.Enabled = false;
             btnGhi.Enabled = false;
@@ -358,11 +350,6 @@ namespace CSDLPT
                 txtMaGV.Text = cmbTenGV.SelectedValue.ToString();
             }
             catch (Exception ex) { };
-        }
-
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

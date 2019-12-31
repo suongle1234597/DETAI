@@ -66,8 +66,8 @@
             this.colMACS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControlGiaoVien = new DevExpress.XtraEditors.PanelControl();
-            this.bdsGiaoVien = new System.Windows.Forms.BindingSource(this.components);
             this.txtMaGV = new DevExpress.XtraEditors.TextEdit();
+            this.bdsGiaoVien = new System.Windows.Forms.BindingSource(this.components);
             this.txtHo = new DevExpress.XtraEditors.TextEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
@@ -93,10 +93,10 @@
             this.btnRefreshGV = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbCoSo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.bdsGVDK = new System.Windows.Forms.BindingSource(this.components);
-            this.gIAOVIEN_DANGKYTableAdapter = new CSDLPT.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             this.bdsBoDe = new System.Windows.Forms.BindingSource(this.components);
             this.bODETableAdapter = new CSDLPT.DSTableAdapters.BODETableAdapter();
+            this.bdsGVDK = new System.Windows.Forms.BindingSource(this.components);
+            this.gIAOVIEN_DANGKYTableAdapter = new CSDLPT.DSTableAdapters.GIAOVIEN_DANGKYTableAdapter();
             mAKHLabel2 = new System.Windows.Forms.Label();
             tENKHLabel1 = new System.Windows.Forms.Label();
             mACSLabel = new System.Windows.Forms.Label();
@@ -115,8 +115,8 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControlGiaoVien)).BeginInit();
             this.panelControlGiaoVien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaoVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaoVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -129,8 +129,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCS.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENDataGridView)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).BeginInit();
             this.SuspendLayout();
             // 
             // mAKHLabel2
@@ -347,7 +347,7 @@
             this.barDockControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControl1.Location = new System.Drawing.Point(0, 0);
             this.barDockControl1.Manager = this.barManager1;
-            this.barDockControl1.Size = new System.Drawing.Size(1716, 51);
+            this.barDockControl1.Size = new System.Drawing.Size(1758, 51);
             // 
             // barDockControl2
             // 
@@ -355,7 +355,7 @@
             this.barDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControl2.Location = new System.Drawing.Point(0, 1035);
             this.barDockControl2.Manager = this.barManager1;
-            this.barDockControl2.Size = new System.Drawing.Size(1716, 20);
+            this.barDockControl2.Size = new System.Drawing.Size(1758, 20);
             // 
             // barDockControl3
             // 
@@ -369,7 +369,7 @@
             // 
             this.barDockControl4.CausesValidation = false;
             this.barDockControl4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControl4.Location = new System.Drawing.Point(1716, 51);
+            this.barDockControl4.Location = new System.Drawing.Point(1758, 51);
             this.barDockControl4.Manager = this.barManager1;
             this.barDockControl4.Size = new System.Drawing.Size(0, 984);
             // 
@@ -414,7 +414,7 @@
             this.gcKhoa.MainView = this.gridView1;
             this.gcKhoa.MenuManager = this.barManager1;
             this.gcKhoa.Name = "gcKhoa";
-            this.gcKhoa.Size = new System.Drawing.Size(1716, 984);
+            this.gcKhoa.Size = new System.Drawing.Size(1758, 984);
             this.gcKhoa.TabIndex = 5;
             this.gcKhoa.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -463,7 +463,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelControl1.Location = new System.Drawing.Point(0, 676);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1716, 359);
+            this.panelControl1.Size = new System.Drawing.Size(1758, 359);
             this.panelControl1.TabIndex = 6;
             // 
             // panelControlGiaoVien
@@ -483,13 +483,8 @@
             this.panelControlGiaoVien.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControlGiaoVien.Location = new System.Drawing.Point(430, 2);
             this.panelControlGiaoVien.Name = "panelControlGiaoVien";
-            this.panelControlGiaoVien.Size = new System.Drawing.Size(680, 355);
+            this.panelControlGiaoVien.Size = new System.Drawing.Size(722, 355);
             this.panelControlGiaoVien.TabIndex = 2;
-            // 
-            // bdsGiaoVien
-            // 
-            this.bdsGiaoVien.DataMember = "FK_GIAOVIEN_KHOA";
-            this.bdsGiaoVien.DataSource = this.bdsKhoa;
             // 
             // txtMaGV
             // 
@@ -499,6 +494,11 @@
             this.txtMaGV.Name = "txtMaGV";
             this.txtMaGV.Size = new System.Drawing.Size(284, 22);
             this.txtMaGV.TabIndex = 14;
+            // 
+            // bdsGiaoVien
+            // 
+            this.bdsGiaoVien.DataMember = "FK_GIAOVIEN_KHOA";
+            this.bdsGiaoVien.DataSource = this.bdsKhoa;
             // 
             // txtHo
             // 
@@ -600,7 +600,7 @@
             this.gIAOVIENDataGridView.ContextMenuStrip = this.contextMenuStrip1;
             this.gIAOVIENDataGridView.DataSource = this.bdsGiaoVien;
             this.gIAOVIENDataGridView.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gIAOVIENDataGridView.Location = new System.Drawing.Point(1110, 2);
+            this.gIAOVIENDataGridView.Location = new System.Drawing.Point(1152, 2);
             this.gIAOVIENDataGridView.Name = "gIAOVIENDataGridView";
             this.gIAOVIENDataGridView.RowTemplate.Height = 24;
             this.gIAOVIENDataGridView.Size = new System.Drawing.Size(604, 355);
@@ -717,15 +717,6 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "CƠ SỞ:";
             // 
-            // bdsGVDK
-            // 
-            this.bdsGVDK.DataMember = "FK_GIAOVIEN_DANGKY_GIAOVIEN";
-            this.bdsGVDK.DataSource = this.bdsGiaoVien;
-            // 
-            // gIAOVIEN_DANGKYTableAdapter
-            // 
-            this.gIAOVIEN_DANGKYTableAdapter.ClearBeforeFill = true;
-            // 
             // bdsBoDe
             // 
             this.bdsBoDe.DataMember = "FK_BODE_GIAOVIEN";
@@ -735,12 +726,21 @@
             // 
             this.bODETableAdapter.ClearBeforeFill = true;
             // 
+            // bdsGVDK
+            // 
+            this.bdsGVDK.DataMember = "FK_GIAOVIEN_DANGKY_GIAOVIEN";
+            this.bdsGVDK.DataSource = this.bdsGiaoVien;
+            // 
+            // gIAOVIEN_DANGKYTableAdapter
+            // 
+            this.gIAOVIEN_DANGKYTableAdapter.ClearBeforeFill = true;
+            // 
             // frmGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1716, 1055);
+            this.ClientSize = new System.Drawing.Size(1758, 1055);
             this.Controls.Add(this.cmbCoSo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelControl1);
@@ -763,8 +763,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControlGiaoVien)).EndInit();
             this.panelControlGiaoVien.ResumeLayout(false);
             this.panelControlGiaoVien.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaoVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaGV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGiaoVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
@@ -778,8 +778,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaCS.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIAOVIENDataGridView)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsBoDe)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsGVDK)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -841,9 +841,9 @@
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
         private DevExpress.XtraEditors.TextEdit txtHocVi;
         private DevExpress.XtraEditors.TextEdit txtMaKH2;
-        private System.Windows.Forms.BindingSource bdsGVDK;
-        private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
         private System.Windows.Forms.BindingSource bdsBoDe;
         private DSTableAdapters.BODETableAdapter bODETableAdapter;
+        private System.Windows.Forms.BindingSource bdsGVDK;
+        private DSTableAdapters.GIAOVIEN_DANGKYTableAdapter gIAOVIEN_DANGKYTableAdapter;
     }
 }

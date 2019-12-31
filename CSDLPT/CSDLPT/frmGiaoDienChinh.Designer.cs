@@ -325,7 +325,6 @@
             this.siTen.Caption = "Giảng viên: ";
             this.siTen.Id = 33;
             this.siTen.Name = "siTen";
-            this.siTen.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.siTen_ItemClick);
             // 
             // siNhom
             // 

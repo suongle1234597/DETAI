@@ -584,7 +584,6 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1303, 202);
             this.panelControl1.TabIndex = 6;
-            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // cmbTenGV
             // 

@@ -63,19 +63,9 @@ namespace CSDLPT
             }
         }
 
-        private void siTen_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //siTen.TextAlignment = 
-        }
-
         private void barEditItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             barEditItem2.EditValue = Program.mHoten;
-        }
-
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
         }
 
         private void btnGVDK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -118,7 +108,6 @@ namespace CSDLPT
         {
             Program.mlogin = "";
             Program.password = "";
-            //Program.frmDN.Show();
             this.Close();
         }
 

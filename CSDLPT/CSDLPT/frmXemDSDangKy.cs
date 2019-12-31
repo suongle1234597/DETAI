@@ -25,7 +25,7 @@ namespace CSDLPT
             cmbCoSo.ValueMember = "TENSERVER";
             cmbCoSo.SelectedIndex = Program.mCoso;
 
-            if(Program.mGroup == "Coso")
+            if (Program.mGroup == "Coso" || Program.mGroup == "Giangvien")
             {
                 cmbCoSo.Enabled = false;
             }

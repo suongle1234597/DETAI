@@ -30,6 +30,7 @@ namespace CSDLPT
             // TODO: This line of code loads data into the 'dS.V_DSGVChuaCoTaiKhoan' table. You can move, or remove it, as needed.
             this.v_DSGVChuaCoTaiKhoanTableAdapter.Fill(this.dS.V_DSGVChuaCoTaiKhoan);
             // TODO: This line of code loads data into the 'dS.GIAOVIEN' table. You can move, or remove it, as needed.
+            this.gIAOVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.gIAOVIENTableAdapter.Fill(this.dS.GIAOVIEN);
 
             if(Program.mGroup == "Truong")
@@ -96,6 +97,7 @@ namespace CSDLPT
                     if (Program.myReader == null) return;
                     Program.myReader.Read();
                     Program.myReader.Close();
+                    Program.conn.Close();
                     MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }

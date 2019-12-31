@@ -12,7 +12,6 @@ namespace CSDLPT
 {
     public partial class frmGiaoVienDK : Form
     {
-        int vitri;
         string status = "";
         public frmGiaoVienDK()
         {
@@ -134,7 +133,6 @@ namespace CSDLPT
             cmbTrinhDo.SelectedIndex = 0;
             cmbLan.SelectedIndex = 0;
 
-            vitri = bdsGiaoVienDK.Position;
             panelControl1.Enabled = true;
 
             gcGiaoVienDK.Enabled = false;
@@ -161,15 +159,14 @@ namespace CSDLPT
             Program.myReader.Read();
             string kt = Program.myReader[0].ToString();
             Program.myReader.Close();
+            Program.conn.Close();
 
             if (kt.Trim() != "")
             {
                 MessageBox.Show("Lớp này đã thi, không được sửa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.conn.Close();
                 return;
             }
 
-            vitri = bdsGiaoVienDK.Position;
             panelControl1.Enabled = true;
             btnThem.Enabled = false;
             btnSua.Enabled = false;
@@ -255,6 +252,8 @@ namespace CSDLPT
                 Program.myReader.Read();
                 int kq2 = int.Parse(Program.myReader[0].ToString());
                 Program.myReader.Close();
+                Program.conn.Close();
+
                 if (kq2 == 1)
                 {
                     MessageBox.Show("Lớp này đã được đăng ký", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -275,7 +274,7 @@ namespace CSDLPT
 
             panelControl1.Enabled = false;
             btnGhi.Enabled = false;
-            btnPhucHoi.Enabled = true;
+            btnPhucHoi.Enabled = false;
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
@@ -298,11 +297,11 @@ namespace CSDLPT
             Program.myReader.Read();
             string kt = Program.myReader[0].ToString();
             Program.myReader.Close();
+            Program.conn.Close();
 
             if (kt.Trim() != "")
             {
                 MessageBox.Show("Lớp này đã thi, không được xóa", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.conn.Close();
                 return;
             }
 
@@ -347,7 +346,6 @@ namespace CSDLPT
             this.dSGVTableAdapter.Fill(this.dS.DSGV);
             this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
 
-            bdsGiaoVienDK.Position = vitri;
             gcGiaoVienDK.Enabled = true;
             panelControl1.Enabled = false;
             btnGhi.Enabled = false;
@@ -400,14 +398,7 @@ namespace CSDLPT
             {
                 try
                 {
-                    this.dSLOPTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.dSGVTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
-
-                    this.dSLOPTableAdapter.Fill(this.dS.DSLOP);
-                    this.dSMHTableAdapter.Fill(this.dS.DSMH);
-                    this.dSGVTableAdapter.Fill(this.dS.DSGV);
                     this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
                 }
                 catch (Exception ex) { }

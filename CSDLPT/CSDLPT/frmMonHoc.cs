@@ -14,7 +14,6 @@ namespace CSDLPT
     public partial class frmMonHoc : Form
     {
         String status = "";
-        int vitri;
 
         public frmMonHoc()
         {
@@ -31,6 +30,7 @@ namespace CSDLPT
 
         private void frmMonHoc_Load(object sender, EventArgs e)
         {
+            dS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
             this.mONHOCTableAdapter.Fill(this.dS.MONHOC);  //lenh tai ve
@@ -72,7 +72,6 @@ namespace CSDLPT
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsMonHoc.Position;
             panelControl1.Enabled = true;
 
             gcMonHoc.Enabled = false;
@@ -92,7 +91,6 @@ namespace CSDLPT
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            vitri = bdsMonHoc.Position;
             status = "Sua";
             panelControl1.Enabled = true;
             btnThem.Enabled = false;
@@ -127,15 +125,15 @@ namespace CSDLPT
                 Program.myReader = Program.ExecSqlDataReader(strLenh);
                 Program.myReader.Read();
                 int kq = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+                Program.myReader.Close();
+                Program.conn.Close();
+
                 if (kq == 1)
                 {
                     MessageBox.Show("Mã Môn học đã tồn tại. Mời nhập mã môn học khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Program.myReader.Close();
-                    Program.conn.Close();
                     txtMaMH.Focus();
                     return;
                 }
-                Program.myReader.Close();
             }
 
             if (txtTenMH.Text.Trim() == "")
@@ -155,15 +153,15 @@ namespace CSDLPT
             Program.myReader = Program.ExecSqlDataReader(strLenh1);
             Program.myReader.Read();
             int kq1 = Int32.Parse(Program.myReader.GetInt32(0).ToString());
+            Program.myReader.Close();
+            Program.conn.Close();
+
             if (kq1 == 1)
             {
                 MessageBox.Show("Tên Môn học không được trùng. Mời nhập tên môn học khác", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.myReader.Close();
-                Program.conn.Close();
                 txtTenMH.Focus();
                 return;
             }
-            Program.myReader.Close();
 
             try
             {
@@ -240,7 +238,6 @@ namespace CSDLPT
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             bdsMonHoc.CancelEdit(); //huy chinh sua tren hang
-            bdsMonHoc.Position = vitri;
             gcMonHoc.Enabled = true;
             panelControl1.Enabled = false;
             btnGhi.Enabled = false;
@@ -295,10 +292,6 @@ namespace CSDLPT
                 {
                     this.mONHOCTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
-                    this.bODETableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.bODETableAdapter.Fill(this.dS.BODE);
-                    this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
-                    this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
                 }
                 catch (Exception ex) { }
             }

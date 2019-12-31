@@ -17,12 +17,12 @@ namespace CSDLPT
         {
             InitializeComponent();
         }
-        
+
         private void frmXemBangDiem_Load(object sender, EventArgs e)
         {
             dS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS.DSMH' table. You can move, or remove it, as needed.
-            this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr; 
+            this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSMHTableAdapter.Fill(this.dS.DSMH);
             // TODO: This line of code loads data into the 'dS.DSLOP' table. You can move, or remove it, as needed.
             this.dSLOPTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -37,6 +37,11 @@ namespace CSDLPT
             cmbCoSo.DisplayMember = "TENCS";
             cmbCoSo.ValueMember = "TENSERVER";
             cmbCoSo.SelectedIndex = Program.mCoso;
+
+            if (Program.mGroup == "Coso" || Program.mGroup == "Giangvien")
+            {
+                cmbCoSo.Enabled = false;
+            }
         }
 
         private void btnXem_Click(object sender, EventArgs e)
@@ -49,7 +54,7 @@ namespace CSDLPT
             if (kq == 0)
             {
                 MessageBox.Show("Lớp này chưa được đăng ký", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.conn.Close();
+                cmbTenLop.Focus();
                 return;
             }
             string strLenh1 = "SELECT dbo.KiemTraMonHocDaThi('" + cmbTenMH.SelectedValue.ToString() + "', " + cmbLan.SelectedItem.ToString() + ", '"  + cmbTenLop.SelectedValue.ToString().Trim() + "') AS DATHI";
@@ -61,7 +66,7 @@ namespace CSDLPT
             if (kt.Trim() == "")
             {
                 MessageBox.Show("Môn học này chưa thi. Xin chọn lại", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Program.conn.Close();
+                cmbTenMH.Focus();
                 return;
             }
 

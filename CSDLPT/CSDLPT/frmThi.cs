@@ -15,7 +15,7 @@ namespace CSDLPT
     {
         int phut = 0, giay = 59, cau = 1;
         List<string> dapAn = new List<string>();
-        string maSV = "";
+        string maSV = "", ngay = "";
         public frmThi()
         {
             InitializeComponent();
@@ -35,18 +35,22 @@ namespace CSDLPT
                 {
                     dem++;
                 }
+                ngay = Program.myReader.GetDateTime(4).ToString();
+                string[] str = ngay.Split(' ');
+                string soCauThi = Program.myReader.GetInt16(6).ToString();
+                string thoiGian = Program.myReader.GetInt16(7).ToString();
+                string trinhDo = Program.myReader.GetString(3);
+
+                Program.myReader.Close();
+
                 if (dem == 0)
                 {
                     MessageBox.Show("Lớp này chưa được đăng ký", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                    Program.myReader.Close();
                     txtSoCauThi.Text = "";
                     txtThoiGian.Text = "";
                     txtTrinhDo.Text = "";
                     return;
                 }
-
-                string ngay = Program.myReader.GetDateTime(4).ToString();
-                string[] str = ngay.Split(' ');
 
                 if (!dateEditNgayThi.Text.Trim().Equals(str[0]))
                 {
@@ -55,14 +59,13 @@ namespace CSDLPT
                     txtThoiGian.Text = "";
                     txtTrinhDo.Text = "";
                     dateEditNgayThi.Focus();
-                    Program.myReader.Close();
                     return;
                 }
                 else
                 {
-                    txtSoCauThi.Text = Program.myReader.GetInt16(6).ToString();
-                    txtThoiGian.Text = Program.myReader.GetInt16(7).ToString();
-                    txtTrinhDo.Text = Program.myReader.GetString(3);
+                    txtSoCauThi.Text = soCauThi;
+                    txtThoiGian.Text = thoiGian;
+                    txtTrinhDo.Text = trinhDo;
 
                     if (maSV != null)
                     {
@@ -73,20 +76,15 @@ namespace CSDLPT
                             txtThoiGian.Text = "";
                             txtTrinhDo.Text = "";
                             dateEditNgayThi.Focus();
-                            Program.myReader.Close();
                             return;
                         }
                     }
                 }
-
-                Program.myReader.Close();
-                Program.conn.Close();
             }
         }
 
         private Boolean KTDaThi()
         {
-            Program.myReader.Close();
             string strLenh = "EXEC SP_KTBANGDIEM '" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString());
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
@@ -102,13 +100,15 @@ namespace CSDLPT
 
         private void frmThi_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dS.BANGDIEM' table. You can move, or remove it, as needed.
-            //this.bANGDIEMTableAdapter.Fill(this.dS.BANGDIEM);
+            dS.EnforceConstraints = false;
             // TODO: This line of code loads data into the 'dS.CHITIET_BAITHI' table. You can move, or remove it, as needed.
+            this.cHITIET_BAITHITableAdapter.Connection.ConnectionString = Program.connstr;
             this.cHITIET_BAITHITableAdapter.Fill(this.dS.CHITIET_BAITHI);
             // TODO: This line of code loads data into the 'dS.DSLOP' table. You can move, or remove it, as needed.
+            this.dSLOPTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSLOPTableAdapter.Fill(this.dS.DSLOP);
             // TODO: This line of code loads data into the 'dS.DSMH' table. You can move, or remove it, as needed.
+            this.dSMHTableAdapter.Connection.ConnectionString = Program.connstr;
             this.dSMHTableAdapter.Fill(this.dS.DSMH);
 
             cmbLan.Items.Add("1");
@@ -180,8 +180,6 @@ namespace CSDLPT
                 phut = Int32.Parse(txtThoiGian.Text) - 1;
                 timer1.Start();
 
-                string strLenh = "EXEC SP_Thi '" + txtTrinhDo.Text + "' , '" + cmbTenMH.SelectedValue.ToString() + "', " + txtSoCauThi.Text;
-
                 for (int i = 0; i < Int32.Parse(txtSoCauThi.Text); i++)
                 {
                     dapAn.Add(" ");
@@ -189,6 +187,7 @@ namespace CSDLPT
 
                 LoadListViewTraLoi();
 
+                string strLenh = "EXEC SP_Thi '" + txtTrinhDo.Text + "' , '" + cmbTenMH.SelectedValue.ToString() + "', " + txtSoCauThi.Text;
                 DataTable dt = Program.ExecSqlDataTable(strLenh);
                 bdsChiTietBaiThi.DataSource = dt;
                 bindingNavigator1.BindingSource = bdsChiTietBaiThi;
@@ -277,7 +276,7 @@ namespace CSDLPT
             Program.myReader.Close();
             Program.conn.Close();
 
-            string traLoi = "", noiDung = "", A = "", B = "", C = "", D = "", dapAnCH = "", strLenh1 ="";
+            string traLoi = "", noiDung = "", A = "", B = "", C = "", D = "", dapAnCH = "";
             int cauHoi = 0;
 
             try
@@ -295,12 +294,6 @@ namespace CSDLPT
                     C = ((DataRowView)bdsChiTietBaiThi[i])["C"].ToString();
                     D = ((DataRowView)bdsChiTietBaiThi[i])["D"].ToString();
                     dapAnCH = ((DataRowView)bdsChiTietBaiThi[i])["DAP_AN"].ToString();
-
-                    //strLenh1 = "INSERT INTO CHITIET_BAITHI (MABD, CAUHOI, NOIDUNG, A, B, C, D, DAP_AN, TRALOI) VALUES(" + maBD + " , " + cauHoi + ", N'" + noiDung + "' , N'" + A + "' , N'" + B + "' , N'" + C + "' , N'" + D + "' , '" + dapAnCH + "' , '" + traLoi + "')";
-                    //strLenh1.Replace("'", "\'");
-                    //Program.myReader = Program.ExecSqlDataReader(strLenh1);
-                    //Program.myReader.Read();
-                    //Program.myReader.Close();
                     
                     String MyCommand = "INSERT INTO CHITIET_BAITHI (MABD, CAUHOI, NOIDUNG, A, B, C, D, DAP_AN, TRALOI) VALUES(@MABD, @CAUHOI, @NOIDUNG, @A, @B, @C, @D, @DAP_AN, @TRALOI)";
                     SqlCommand adder = new SqlCommand(MyCommand, Program.conn);
@@ -328,7 +321,9 @@ namespace CSDLPT
 
         private void ThemVaoBangDiem(float diem)
         {
-            string strLenh = "INSERT INTO BANGDIEM (MASV, MAMH, LAN, NGAYTHI, DIEM) VALUES('" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString()) + ", " + dateEditNgayThi.Text.Trim() + ", " + diem + ")";
+            string[] str = dateEditNgayThi.Text.Split('/');
+
+            string strLenh = "INSERT INTO BANGDIEM (MASV, MAMH, LAN, NGAYTHI, DIEM) VALUES('" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString()) + ", '" + str[2] + "/" + str[1] + "/"+  str[0] + "', " + diem + ")";
             Program.myReader = Program.ExecSqlDataReader(strLenh);
             Program.myReader.Read();
             Program.myReader.Close();
