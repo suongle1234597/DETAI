@@ -79,6 +79,8 @@ namespace CSDLPT
                 btnGhi.Enabled = false;
                 cmbCoSo.Enabled = false;
             }
+
+            btnPhucHoi.Enabled = false;
         }
 
         private void cmbHoTen_SelectedIndexChanged(object sender, EventArgs e)
@@ -401,7 +403,9 @@ namespace CSDLPT
                     this.gIAOVIEN_DANGKYTableAdapter.Connection.ConnectionString = Program.connstr;
                     this.gIAOVIEN_DANGKYTableAdapter.Fill(this.dS.GIAOVIEN_DANGKY);
                 }
-                catch (Exception ex) { }
+                catch (Exception ex) {
+                    MessageBox.Show("Lỗi tải dữ liệu " + ex.Message, "", MessageBoxButtons.OK);
+                }
             }
         }
     }

@@ -35,6 +35,7 @@ namespace CSDLPT
                 {
                     dem++;
                 }
+
                 ngay = Program.myReader.GetDateTime(4).ToString();
                 string[] str = ngay.Split(' ');
                 string soCauThi = Program.myReader.GetInt16(6).ToString();
@@ -172,13 +173,14 @@ namespace CSDLPT
 
             if (txtMaLop.Text.Trim() != "" && dateEditNgayThi.Text.Trim() != "" && txtSoCauThi.Text.Trim() != "" && txtThoiGian.Text.Trim() != "" && txtTrinhDo.Text.Trim() != "")
             {
+                phut = Int32.Parse(txtThoiGian.Text) - 1;
+                timer1.Start();
+
                 panelControlTop.Enabled = false;
                 btnThoat.Enabled = false;
                 btnBatDauThi.Enabled = false;
                 btnXemKetQua.Enabled = false;
                 btnNopBai.Enabled = true;
-                phut = Int32.Parse(txtThoiGian.Text) - 1;
-                timer1.Start();
 
                 for (int i = 0; i < Int32.Parse(txtSoCauThi.Text); i++)
                 {
@@ -264,7 +266,6 @@ namespace CSDLPT
                 rbtnC.Checked = false;
                 rbtnD.Checked = false;
             }
-            LoadTraLoi();
         }
 
         private void ThemVaoChiTietBaiThi()
@@ -287,7 +288,6 @@ namespace CSDLPT
                 {
                     traLoi = dapAn[i].ToString().Trim();
                     cauHoi = Int32.Parse(((DataRowView)bdsChiTietBaiThi[i])["CAUHOI"].ToString());
-
                     noiDung = ((DataRowView)bdsChiTietBaiThi[i])["NOIDUNG"].ToString();
                     A = ((DataRowView)bdsChiTietBaiThi[i])["A"].ToString();
                     B = ((DataRowView)bdsChiTietBaiThi[i])["B"].ToString();
@@ -322,12 +322,19 @@ namespace CSDLPT
         private void ThemVaoBangDiem(float diem)
         {
             string[] str = dateEditNgayThi.Text.Split('/');
-
-            string strLenh = "INSERT INTO BANGDIEM (MASV, MAMH, LAN, NGAYTHI, DIEM) VALUES('" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString()) + ", '" + str[2] + "/" + str[1] + "/"+  str[0] + "', " + diem + ")";
-            Program.myReader = Program.ExecSqlDataReader(strLenh);
-            Program.myReader.Read();
-            Program.myReader.Close();
-            Program.conn.Close();
+            try
+            {
+                string strLenh = "INSERT INTO BANGDIEM (MASV, MAMH, LAN, NGAYTHI, DIEM) VALUES('" + maSV + "', '" + cmbTenMH.SelectedValue.ToString().Trim() + "', " + Int32.Parse(cmbLan.SelectedItem.ToString()) + ", '" + str[2] + "/" + str[1] + "/" + str[0] + "', " + diem + ")";
+                Program.myReader = Program.ExecSqlDataReader(strLenh);
+                Program.myReader.Read();
+                Program.myReader.Close();
+                Program.conn.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Lỗi ghi vào bảng điểm! " + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             ThemVaoChiTietBaiThi(); 
         }
@@ -428,6 +435,12 @@ namespace CSDLPT
             LoadTraLoi();
         }
 
+        private void rbtnD_CheckedChanged(object sender, EventArgs e)
+        {
+            dapAn[cau - 1] = "D";
+            LoadTraLoi();
+        }
+
         private void btnXemKetQua_Click(object sender, EventArgs e)
         {
             frmXemKetQua f = new frmXemKetQua();
@@ -440,13 +453,8 @@ namespace CSDLPT
             {
                 txtMaLop.Text = cmbTenLop.SelectedValue.ToString();
             }
-            catch(Exception) { }
-        }
-
-        private void rbtnD_CheckedChanged(object sender, EventArgs e)
-        {
-            dapAn[cau - 1] = "D";
-            LoadTraLoi();
+            catch(Exception) {
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -463,7 +471,6 @@ namespace CSDLPT
             }
             else if (phut > -1)
             {
-                giay--;
                 if (giay == -1 && phut > 0)
                 {
                     giay = 59;
@@ -493,6 +500,8 @@ namespace CSDLPT
                     }
                 }
             }
+
+            giay--;
         }
     }
 }
